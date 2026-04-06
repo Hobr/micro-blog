@@ -1,4 +1,4 @@
-import { toLocalePath, type Locale } from "../i18n/config.ts";
+import { defaultLocale, toLocalePath, type Locale } from "../i18n/config.ts";
 
 export type LocalizedSiteCommand = {
     command: string;
@@ -75,4 +75,4 @@ export function getSites(locale: Locale): LocalizedSiteCommand[] {
     return siteSets[locale];
 }
 
-export const sites = getSites("zh-CN");
+export const sites = getSites(defaultLocale);

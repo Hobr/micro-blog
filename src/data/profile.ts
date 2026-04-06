@@ -1,4 +1,4 @@
-import { toLocalePath, type Locale } from "../i18n/config.ts";
+import { defaultLocale, toLocalePath, type Locale } from "../i18n/config.ts";
 
 export type ProfileData = {
     name: string;
@@ -56,4 +56,4 @@ export function getProfile(locale: Locale): ProfileData {
     return profiles[locale];
 }
 
-export const profile = getProfile("zh-CN");
+export const profile = getProfile(defaultLocale);

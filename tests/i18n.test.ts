@@ -129,6 +129,6 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
 });
 
 test("profile and sites keep default-locale compatibility exports", () => {
-    assert.equal(profile.eyebrow, getProfile("zh-CN").eyebrow);
-    assert.equal(sites[0].href, getSites("zh-CN")[0].href);
+    assert.equal(profile.eyebrow, getProfile(defaultLocale).eyebrow);
+    assert.equal(sites[0].href, getSites(defaultLocale)[0].href);
 });
