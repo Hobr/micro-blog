@@ -7,15 +7,24 @@ settings:
 importers:
     .:
         dependencies:
+            "@astrojs/svelte":
+                specifier: ^8.0.4
+                version: 8.0.4(astro@6.1.3(rollup@4.60.1)(typescript@5.9.3))(svelte@5.55.1)(typescript@5.9.3)
             astro:
                 specifier: ^6.1.3
-                version: 6.1.3(rollup@4.60.1)
+                version: 6.1.3(rollup@4.60.1)(typescript@5.9.3)
             astro-typst:
                 specifier: ^0.12.3
-                version: 0.12.3(@myriaddreamin/typst-ts-node-compiler@0.6.1-rc5)(@myriaddreamin/typst-ts-renderer@0.6.1-rc5)(@myriaddreamin/typst.ts@0.6.1-rc5(@myriaddreamin/typst-ts-renderer@0.6.1-rc5))(astro@6.1.3(rollup@4.60.1))(cheerio@1.2.0)(rollup@4.60.1)
+                version: 0.12.3(@myriaddreamin/typst-ts-node-compiler@0.6.1-rc5)(@myriaddreamin/typst-ts-renderer@0.6.1-rc5)(@myriaddreamin/typst.ts@0.6.1-rc5(@myriaddreamin/typst-ts-renderer@0.6.1-rc5))(astro@6.1.3(rollup@4.60.1)(typescript@5.9.3))(cheerio@1.2.0)(rollup@4.60.1)
+            svelte:
+                specifier: ^5.55.1
+                version: 5.55.1
             terminal.css:
                 specifier: ^0.7.5
                 version: 0.7.5
+            typescript:
+                specifier: ^5.9.3
+                version: 5.9.3
         devDependencies:
             prettier:
                 specifier: 3.8.1
@@ -55,6 +64,17 @@ packages:
                 integrity: sha512-nksZQVjlferuWzhPsBpQ1JE5XuKAf1id1/9Hj4a9KG4+ofrlzxUUwX4YGQF/SuDiuiGKEnzopGOt38F3AnVWsQ==,
             }
         engines: { node: ">=22.12.0" }
+
+    "@astrojs/svelte@8.0.4":
+        resolution:
+            {
+                integrity: sha512-c5m3chjtgxBE3BzsE/bZbCFBkLPhq041rm2WJFaTIKGwt/3xNm/5efYCj23reuAcBsl4iYS8n2UwkAHQJzhkZA==,
+            }
+        engines: { node: ">=22.12.0" }
+        peerDependencies:
+            astro: ^6.0.0
+            svelte: ^5.43.6
+            typescript: ^5.3.3
 
     "@astrojs/telemetry@3.3.0":
         resolution:
@@ -579,10 +599,35 @@ packages:
         cpu: [x64]
         os: [win32]
 
+    "@jridgewell/gen-mapping@0.3.13":
+        resolution:
+            {
+                integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==,
+            }
+
+    "@jridgewell/remapping@2.3.5":
+        resolution:
+            {
+                integrity: sha512-LI9u/+laYG4Ds1TDKSJW2YPrIlcVYOwi2fUC6xB43lueCjgxV4lffOCZCtYFiH6TNOX+tQKXx97T4IKHbhyHEQ==,
+            }
+
+    "@jridgewell/resolve-uri@3.1.2":
+        resolution:
+            {
+                integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==,
+            }
+        engines: { node: ">=6.0.0" }
+
     "@jridgewell/sourcemap-codec@1.5.5":
         resolution:
             {
                 integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==,
+            }
+
+    "@jridgewell/trace-mapping@0.3.31":
+        resolution:
+            {
+                integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==,
             }
 
     "@myriaddreamin/typst-ts-node-compiler-android-arm-eabi@0.6.1-rc5":
@@ -1013,6 +1058,35 @@ packages:
                 integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==,
             }
 
+    "@sveltejs/acorn-typescript@1.0.9":
+        resolution:
+            {
+                integrity: sha512-lVJX6qEgs/4DOcRTpo56tmKzVPtoWAaVbL4hfO7t7NVwl9AAXzQR6cihesW1BmNMPl+bK6dreu2sOKBP2Q9CIA==,
+            }
+        peerDependencies:
+            acorn: ^8.9.0
+
+    "@sveltejs/vite-plugin-svelte-inspector@5.0.2":
+        resolution:
+            {
+                integrity: sha512-TZzRTcEtZffICSAoZGkPSl6Etsj2torOVrx6Uw0KpXxrec9Gg6jFWQ60Q3+LmNGfZSxHRCZL7vXVZIWmuV50Ig==,
+            }
+        engines: { node: ^20.19 || ^22.12 || >=24 }
+        peerDependencies:
+            "@sveltejs/vite-plugin-svelte": ^6.0.0-next.0
+            svelte: ^5.0.0
+            vite: ^6.3.0 || ^7.0.0
+
+    "@sveltejs/vite-plugin-svelte@6.2.4":
+        resolution:
+            {
+                integrity: sha512-ou/d51QSdTyN26D7h6dSpusAKaZkAiGM55/AKYi+9AGZw7q85hElbjK3kEyzXHhLSnRISHOYzVge6x0jRZ7DXA==,
+            }
+        engines: { node: ^20.19 || ^22.12 || >=24 }
+        peerDependencies:
+            svelte: ^5.0.0
+            vite: ^6.3.0 || ^7.0.0
+
     "@types/debug@4.1.13":
         resolution:
             {
@@ -1067,6 +1141,12 @@ packages:
                 integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==,
             }
 
+    "@types/trusted-types@2.0.7":
+        resolution:
+            {
+                integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==,
+            }
+
     "@types/unist@2.0.11":
         resolution:
             {
@@ -1078,6 +1158,13 @@ packages:
             {
                 integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==,
             }
+
+    "@typescript-eslint/types@8.58.0":
+        resolution:
+            {
+                integrity: sha512-O9CjxypDT89fbHxRfETNoAnHj/i6IpRK0CvbVN3qibxlLdo5p5hcLmUuCCrHMpxiWSwKyI8mCP7qRNYuOJ0Uww==,
+            }
+        engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
 
     "@ungap/structured-clone@1.3.0":
         resolution:
@@ -1113,6 +1200,13 @@ packages:
             {
                 integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==,
             }
+
+    aria-query@5.3.1:
+        resolution:
+            {
+                integrity: sha512-Z/ZeOgVl7bcSYZ/u/rh0fOpvEpq//LZmdbkXyc7syVzjPAhfOa9ebsdTSjEBDU4vs5nC98Kfduj1uFo0qyET3g==,
+            }
+        engines: { node: ">= 0.4" }
 
     aria-query@5.3.2:
         resolution:
@@ -1344,6 +1438,12 @@ packages:
                 integrity: sha512-GtpQYB283KrPp6nRw50q3U9/VfOutZOe103qlN7BPP6Ad27xYnOIWv4lPzo8HCAL+mMZofJ9KEy30fq6MfaK6Q==,
             }
 
+    dedent-js@1.0.1:
+        resolution:
+            {
+                integrity: sha512-OUepMozQULMLUmhxS95Vudo0jb0UchLimi3+pQ2plj61Fcy8axbP9hbiD4Sz6DPqn6XG3kfmziVfQ1rSys5AJQ==,
+            }
+
     deepmerge@4.3.1:
         resolution:
             {
@@ -1493,6 +1593,18 @@ packages:
                 integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==,
             }
         engines: { node: ">=12" }
+
+    esm-env@1.2.2:
+        resolution:
+            {
+                integrity: sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA==,
+            }
+
+    esrap@2.2.4:
+        resolution:
+            {
+                integrity: sha512-suICpxAmZ9A8bzJjEl/+rLJiDKC0X4gYWUxT6URAWBLvlXmtbZd5ySMu/N2ZGEtMCAmflUDPSehrP9BQcsGcSg==,
+            }
 
     estree-util-attach-comments@3.0.0:
         resolution:
@@ -1818,6 +1930,12 @@ packages:
             }
         engines: { node: ">=12" }
 
+    is-reference@3.0.3:
+        resolution:
+            {
+                integrity: sha512-ixkJoqQvAP88E6wLydLGGqCJsrFUnqoH6HnaczB8XmDH1oaWU+xxdptvikTgaEhtZ53Ky6YXiBuUI2WXLMCwjw==,
+            }
+
     is-wsl@3.1.1:
         resolution:
             {
@@ -1831,6 +1949,12 @@ packages:
                 integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==,
             }
         hasBin: true
+
+    locate-character@3.0.0:
+        resolution:
+            {
+                integrity: sha512-SW13ws7BjaeJ6p7Q6CO2nchbYEc3X3J6WrmTTDto7yMPqVSZTUyY5Tjbid+Ab8gLnATtygYtiDIJGQRRn2ZOiA==,
+            }
 
     longest-streak@3.1.0:
         resolution:
@@ -2602,6 +2726,12 @@ packages:
             }
         engines: { node: ">=11.0.0" }
 
+    scule@1.3.0:
+        resolution:
+            {
+                integrity: sha512-6FtHJEvt+pVMIB9IBY+IcCJ6Z5f1iQnytgyfKMhDKgmzYG+TeH/wx1y3l27rshSbLiSanrR9ffZDrEsmjlQF2g==,
+            }
+
     semver@7.7.4:
         resolution:
             {
@@ -2688,6 +2818,22 @@ packages:
             }
         engines: { node: ">= 0.4" }
 
+    svelte2tsx@0.7.53:
+        resolution:
+            {
+                integrity: sha512-ljVSwmnYRDHRm8+7ICP6QoAN7U7vgOFfPBLN6T745YWNYqRRSzHxlrzUVqMjYls2Un8MzJissfziy/38e6Deeg==,
+            }
+        peerDependencies:
+            svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
+            typescript: ^4.9.4 || ^5.0.0
+
+    svelte@5.55.1:
+        resolution:
+            {
+                integrity: sha512-QjvU7EFemf6mRzdMGlAFttMWtAAVXrax61SZYHdkD6yoVGQ89VeyKfZD4H1JrV1WLmJBxWhFch9H6ig/87VGjw==,
+            }
+        engines: { node: ">=18" }
+
     svgo@4.0.1:
         resolution:
             {
@@ -2759,6 +2905,14 @@ packages:
             {
                 integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==,
             }
+
+    typescript@5.9.3:
+        resolution:
+            {
+                integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==,
+            }
+        engines: { node: ">=14.17" }
+        hasBin: true
 
     typstx@0.0.1-beta.1:
         resolution:
@@ -3048,6 +3202,12 @@ packages:
             }
         engines: { node: ">=12.20" }
 
+    zimmerframe@1.1.4:
+        resolution:
+            {
+                integrity: sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ==,
+            }
+
     zod@4.3.6:
         resolution:
             {
@@ -3098,6 +3258,27 @@ snapshots:
     "@astrojs/prism@4.0.1":
         dependencies:
             prismjs: 1.30.0
+
+    "@astrojs/svelte@8.0.4(astro@6.1.3(rollup@4.60.1)(typescript@5.9.3))(svelte@5.55.1)(typescript@5.9.3)":
+        dependencies:
+            "@sveltejs/vite-plugin-svelte": 6.2.4(svelte@5.55.1)(vite@7.3.2)
+            astro: 6.1.3(rollup@4.60.1)(typescript@5.9.3)
+            svelte: 5.55.1
+            svelte2tsx: 0.7.53(svelte@5.55.1)(typescript@5.9.3)
+            typescript: 5.9.3
+            vite: 7.3.2
+        transitivePeerDependencies:
+            - "@types/node"
+            - jiti
+            - less
+            - lightningcss
+            - sass
+            - sass-embedded
+            - stylus
+            - sugarss
+            - terser
+            - tsx
+            - yaml
 
     "@astrojs/telemetry@3.3.0":
         dependencies:
@@ -3320,7 +3501,24 @@ snapshots:
     "@img/sharp-win32-x64@0.34.5":
         optional: true
 
+    "@jridgewell/gen-mapping@0.3.13":
+        dependencies:
+            "@jridgewell/sourcemap-codec": 1.5.5
+            "@jridgewell/trace-mapping": 0.3.31
+
+    "@jridgewell/remapping@2.3.5":
+        dependencies:
+            "@jridgewell/gen-mapping": 0.3.13
+            "@jridgewell/trace-mapping": 0.3.31
+
+    "@jridgewell/resolve-uri@3.1.2": {}
+
     "@jridgewell/sourcemap-codec@1.5.5": {}
+
+    "@jridgewell/trace-mapping@0.3.31":
+        dependencies:
+            "@jridgewell/resolve-uri": 3.1.2
+            "@jridgewell/sourcemap-codec": 1.5.5
 
     "@myriaddreamin/typst-ts-node-compiler-android-arm-eabi@0.6.1-rc5":
         optional: true
@@ -3512,6 +3710,27 @@ snapshots:
 
     "@shikijs/vscode-textmate@10.0.2": {}
 
+    "@sveltejs/acorn-typescript@1.0.9(acorn@8.16.0)":
+        dependencies:
+            acorn: 8.16.0
+
+    "@sveltejs/vite-plugin-svelte-inspector@5.0.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.55.1)(vite@7.3.2))(svelte@5.55.1)(vite@7.3.2)":
+        dependencies:
+            "@sveltejs/vite-plugin-svelte": 6.2.4(svelte@5.55.1)(vite@7.3.2)
+            obug: 2.1.1
+            svelte: 5.55.1
+            vite: 7.3.2
+
+    "@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.55.1)(vite@7.3.2)":
+        dependencies:
+            "@sveltejs/vite-plugin-svelte-inspector": 5.0.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.55.1)(vite@7.3.2))(svelte@5.55.1)(vite@7.3.2)
+            deepmerge: 4.3.1
+            magic-string: 0.30.21
+            obug: 2.1.1
+            svelte: 5.55.1
+            vite: 7.3.2
+            vitefu: 1.1.3(vite@7.3.2)
+
     "@types/debug@4.1.13":
         dependencies:
             "@types/ms": 2.1.0
@@ -3540,9 +3759,13 @@ snapshots:
 
     "@types/resolve@1.20.2": {}
 
+    "@types/trusted-types@2.0.7": {}
+
     "@types/unist@2.0.11": {}
 
     "@types/unist@3.0.3": {}
+
+    "@typescript-eslint/types@8.58.0": {}
 
     "@ungap/structured-clone@1.3.0": {}
 
@@ -3559,25 +3782,27 @@ snapshots:
 
     argparse@2.0.1: {}
 
+    aria-query@5.3.1: {}
+
     aria-query@5.3.2: {}
 
     array-iterate@2.0.1: {}
 
     astring@1.9.0: {}
 
-    astro-integration-kit@0.19.1(astro@6.1.3(rollup@4.60.1)):
+    astro-integration-kit@0.19.1(astro@6.1.3(rollup@4.60.1)(typescript@5.9.3)):
         dependencies:
-            astro: 6.1.3(rollup@4.60.1)
+            astro: 6.1.3(rollup@4.60.1)(typescript@5.9.3)
             pathe: 1.1.2
 
-    astro-typst@0.12.3(@myriaddreamin/typst-ts-node-compiler@0.6.1-rc5)(@myriaddreamin/typst-ts-renderer@0.6.1-rc5)(@myriaddreamin/typst.ts@0.6.1-rc5(@myriaddreamin/typst-ts-renderer@0.6.1-rc5))(astro@6.1.3(rollup@4.60.1))(cheerio@1.2.0)(rollup@4.60.1):
+    astro-typst@0.12.3(@myriaddreamin/typst-ts-node-compiler@0.6.1-rc5)(@myriaddreamin/typst-ts-renderer@0.6.1-rc5)(@myriaddreamin/typst.ts@0.6.1-rc5(@myriaddreamin/typst-ts-renderer@0.6.1-rc5))(astro@6.1.3(rollup@4.60.1)(typescript@5.9.3))(cheerio@1.2.0)(rollup@4.60.1):
         dependencies:
             "@myriaddreamin/typst-ts-node-compiler": 0.6.1-rc5
             "@myriaddreamin/typst-ts-renderer": 0.6.1-rc5
             "@myriaddreamin/typst.ts": 0.6.1-rc5(@myriaddreamin/typst-ts-renderer@0.6.1-rc5)
             "@rollup/plugin-node-resolve": 16.0.3(rollup@4.60.1)
-            astro: 6.1.3(rollup@4.60.1)
-            astro-integration-kit: 0.19.1(astro@6.1.3(rollup@4.60.1))
+            astro: 6.1.3(rollup@4.60.1)(typescript@5.9.3)
+            astro-integration-kit: 0.19.1(astro@6.1.3(rollup@4.60.1)(typescript@5.9.3))
             cheerio: 1.2.0
             rehype-stringify: 10.0.1
             typstx: 0.0.1-beta.1
@@ -3586,7 +3811,7 @@ snapshots:
             - rollup
             - supports-color
 
-    astro@6.1.3(rollup@4.60.1):
+    astro@6.1.3(rollup@4.60.1)(typescript@5.9.3):
         dependencies:
             "@astrojs/compiler": 3.0.1
             "@astrojs/internal-helpers": 0.8.0
@@ -3632,7 +3857,7 @@ snapshots:
             tinyclip: 0.1.12
             tinyexec: 1.0.4
             tinyglobby: 0.2.15
-            tsconfck: 3.1.6
+            tsconfck: 3.1.6(typescript@5.9.3)
             ultrahtml: 1.6.0
             unifont: 0.7.4
             unist-util-visit: 5.1.0
@@ -3775,6 +4000,8 @@ snapshots:
         dependencies:
             character-entities: 2.0.2
 
+    dedent-js@1.0.1: {}
+
     deepmerge@4.3.1: {}
 
     defu@6.1.6: {}
@@ -3873,6 +4100,13 @@ snapshots:
             "@esbuild/win32-x64": 0.27.7
 
     escape-string-regexp@5.0.0: {}
+
+    esm-env@1.2.2: {}
+
+    esrap@2.2.4:
+        dependencies:
+            "@jridgewell/sourcemap-codec": 1.5.5
+            "@typescript-eslint/types": 8.58.0
 
     estree-util-attach-comments@3.0.0:
         dependencies:
@@ -4136,6 +4370,10 @@ snapshots:
 
     is-plain-obj@4.1.0: {}
 
+    is-reference@3.0.3:
+        dependencies:
+            "@types/estree": 1.0.8
+
     is-wsl@3.1.1:
         dependencies:
             is-inside-container: 1.0.0
@@ -4143,6 +4381,8 @@ snapshots:
     js-yaml@4.1.1:
         dependencies:
             argparse: 2.0.1
+
+    locate-character@3.0.0: {}
 
     longest-streak@3.1.0: {}
 
@@ -4910,6 +5150,8 @@ snapshots:
 
     sax@1.6.0: {}
 
+    scule@1.3.0: {}
+
     semver@7.7.4: {}
 
     sharp@0.34.5:
@@ -4984,6 +5226,32 @@ snapshots:
 
     supports-preserve-symlinks-flag@1.0.0: {}
 
+    svelte2tsx@0.7.53(svelte@5.55.1)(typescript@5.9.3):
+        dependencies:
+            dedent-js: 1.0.1
+            scule: 1.3.0
+            svelte: 5.55.1
+            typescript: 5.9.3
+
+    svelte@5.55.1:
+        dependencies:
+            "@jridgewell/remapping": 2.3.5
+            "@jridgewell/sourcemap-codec": 1.5.5
+            "@sveltejs/acorn-typescript": 1.0.9(acorn@8.16.0)
+            "@types/estree": 1.0.8
+            "@types/trusted-types": 2.0.7
+            acorn: 8.16.0
+            aria-query: 5.3.1
+            axobject-query: 4.1.0
+            clsx: 2.1.1
+            devalue: 5.6.4
+            esm-env: 1.2.2
+            esrap: 2.2.4
+            is-reference: 3.0.3
+            locate-character: 3.0.0
+            magic-string: 0.30.21
+            zimmerframe: 1.1.4
+
     svgo@4.0.1:
         dependencies:
             commander: 11.1.0
@@ -5011,10 +5279,14 @@ snapshots:
 
     trough@2.2.0: {}
 
-    tsconfck@3.1.6: {}
+    tsconfck@3.1.6(typescript@5.9.3):
+        optionalDependencies:
+            typescript: 5.9.3
 
     tslib@2.8.1:
         optional: true
+
+    typescript@5.9.3: {}
 
     typstx@0.0.1-beta.1:
         dependencies:
@@ -5173,6 +5445,8 @@ snapshots:
     yargs-parser@22.0.0: {}
 
     yocto-queue@1.2.2: {}
+
+    zimmerframe@1.1.4: {}
 
     zod@4.3.6: {}
 
