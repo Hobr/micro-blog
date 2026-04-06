@@ -15,6 +15,7 @@ import {
     assertSecondaryLocale,
     getSecondaryLocaleStaticPaths,
 } from "../src/i18n/static-paths.ts";
+import { shouldIncludeSitemapPage } from "../src/i18n/sitemap.ts";
 import { getProfile, profile } from "../src/data/profile.ts";
 import { getSites, sites } from "../src/data/sites.ts";
 import { getDictionary } from "../src/i18n/dictionary.ts";
@@ -84,9 +85,13 @@ test("locale guard helpers describe supported locales and nothing else", () => {
 });
 
 test("secondary roots and exact-match stripping behave as expected", () => {
-    assert.equal(toLocalePath("en", "/"), "/en");
-    assert.equal(toLocalePath("ja", "/"), "/ja");
+    assert.equal(toLocalePath("en", "/"), "/en/");
+    assert.equal(toLocalePath("ja", "/"), "/ja/");
     assert.deepEqual(stripLocaleFromPathname("/en"), {
+        locale: "en",
+        pathnameWithoutLocale: "/",
+    });
+    assert.deepEqual(stripLocaleFromPathname("/en/"), {
         locale: "en",
         pathnameWithoutLocale: "/",
     });
@@ -94,6 +99,39 @@ test("secondary roots and exact-match stripping behave as expected", () => {
         locale: "ja",
         pathnameWithoutLocale: "/",
     });
+    assert.deepEqual(stripLocaleFromPathname("/ja/"), {
+        locale: "ja",
+        pathnameWithoutLocale: "/",
+    });
+});
+
+test("buildAlternateLinks normalizes locale root trailing slashes", () => {
+    assert.deepEqual(buildAlternateLinks("/en/"), [
+        { locale: "zh-CN", href: "/", label: "中文", lang: "zh-CN" },
+        { locale: "en", href: "/en/", label: "English", lang: "en" },
+        { locale: "ja", href: "/ja/", label: "日本語", lang: "ja" },
+    ]);
+});
+
+test("sitemap keeps localized shells but excludes non-canonical localized article pages", () => {
+    assert.equal(
+        shouldIncludeSitemapPage("https://hobr.site/en/blog/hello-terminal/"),
+        false,
+    );
+    assert.equal(
+        shouldIncludeSitemapPage("https://hobr.site/ja/blog/hello-terminal/"),
+        false,
+    );
+    assert.equal(shouldIncludeSitemapPage("https://hobr.site/en/blog/"), true);
+    assert.equal(shouldIncludeSitemapPage("https://hobr.site/ja/blog/"), true);
+    assert.equal(
+        shouldIncludeSitemapPage("https://hobr.site/en/archive/"),
+        true,
+    );
+    assert.equal(
+        shouldIncludeSitemapPage("https://hobr.site/blog/hello-terminal/"),
+        true,
+    );
 });
 
 test("toLocalePath rejects pathnames without a leading slash", () => {

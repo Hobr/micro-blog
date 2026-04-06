@@ -64,7 +64,7 @@ export function toLocalePath(locale: Locale, pathname: string): string {
     }
     const prefix = localePrefixes[locale];
     if (locale === defaultLocale) return normalized;
-    return normalized === "/" ? prefix : `${prefix}${normalized}`;
+    return normalized === "/" ? `${prefix}/` : `${prefix}${normalized}`;
 }
 
 export function buildAlternateLinks(pathname: string): AlternateLink[] {
