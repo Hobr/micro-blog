@@ -1,0 +1,33 @@
+---
+import HomePage from "../../views/HomePage.astro";
+import { getProfile } from "../../data/profile";
+import { getSites } from "../../data/sites";
+import { buildAlternateLinks } from "../../i18n/config";
+import { getDictionary } from "../../i18n/dictionary";
+import {
+    assertSecondaryLocale,
+    getSecondaryLocaleStaticPaths,
+} from "../../i18n/static-paths";
+import { getLatestPosts } from "../../lib/posts";
+
+export function getStaticPaths() {
+    return getSecondaryLocaleStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: string };
+const secondaryLocale = assertSecondaryLocale(locale);
+const dictionary = getDictionary(secondaryLocale);
+const latestPosts = await getLatestPosts(5);
+const profile = getProfile(secondaryLocale);
+const sites = getSites(secondaryLocale);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
+---
+
+<HomePage
+    locale={secondaryLocale}
+    dictionary={dictionary}
+    latestPosts={latestPosts}
+    profile={profile}
+    sites={sites}
+    alternateLinks={alternateLinks}
+/>

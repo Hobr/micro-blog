@@ -19,9 +19,7 @@ const dictionary = getDictionary(locale);
 const { post } = Astro.props as { post: BlogPost };
 const { Content } = await render(post.entry);
 const { previous, next } = await getAdjacentPosts(post.slug);
-const alternateLinks = buildAlternateLinks(Astro.url.pathname).filter(
-    (link) => link.locale === locale,
-);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
 ---
 
 <BlogPostPage

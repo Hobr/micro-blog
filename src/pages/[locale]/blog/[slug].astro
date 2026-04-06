@@ -1,0 +1,36 @@
+---
+import { render } from "astro:content";
+import BlogPostPage from "../../../views/BlogPostPage.astro";
+import { buildAlternateLinks, secondaryLocales } from "../../../i18n/config";
+import { getDictionary } from "../../../i18n/dictionary";
+import { assertSecondaryLocale } from "../../../i18n/static-paths";
+import { getAdjacentPosts, getAllPosts, type BlogPost } from "../../../lib/posts";
+
+export async function getStaticPaths() {
+    const posts = await getAllPosts();
+
+    return secondaryLocales.flatMap((locale) =>
+        posts.map((post) => ({
+            params: { locale, slug: post.slug },
+            props: { locale, post },
+        })),
+    );
+}
+
+const { locale, post } = Astro.props as { locale: string; post: BlogPost };
+const secondaryLocale = assertSecondaryLocale(locale);
+const dictionary = getDictionary(secondaryLocale);
+const { Content } = await render(post.entry);
+const { previous, next } = await getAdjacentPosts(post.slug);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
+---
+
+<BlogPostPage
+    locale={secondaryLocale}
+    dictionary={dictionary}
+    post={post}
+    previous={previous}
+    next={next}
+    Content={Content}
+    alternateLinks={alternateLinks}
+/>

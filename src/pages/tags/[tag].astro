@@ -15,9 +15,7 @@ const locale = defaultLocale;
 const dictionary = getDictionary(locale);
 const { tag } = Astro.props as { tag: string };
 const posts = await getPostsByTag(tag);
-const alternateLinks = buildAlternateLinks(Astro.url.pathname).filter(
-    (link) => link.locale === locale,
-);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
 ---
 
 <TagPage

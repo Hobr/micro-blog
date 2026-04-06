@@ -11,9 +11,7 @@ const dictionary = getDictionary(locale);
 const latestPosts = await getLatestPosts(5);
 const profile = getProfile(locale);
 const sites = getSites(locale);
-const alternateLinks = buildAlternateLinks(Astro.url.pathname).filter(
-    (link) => link.locale === locale,
-);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
 ---
 
 <HomePage

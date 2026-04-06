@@ -1,0 +1,32 @@
+---
+import TagPage from "../../../views/TagPage.astro";
+import { buildAlternateLinks, secondaryLocales } from "../../../i18n/config";
+import { getDictionary } from "../../../i18n/dictionary";
+import { assertSecondaryLocale } from "../../../i18n/static-paths";
+import { getAllTags, getPostsByTag } from "../../../lib/posts";
+
+export async function getStaticPaths() {
+    const tags = await getAllTags();
+
+    return secondaryLocales.flatMap((locale) =>
+        tags.map((tag) => ({
+            params: { locale, tag },
+            props: { locale, tag },
+        })),
+    );
+}
+
+const { locale, tag } = Astro.props as { locale: string; tag: string };
+const secondaryLocale = assertSecondaryLocale(locale);
+const dictionary = getDictionary(secondaryLocale);
+const posts = await getPostsByTag(tag);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
+---
+
+<TagPage
+    locale={secondaryLocale}
+    dictionary={dictionary}
+    tag={tag}
+    posts={posts}
+    alternateLinks={alternateLinks}
+/>

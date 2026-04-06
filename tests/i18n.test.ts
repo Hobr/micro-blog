@@ -11,6 +11,10 @@ import {
     stripLocaleFromPathname,
     toLocalePath,
 } from "../src/i18n/config.ts";
+import {
+    assertSecondaryLocale,
+    getSecondaryLocaleStaticPaths,
+} from "../src/i18n/static-paths.ts";
 import { getProfile, profile } from "../src/data/profile.ts";
 import { getSites, sites } from "../src/data/sites.ts";
 import { getDictionary } from "../src/i18n/dictionary.ts";
@@ -131,4 +135,17 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
 test("profile and sites keep default-locale compatibility exports", () => {
     assert.equal(profile.eyebrow, getProfile(defaultLocale).eyebrow);
     assert.equal(sites[0].href, getSites(defaultLocale)[0].href);
+});
+
+test("secondary locale route helpers only expose en and ja", () => {
+    assert.deepEqual(getSecondaryLocaleStaticPaths(), [
+        { params: { locale: "en" }, props: { locale: "en" } },
+        { params: { locale: "ja" }, props: { locale: "ja" } },
+    ]);
+    assert.equal(assertSecondaryLocale("en"), "en");
+    assert.equal(assertSecondaryLocale("ja"), "ja");
+    assert.throws(
+        () => assertSecondaryLocale("zh-CN"),
+        /Unsupported secondary locale/,
+    );
 });
