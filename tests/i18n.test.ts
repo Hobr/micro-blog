@@ -11,8 +11,8 @@ import {
     stripLocaleFromPathname,
     toLocalePath,
 } from "../src/i18n/config.ts";
-import { getProfile } from "../src/data/profile.ts";
-import { getSites } from "../src/data/sites.ts";
+import { getProfile, profile } from "../src/data/profile.ts";
+import { getSites, sites } from "../src/data/sites.ts";
 import { getDictionary } from "../src/i18n/dictionary.ts";
 
 test("default locale stays on the root path", () => {
@@ -109,10 +109,14 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getDictionary("ja").nav.blog, "ブログ");
 
     assert.equal(
-        getProfile("en").links.find((link) => link.href === "/blog")?.label,
+        getProfile("en").links.find((link) => link.href === "/en/blog")?.label,
         "Blog",
     );
     assert.equal(getProfile("ja").eyebrow, "プロフィール");
+    assert.equal(
+        getProfile("ja").links.find((link) => link.label === "ブログ")?.href,
+        "/ja/blog",
+    );
 
     assert.equal(getSites("zh-CN")[1].name, "归档");
     assert.equal(
@@ -120,4 +124,11 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
         "Chronological index of everything already published.",
     );
     assert.equal(getSites("ja")[2].name, "タグ");
+    assert.equal(getSites("en")[0].href, "/en/blog");
+    assert.equal(getSites("ja")[1].href, "/ja/archive");
+});
+
+test("profile and sites keep default-locale compatibility exports", () => {
+    assert.equal(profile.eyebrow, getProfile("zh-CN").eyebrow);
+    assert.equal(sites[0].href, getSites("zh-CN")[0].href);
 });

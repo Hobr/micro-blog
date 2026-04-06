@@ -1,4 +1,4 @@
-import type { Locale } from "../i18n/config.ts";
+import { toLocalePath, type Locale } from "../i18n/config.ts";
 
 export type ProfileData = {
     name: string;
@@ -21,7 +21,7 @@ const profiles: Record<Locale, ProfileData> = {
         links: [
             { label: "GitHub", href: "https://github.com" },
             { label: "邮箱", href: "mailto:hello@hobr.site" },
-            { label: "博客", href: "/blog" },
+            { label: "博客", href: toLocalePath("zh-CN", "/blog") },
         ],
     },
     en: {
@@ -34,7 +34,7 @@ const profiles: Record<Locale, ProfileData> = {
         links: [
             { label: "GitHub", href: "https://github.com" },
             { label: "Email", href: "mailto:hello@hobr.site" },
-            { label: "Blog", href: "/blog" },
+            { label: "Blog", href: toLocalePath("en", "/blog") },
         ],
     },
     ja: {
@@ -47,7 +47,7 @@ const profiles: Record<Locale, ProfileData> = {
         links: [
             { label: "GitHub", href: "https://github.com" },
             { label: "メール", href: "mailto:hello@hobr.site" },
-            { label: "ブログ", href: "/blog" },
+            { label: "ブログ", href: toLocalePath("ja", "/blog") },
         ],
     },
 };
@@ -55,3 +55,5 @@ const profiles: Record<Locale, ProfileData> = {
 export function getProfile(locale: Locale): ProfileData {
     return profiles[locale];
 }
+
+export const profile = getProfile("zh-CN");

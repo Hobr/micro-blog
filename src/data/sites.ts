@@ -1,4 +1,4 @@
-import type { Locale } from "../i18n/config.ts";
+import { toLocalePath, type Locale } from "../i18n/config.ts";
 
 export type LocalizedSiteCommand = {
     command: string;
@@ -13,19 +13,19 @@ const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
             command: "open blog",
             name: "博客",
             description: "长文笔记、构建日志和写作实验。",
-            href: "/blog",
+            href: toLocalePath("zh-CN", "/blog"),
         },
         {
             command: "open archive",
             name: "归档",
             description: "按时间顺序查看所有已发布内容。",
-            href: "/archive",
+            href: toLocalePath("zh-CN", "/archive"),
         },
         {
             command: "open tags/site",
             name: "标签",
             description: "直接跳到与站点构建有关的文章。",
-            href: "/tags/site",
+            href: toLocalePath("zh-CN", "/tags/site"),
         },
     ],
     en: [
@@ -34,19 +34,19 @@ const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
             name: "Blog",
             description:
                 "Long-form notes, build logs, and writing experiments.",
-            href: "/blog",
+            href: toLocalePath("en", "/blog"),
         },
         {
             command: "open archive",
             name: "Archive",
             description: "Chronological index of everything already published.",
-            href: "/archive",
+            href: toLocalePath("en", "/archive"),
         },
         {
             command: "open tags/site",
             name: "Tag View",
             description: "Jump directly into the site-building posts.",
-            href: "/tags/site",
+            href: toLocalePath("en", "/tags/site"),
         },
     ],
     ja: [
@@ -54,19 +54,19 @@ const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
             command: "open blog",
             name: "ブログ",
             description: "長文メモ、構築ログ、文章実験をまとめた場所。",
-            href: "/blog",
+            href: toLocalePath("ja", "/blog"),
         },
         {
             command: "open archive",
             name: "アーカイブ",
             description: "公開済みコンテンツを時系列で一覧できます。",
-            href: "/archive",
+            href: toLocalePath("ja", "/archive"),
         },
         {
             command: "open tags/site",
             name: "タグ",
             description: "サイト構築に関する記事へ直接移動します。",
-            href: "/tags/site",
+            href: toLocalePath("ja", "/tags/site"),
         },
     ],
 };
@@ -74,3 +74,5 @@ const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
 export function getSites(locale: Locale): LocalizedSiteCommand[] {
     return siteSets[locale];
 }
+
+export const sites = getSites("zh-CN");
