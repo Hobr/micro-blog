@@ -186,6 +186,8 @@ dist/
 
 # generated types
 .astro/
+.superpowers/
+.worktrees/
 
 # dependencies
 node_modules/
