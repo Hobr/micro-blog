@@ -68,7 +68,10 @@ const { locale, dictionary, latestPosts, profile, sites, alternateLinks } =
                     emptyMessage={dictionary.common.noPosts}
                 />
                 <div class="panel-actions">
-                    <a class="profile-link" href={toLocalePath(locale, "/blog")}>
+                    <a
+                        class="profile-link"
+                        href={toLocalePath(locale, "/blog")}
+                    >
                         {dictionary.home.viewAll}
                     </a>
                 </div>

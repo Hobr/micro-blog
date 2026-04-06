@@ -50,7 +50,10 @@ const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
                     subtitle={dictionary.blogIndex.navSubtitle}
                 >
                     <div class="side-nav">
-                        <a class="profile-link" href={toLocalePath(locale, "/archive")}>
+                        <a
+                            class="profile-link"
+                            href={toLocalePath(locale, "/archive")}
+                        >
                             {dictionary.blogIndex.openArchive}
                         </a>
                         {
