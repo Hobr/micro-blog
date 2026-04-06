@@ -1,35 +1,167 @@
 # Hobr's Blog
 
-## 命令
+> Hobr的个人门户
+
+一个终端风网站
+
+## 技术栈
+
+- [Astro](https://astro.build/)
+- [Svelte](https://svelte.dev/)
+- [Typst](https://typst.app/)
+- [Typst.ts](https://myriad-dreamin.github.io/typst.ts/)
+- [astro-typst](https://github.com/OverflowCat/astro-typst)
+- [terminal.css](https://terminalcss.xyz/)
+- TypeScript
+
+## 功能概览
+
+- 终端风个人门户首页
+- Typst 内容驱动的静态博客
+- 首页最新文章聚合
+- 博客文章按日期排序
+- 自动生成标签页
+- 自动生成归档页
+- 自动生成上一篇 / 下一篇导航
+- Astro sitemap 集成
+
+## 目录结构
+
+```text
+.
+├── public/
+│   └── avatar.svg
+├── src/
+│   ├── components/         # 终端窗口、文章列表、标签、分页等组件
+│   ├── content/
+│   │   └── posts/          # Typst 博文
+│   ├── data/
+│   │   ├── profile.ts      # 首页个人信息
+│   │   └── sites.ts        # 首页旗下站点导航
+│   ├── layouts/
+│   │   └── Layout.astro    # 全站布局
+│   ├── lib/
+│   │   ├── post-data.ts    # 文章日期/标签/前后篇等纯逻辑
+│   │   └── posts.ts        # Astro content collection 查询层
+│   ├── pages/
+│   │   ├── index.astro     # 首页
+│   │   ├── archive.astro   # 归档页
+│   │   ├── blog/           # 博客列表和文章页
+│   │   └── tags/           # 标签页
+│   ├── styles/
+│   │   └── global.css      # terminal.css 主题覆盖
+│   └── content.config.ts   # 内容集合配置
+└── tests/
+    └── post-data.test.ts   # 文章数据处理测试
+```
+
+## 本地开发
 
 ```bash
-# 安装依赖
+# 安装依赖:
 pnpm install
 
-#  启动开发服务器
+# 启动开发服务器:
 pnpm dev
+
+# 运行测试
+pnpm test
+
+# 检查格式和 lint
+pnpm lint
+
+# 自动格式化
+pnpm format
 
 # 构建生产版本
 pnpm build
 
 # 预览构建结果
 pnpm preview
-
-# 使用 Astro CLI
-pnpm astro -- --help
-
-# 检查代码
-pnpm lint
-
-# 格式化代码
-pnpm format
 ```
 
-## 相关工具
+## 内容维护
 
-- [Astro](https://astro.build/)
-- [Svelte](https://svelte.dev/)
-- [Typst](https://typst.app/)
-- [Typst.ts](https://myriad-dreamin.github.io/typst.ts/)
-- [Astro Typst](https://github.com/OverflowCat/astro-typst)
-- [terminal.css](https://terminalcss.xyz/)
+### 1. 修改首页个人信息
+
+编辑:
+
+- `src/data/profile.ts`
+- `src/data/sites.ts`
+
+其中:
+
+- `profile.ts` 控制头像、简介、技术栈和链接
+- `sites.ts` 控制首页“旗下站点导航”的命令式列表
+
+### 2. 新增 Typst 博文
+
+在 `src/content/posts/` 下新建一个 `.typ` 文件, 例如:
+
+```typ
+#metadata((
+  title: "My New Post",
+  slug: "my-new-post",
+  date: datetime(year: 2026, month: 4, day: 7),
+  tags: ("typst", "astro"),
+))<frontmatter>
+
+#set page(width: auto, height: auto, margin: 0pt)
+#set par(justify: true, leading: 0.85em)
+
+= My New Post
+
+这里开始写正文
+```
+
+当前文章的必填 frontmatter 字段:
+
+- `title`
+- `slug`
+- `date`
+- `tags`
+
+构建时会基于这些字段自动生成:
+
+- `/blog`
+- `/blog/<slug>`
+- `/tags/<tag>`
+- `/archive`
+- 上一篇 / 下一篇导航
+
+## 路由说明
+
+- `/`: 个人门户首页
+- `/blog`: 博客列表页
+- `/blog/<slug>`: 文章详情页
+- `/tags/<tag>`: 标签聚合页
+- `/archive`: 按年份归档
+
+## 构建与部署
+
+构建静态文件:
+
+```bash
+pnpm build
+```
+
+构建完成后, 产物位于:
+
+```text
+dist/
+```
+
+这个目录可以直接作为静态站点根目录交给 Nginx
+
+一个最基本的部署思路是:
+
+1. 在本地运行 `pnpm build`
+2. 将 `dist/` 上传到服务器
+3. 在 Nginx 中将站点根目录指向这份静态文件
+4. 通过 Nginx 提供访问
+
+## 说明
+
+- 文章内容来源于 Typst 文件, 不依赖数据库或服务端运行时
+- 整站是静态站点, 适合简单、稳定、可缓存的部署方式
+- 当前仓库已经包含示例文章, 可直接本地启动查看效果
