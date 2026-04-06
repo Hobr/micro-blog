@@ -11,6 +11,9 @@ import {
     stripLocaleFromPathname,
     toLocalePath,
 } from "../src/i18n/config.ts";
+import { getProfile } from "../src/data/profile.ts";
+import { getSites } from "../src/data/sites.ts";
+import { getDictionary } from "../src/i18n/dictionary.ts";
 
 test("default locale stays on the root path", () => {
     assert.equal(defaultLocale, "zh-CN");
@@ -98,4 +101,23 @@ test("toLocalePath rejects pathnames without a leading slash", () => {
         () => toLocalePath("ja", "tags/site"),
         /pathname must start with/,
     );
+});
+
+test("dictionary, profile, and site data resolve translated shell copy", () => {
+    assert.equal(getDictionary("zh-CN").nav.blog, "博客");
+    assert.equal(getDictionary("en").nav.blog, "Blog");
+    assert.equal(getDictionary("ja").nav.blog, "ブログ");
+
+    assert.equal(
+        getProfile("en").links.find((link) => link.href === "/blog")?.label,
+        "Blog",
+    );
+    assert.equal(getProfile("ja").eyebrow, "プロフィール");
+
+    assert.equal(getSites("zh-CN")[1].name, "归档");
+    assert.equal(
+        getSites("en")[1].description,
+        "Chronological index of everything already published.",
+    );
+    assert.equal(getSites("ja")[2].name, "タグ");
 });
