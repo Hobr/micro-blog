@@ -18,14 +18,14 @@
     "dependencies": {
         "@astrojs/sitemap": "^3.7.2",
         "@astrojs/svelte": "^8.0.4",
+        "@myriaddreamin/typst-ts-node-compiler": "0.7.0-rc2",
+        "@myriaddreamin/typst-ts-renderer": "0.7.0-rc2",
+        "@myriaddreamin/typst.ts": "0.7.0-rc2",
         "astro": "^6.1.4",
         "astro-typst": "^0.12.3",
         "svelte": "^5.55.1",
         "terminal.css": "^0.7.5",
-        "typescript": "^5.9.3",
-        "@myriaddreamin/typst-ts-node-compiler": "^0.7.0-rc2",
-        "@myriaddreamin/typst-ts-renderer": "^0.7.0-rc2",
-        "@myriaddreamin/typst.ts": "0.7.0-rc2"
+        "typescript": "^5.9.3"
     },
     "devDependencies": {
         "@eslint/compat": "^2.0.4",
