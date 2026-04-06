@@ -32,7 +32,7 @@ const { locale, dictionary, post, previous, next, Content, alternateLinks } =
     canonicalPath={toLocalePath(defaultLocale, `/blog/${post.slug}/`)}
 >
     <main class="page-shell">
-        <section class="page-intro">
+        <section class="page-intro" lang={locale}>
             <p class="page-eyebrow">{dictionary.articlePage.eyebrow}</p>
             <h1 class="page-title">{post.title}</h1>
             <p class="page-copy">
@@ -44,6 +44,7 @@ const { locale, dictionary, post, previous, next, Content, alternateLinks } =
             <TerminalWindow
                 title={dictionary.articlePage.articleTitle}
                 subtitle={toLocalePath(locale, `/blog/${post.slug}`)}
+                chromeLang={locale}
             >
                 <div class="article-body">
                     <Content />
@@ -53,8 +54,9 @@ const { locale, dictionary, post, previous, next, Content, alternateLinks } =
             <TerminalWindow
                 title={dictionary.articlePage.metaTitleLabel}
                 subtitle={dictionary.articlePage.metaSubtitle}
+                chromeLang={locale}
             >
-                <div class="article-footer">
+                <div class="article-footer" lang={locale}>
                     <TagList
                         tags={post.tags}
                         locale={locale}

@@ -35,7 +35,9 @@ const activeSection =
     pathnameWithoutLocale === "/"
         ? "home"
         : pathnameWithoutLocale === "/blog" ||
-            pathnameWithoutLocale.startsWith("/blog/")
+            pathnameWithoutLocale.startsWith("/blog/") ||
+            pathnameWithoutLocale === "/tags" ||
+            pathnameWithoutLocale.startsWith("/tags/")
           ? "blog"
           : pathnameWithoutLocale === "/archive" ||
               pathnameWithoutLocale.startsWith("/archive/")
@@ -43,7 +45,7 @@ const activeSection =
             : null;
 ---
 
-<header class="site-header">
+<header class="site-header" lang={locale}>
     <div class="site-header__inner">
         <div class="site-brand">
             <p class="site-brand__name">{dictionary.brand.name}</p>

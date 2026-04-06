@@ -2,13 +2,14 @@
 interface Props {
     title: string;
     subtitle?: string;
+    chromeLang?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, chromeLang } = Astro.props;
 ---
 
 <section class="terminal-window">
-    <header class="terminal-window__header">
+    <header class="terminal-window__header" lang={chromeLang}>
         <div class="terminal-window__lights" aria-hidden="true">
             <span class="terminal-window__light is-red"></span>
             <span class="terminal-window__light is-amber"></span>
