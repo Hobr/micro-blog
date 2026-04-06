@@ -59,6 +59,9 @@ export function stripLocaleFromPathname(pathname: string): {
 
 export function toLocalePath(locale: Locale, pathname: string): string {
     const normalized = pathname === "" ? "/" : pathname;
+    if (normalized !== "/" && !normalized.startsWith("/")) {
+        throw new Error("pathname must start with '/'");
+    }
     const prefix = localePrefixes[locale];
     if (locale === defaultLocale) return normalized;
     return normalized === "/" ? prefix : `${prefix}${normalized}`;

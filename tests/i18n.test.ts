@@ -4,6 +4,8 @@ import test from "node:test";
 import {
     buildAlternateLinks,
     defaultLocale,
+    isLocale,
+    isSecondaryLocale,
     localeDisplayNames,
     secondaryLocales,
     stripLocaleFromPathname,
@@ -62,4 +64,38 @@ test("secondaryLocales and localeDisplayNames expose the supported non-default l
     assert.equal(localeDisplayNames["zh-CN"], "中文");
     assert.equal(localeDisplayNames.en, "English");
     assert.equal(localeDisplayNames.ja, "日本語");
+});
+
+test("locale guard helpers describe supported locales and nothing else", () => {
+    assert.ok(isLocale("zh-CN"));
+    assert.ok(isLocale("en"));
+    assert.ok(isLocale("ja"));
+    assert.equal(isLocale("fr"), false);
+    assert.ok(isSecondaryLocale("en"));
+    assert.ok(isSecondaryLocale("ja"));
+    assert.equal(isSecondaryLocale("zh-CN"), false);
+});
+
+test("secondary roots and exact-match stripping behave as expected", () => {
+    assert.equal(toLocalePath("en", "/"), "/en");
+    assert.equal(toLocalePath("ja", "/"), "/ja");
+    assert.deepEqual(stripLocaleFromPathname("/en"), {
+        locale: "en",
+        pathnameWithoutLocale: "/",
+    });
+    assert.deepEqual(stripLocaleFromPathname("/ja"), {
+        locale: "ja",
+        pathnameWithoutLocale: "/",
+    });
+});
+
+test("toLocalePath rejects pathnames without a leading slash", () => {
+    assert.throws(
+        () => toLocalePath("en", "blog/hello-terminal"),
+        /pathname must start with/,
+    );
+    assert.throws(
+        () => toLocalePath("ja", "tags/site"),
+        /pathname must start with/,
+    );
 });
