@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PostList from "../components/PostList.astro";
+import ProfilePanel from "../components/ProfilePanel.astro";
+import SitesCommandPanel from "../components/SitesCommandPanel.svelte";
+import TerminalWindow from "../components/TerminalWindow.astro";
+import type { ProfileData } from "../data/profile";
+import type { LocalizedSiteCommand } from "../data/sites";
+import type { AlternateLink, Locale } from "../i18n/config";
+import { toLocalePath } from "../i18n/config";
+import type { SiteDictionary } from "../i18n/dictionary";
+import type { BlogPost } from "../lib/posts";
+
+interface Props {
+    locale: Locale;
+    dictionary: SiteDictionary;
+    latestPosts: BlogPost[];
+    profile: ProfileData;
+    sites: LocalizedSiteCommand[];
+    alternateLinks: AlternateLink[];
+}
+
+const { locale, dictionary, latestPosts, profile, sites, alternateLinks } =
+    Astro.props;
+---
+
+<Layout
+    title={dictionary.home.metaTitle}
+    description={dictionary.home.metaDescription}
+    locale={locale}
+    dictionary={dictionary}
+    alternateLinks={alternateLinks}
+>
+    <main class="page-shell">
+        <section class="page-intro">
+            <p class="page-eyebrow">{dictionary.home.eyebrow}</p>
+            <h1 class="page-title">{dictionary.home.heading}</h1>
+            <p class="page-copy">{dictionary.home.copy}</p>
+        </section>
+
+        <section class="portal-grid">
+            <TerminalWindow
+                title={dictionary.home.profileTitle}
+                subtitle={dictionary.home.profileSubtitle}
+            >
+                <ProfilePanel profile={profile} />
+            </TerminalWindow>
+
+            <TerminalWindow
+                title={dictionary.home.sitesTitle}
+                subtitle={dictionary.home.sitesSubtitle}
+            >
+                <SitesCommandPanel
+                    sites={sites}
+                    label={dictionary.home.sitesTitle}
+                />
+            </TerminalWindow>
+        </section>
+
+        <section style="margin-top: 1rem;">
+            <TerminalWindow
+                title={dictionary.home.latestTitle}
+                subtitle={dictionary.home.latestSubtitle}
+            >
+                <PostList
+                    posts={latestPosts}
+                    locale={locale}
+                    emptyMessage={dictionary.common.noPosts}
+                />
+                <div class="panel-actions">
+                    <a class="profile-link" href={toLocalePath(locale, "/blog")}>
+                        {dictionary.home.viewAll}
+                    </a>
+                </div>
+            </TerminalWindow>
+        </section>
+    </main>
+</Layout>

@@ -1,7 +1,7 @@
 ---
-import PostList from "../../components/PostList.astro";
-import TerminalWindow from "../../components/TerminalWindow.astro";
-import Layout from "../../layouts/Layout.astro";
+import TagPage from "../../views/TagPage.astro";
+import { buildAlternateLinks, defaultLocale } from "../../i18n/config";
+import { getDictionary } from "../../i18n/dictionary";
 import { getAllTags, getPostsByTag } from "../../lib/posts";
 
 export async function getStaticPaths() {
@@ -11,31 +11,17 @@ export async function getStaticPaths() {
     }));
 }
 
+const locale = defaultLocale;
+const dictionary = getDictionary(locale);
 const { tag } = Astro.props as { tag: string };
 const posts = await getPostsByTag(tag);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
 ---
 
-<Layout
-    title={`Hobr.SITE / #${tag}`}
-    description={`Posts tagged ${tag} on Hobr.SITE.`}
->
-    <main class="page-shell">
-        <section class="page-intro">
-            <p class="page-eyebrow">tag view</p>
-            <h1 class="page-title">#{tag}</h1>
-            <p class="page-copy">
-                Filtered log view for one topic. Go back to <a href="/blog"
-                    >all posts</a
-                >
-                when you want the full stream.
-            </p>
-        </section>
-
-        <TerminalWindow title="TAG RESULTS" subtitle={`grep -r ${tag} ./posts`}>
-            <PostList
-                posts={posts}
-                emptyMessage="No posts found for this tag."
-            />
-        </TerminalWindow>
-    </main>
-</Layout>
+<TagPage
+    locale={locale}
+    dictionary={dictionary}
+    tag={tag}
+    posts={posts}
+    alternateLinks={alternateLinks}
+/>

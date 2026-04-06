@@ -1,0 +1,49 @@
+---
+import PostList from "../components/PostList.astro";
+import TerminalWindow from "../components/TerminalWindow.astro";
+import type { AlternateLink, Locale } from "../i18n/config";
+import type { SiteDictionary } from "../i18n/dictionary";
+import Layout from "../layouts/Layout.astro";
+import type { BlogPost } from "../lib/posts";
+
+interface Props {
+    locale: Locale;
+    dictionary: SiteDictionary;
+    archiveGroups: Array<[string, BlogPost[]]>;
+    alternateLinks: AlternateLink[];
+}
+
+const { locale, dictionary, archiveGroups, alternateLinks } = Astro.props;
+---
+
+<Layout
+    title={dictionary.archive.metaTitle}
+    description={dictionary.archive.metaDescription}
+    locale={locale}
+    dictionary={dictionary}
+    alternateLinks={alternateLinks}
+>
+    <main class="page-shell">
+        <section class="page-intro">
+            <p class="page-eyebrow">{dictionary.archive.eyebrow}</p>
+            <h1 class="page-title">{dictionary.archive.heading}</h1>
+            <p class="page-copy">{dictionary.archive.copy}</p>
+        </section>
+
+        <TerminalWindow
+            title={dictionary.archive.panelTitle}
+            subtitle={dictionary.archive.panelSubtitle}
+        >
+            <div class="archive-groups">
+                {
+                    archiveGroups.map(([year, posts]) => (
+                        <section class="archive-group">
+                            <h2 class="archive-group__year">{year}</h2>
+                            <PostList posts={posts} locale={locale} />
+                        </section>
+                    ))
+                }
+            </div>
+        </TerminalWindow>
+    </main>
+</Layout>

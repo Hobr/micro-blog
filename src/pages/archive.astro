@@ -1,37 +1,18 @@
 ---
-import PostList from "../components/PostList.astro";
-import TerminalWindow from "../components/TerminalWindow.astro";
-import Layout from "../layouts/Layout.astro";
+import ArchivePage from "../views/ArchivePage.astro";
+import { buildAlternateLinks, defaultLocale } from "../i18n/config";
+import { getDictionary } from "../i18n/dictionary";
 import { getArchiveGroups } from "../lib/posts";
 
+const locale = defaultLocale;
+const dictionary = getDictionary(locale);
 const archiveGroups = await getArchiveGroups();
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
 ---
 
-<Layout
-    title="Hobr.SITE / Archive"
-    description="Year-grouped archive of all blog posts."
->
-    <main class="page-shell">
-        <section class="page-intro">
-            <p class="page-eyebrow">archive</p>
-            <h1 class="page-title">Year-grouped logbook.</h1>
-            <p class="page-copy">
-                A slower way to browse. Useful when the tag view is too narrow
-                and the main blog index is too flat.
-            </p>
-        </section>
-
-        <TerminalWindow title="ARCHIVE" subtitle="group by year">
-            <div class="archive-groups">
-                {
-                    archiveGroups.map(([year, posts]) => (
-                        <section class="archive-group">
-                            <h2 class="archive-group__year">{year}</h2>
-                            <PostList posts={posts} />
-                        </section>
-                    ))
-                }
-            </div>
-        </TerminalWindow>
-    </main>
-</Layout>
+<ArchivePage
+    locale={locale}
+    dictionary={dictionary}
+    archiveGroups={archiveGroups}
+    alternateLinks={alternateLinks}
+/>

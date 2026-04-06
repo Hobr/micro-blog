@@ -1,9 +1,8 @@
 ---
-import PostPagination from "../../components/PostPagination.astro";
-import TagList from "../../components/TagList.astro";
-import TerminalWindow from "../../components/TerminalWindow.astro";
 import { render } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import BlogPostPage from "../../views/BlogPostPage.astro";
+import { buildAlternateLinks, defaultLocale } from "../../i18n/config";
+import { getDictionary } from "../../i18n/dictionary";
 import { getAdjacentPosts, getAllPosts, type BlogPost } from "../../lib/posts";
 
 export async function getStaticPaths() {
@@ -15,38 +14,20 @@ export async function getStaticPaths() {
     }));
 }
 
+const locale = defaultLocale;
+const dictionary = getDictionary(locale);
 const { post } = Astro.props as { post: BlogPost };
 const { Content } = await render(post.entry);
 const { previous, next } = await getAdjacentPosts(post.slug);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
 ---
 
-<Layout
-    title={`Hobr.SITE / ${post.title}`}
-    description={`Read ${post.title} on Hobr.SITE.`}
->
-    <main class="page-shell">
-        <section class="page-intro">
-            <p class="page-eyebrow">post entry</p>
-            <h1 class="page-title">{post.title}</h1>
-            <p class="page-copy">
-                Published {post.dateLabel}. Return to <a href="/blog">/blog</a>
-                or hop by tag below.
-            </p>
-        </section>
-
-        <article class="article-shell">
-            <TerminalWindow title="ARTICLE" subtitle={`/blog/${post.slug}`}>
-                <div class="article-body">
-                    <Content />
-                </div>
-            </TerminalWindow>
-
-            <TerminalWindow title="POST META" subtitle="tags && navigation">
-                <div class="article-footer">
-                    <TagList tags={post.tags} />
-                    <PostPagination previous={previous} next={next} />
-                </div>
-            </TerminalWindow>
-        </article>
-    </main>
-</Layout>
+<BlogPostPage
+    locale={locale}
+    dictionary={dictionary}
+    post={post}
+    previous={previous}
+    next={next}
+    Content={Content}
+    alternateLinks={alternateLinks}
+/>

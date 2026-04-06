@@ -1,9 +1,13 @@
 ---
+import type { Locale } from "../i18n/config";
+import { toLocalePath } from "../i18n/config";
+
 interface Props {
     tags: string[];
+    locale: Locale;
 }
 
-const { tags } = Astro.props;
+const { tags, locale } = Astro.props;
 ---
 
 <ul class="tag-list" aria-label="Tags">
@@ -12,7 +16,10 @@ const { tags } = Astro.props;
             <li>
                 <a
                     class="tag-list__link"
-                    href={`/tags/${encodeURIComponent(tag)}`}
+                    href={toLocalePath(
+                        locale,
+                        `/tags/${encodeURIComponent(tag)}`,
+                    )}
                 >
                     #{tag}
                 </a>

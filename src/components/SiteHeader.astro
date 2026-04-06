@@ -1,40 +1,44 @@
 ---
-const pathname = Astro.url.pathname;
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import type { AlternateLink, Locale } from "../i18n/config";
+import type { SiteDictionary } from "../i18n/dictionary";
+import { toLocalePath } from "../i18n/config";
+
+interface Props {
+    locale: Locale;
+    dictionary: SiteDictionary;
+    alternateLinks: AlternateLink[];
+}
+
+const { locale, dictionary, alternateLinks } = Astro.props;
 
 const links = [
-    { href: "/", label: "Home", active: pathname === "/" },
-    { href: "/blog", label: "Blog", active: pathname.startsWith("/blog") },
-    {
-        href: "/archive",
-        label: "Archive",
-        active: pathname.startsWith("/archive"),
-    },
+    { href: toLocalePath(locale, "/"), label: dictionary.nav.home },
+    { href: toLocalePath(locale, "/blog"), label: dictionary.nav.blog },
+    { href: toLocalePath(locale, "/archive"), label: dictionary.nav.archive },
 ];
 ---
 
 <header class="site-header">
     <div class="site-header__inner">
         <div class="site-brand">
-            <p class="site-brand__name">Hobr.SITE</p>
-            <span class="site-brand__meta"
-                >static portal / blog / typst logs</span
-            >
+            <p class="site-brand__name">{dictionary.brand.name}</p>
+            <span class="site-brand__meta">{dictionary.brand.meta}</span>
         </div>
         <nav class="site-nav" aria-label="Primary">
             {
                 links.map((link) => (
-                    <a
-                        class:list={[
-                            "site-nav__link",
-                            { "is-active": link.active },
-                        ]}
-                        href={link.href}
-                    >
+                    <a class="site-nav__link" href={link.href}>
                         <span>&gt;</span>
                         <span>{link.label}</span>
                     </a>
                 ))
             }
         </nav>
+        <LanguageSwitcher
+            currentLocale={locale}
+            label={dictionary.brand.switcherLabel}
+            alternateLinks={alternateLinks}
+        />
     </div>
 </header>

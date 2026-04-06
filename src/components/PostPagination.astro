@@ -1,38 +1,59 @@
 ---
+import type { Locale } from "../i18n/config";
+import { toLocalePath } from "../i18n/config";
 import type { BlogPost } from "../lib/posts";
 
 interface Props {
+    locale: Locale;
     previous?: BlogPost;
     next?: BlogPost;
+    previousLabel: string;
+    nextLabel: string;
+    emptyPreviousLabel: string;
+    emptyNextLabel: string;
 }
 
-const { previous, next } = Astro.props;
+const {
+    locale,
+    previous,
+    next,
+    previousLabel,
+    nextLabel,
+    emptyPreviousLabel,
+    emptyNextLabel,
+} = Astro.props;
 ---
 
 <div class="post-pagination">
     {
         previous ? (
-            <a class="post-pagination__link" href={`/blog/${previous.slug}`}>
-                <span class="post-pagination__direction">previous</span>
+            <a
+                class="post-pagination__link"
+                href={toLocalePath(locale, `/blog/${previous.slug}`)}
+            >
+                <span class="post-pagination__direction">{previousLabel}</span>
                 <strong>{previous.title}</strong>
             </a>
         ) : (
             <div class="post-pagination__empty">
-                <span class="post-pagination__direction">previous</span>
-                <strong>Start of the log</strong>
+                <span class="post-pagination__direction">{previousLabel}</span>
+                <strong>{emptyPreviousLabel}</strong>
             </div>
         )
     }
     {
         next ? (
-            <a class="post-pagination__link" href={`/blog/${next.slug}`}>
-                <span class="post-pagination__direction">next</span>
+            <a
+                class="post-pagination__link"
+                href={toLocalePath(locale, `/blog/${next.slug}`)}
+            >
+                <span class="post-pagination__direction">{nextLabel}</span>
                 <strong>{next.title}</strong>
             </a>
         ) : (
             <div class="post-pagination__empty">
-                <span class="post-pagination__direction">next</span>
-                <strong>Latest entry reached</strong>
+                <span class="post-pagination__direction">{nextLabel}</span>
+                <strong>{emptyNextLabel}</strong>
             </div>
         )
     }

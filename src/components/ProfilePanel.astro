@@ -1,5 +1,11 @@
 ---
-import { profile } from "../data/profile";
+import type { ProfileData } from "../data/profile";
+
+interface Props {
+    profile: ProfileData;
+}
+
+const { profile } = Astro.props;
 ---
 
 <div class="profile-panel">
@@ -8,7 +14,7 @@ import { profile } from "../data/profile";
             <img src={profile.avatar} alt={`${profile.name} avatar`} />
         </div>
         <div>
-            <p class="profile-panel__eyebrow">session profile</p>
+            <p class="profile-panel__eyebrow">{profile.eyebrow}</p>
             <h1 class="profile-panel__name">{profile.name}</h1>
             <p class="profile-panel__role">{profile.role}</p>
         </div>

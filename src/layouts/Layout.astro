@@ -1,20 +1,33 @@
 ---
 import SiteHeader from "../components/SiteHeader.astro";
+import type { AlternateLink, Locale } from "../i18n/config";
+import type { SiteDictionary } from "../i18n/dictionary";
 import "../styles/global.css";
 
 interface Props {
     title: string;
-    description?: string;
+    description: string;
+    locale: Locale;
+    dictionary: SiteDictionary;
+    alternateLinks: AlternateLink[];
+    canonicalPath?: string;
 }
 
-const { title, description = "Static portal and Typst-powered blog." } =
-    Astro.props;
+const {
+    title,
+    description,
+    locale,
+    dictionary,
+    alternateLinks,
+    canonicalPath = Astro.url.pathname,
+} = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+const siteBase = Astro.site ?? Astro.url;
+const canonical = new URL(canonicalPath, siteBase).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -22,13 +35,26 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
         <link rel="icon" href="/favicon.ico" />
         <link rel="sitemap" href="/sitemap-index.xml" />
         <link rel="canonical" href={canonical} />
+        {
+            alternateLinks.map((link) => (
+                <link
+                    rel="alternate"
+                    hreflang={link.lang}
+                    href={new URL(link.href, siteBase).href}
+                />
+            ))
+        }
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
         <title>{title}</title>
     </head>
     <body>
         <div class="site-shell">
-            <SiteHeader />
+            <SiteHeader
+                locale={locale}
+                dictionary={dictionary}
+                alternateLinks={alternateLinks}
+            />
             <slot />
         </div>
     </body>

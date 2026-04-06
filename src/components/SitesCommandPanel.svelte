@@ -1,15 +1,15 @@
 <script lang="ts">
-    export type SiteCommand = {
-        command: string;
-        name: string;
-        description: string;
-        href: string;
+    import type { LocalizedSiteCommand } from "../data/sites";
+
+    type Props = {
+        sites?: LocalizedSiteCommand[];
+        label?: string;
     };
 
-    let { sites = [] as SiteCommand[] } = $props();
+    let { sites = [], label = "Owned sites" }: Props = $props();
 </script>
 
-<ul class="site-command-list" aria-label="Owned sites">
+<ul class="site-command-list" aria-label={label}>
     {#each sites as site (site.href)}
         <li>
             <a class="site-command" href={site.href}>

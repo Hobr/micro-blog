@@ -1,0 +1,29 @@
+---
+import type { AlternateLink, Locale } from "../i18n/config";
+
+interface Props {
+    currentLocale: Locale;
+    label: string;
+    alternateLinks: AlternateLink[];
+}
+
+const { currentLocale, label, alternateLinks } = Astro.props;
+---
+
+<div class="language-switcher" aria-label={label}>
+    {
+        alternateLinks.map((link) => (
+            <a
+                class:list={[
+                    "language-switcher__link",
+                    { "is-active": link.locale === currentLocale },
+                ]}
+                href={link.href}
+                hreflang={link.lang}
+                lang={link.lang}
+            >
+                {link.label}
+            </a>
+        ))
+    }
+</div>

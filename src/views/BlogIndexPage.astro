@@ -1,0 +1,74 @@
+---
+import PostList from "../components/PostList.astro";
+import TerminalWindow from "../components/TerminalWindow.astro";
+import Layout from "../layouts/Layout.astro";
+import type { AlternateLink, Locale } from "../i18n/config";
+import { toLocalePath } from "../i18n/config";
+import type { SiteDictionary } from "../i18n/dictionary";
+import type { BlogPost } from "../lib/posts";
+
+interface Props {
+    locale: Locale;
+    dictionary: SiteDictionary;
+    posts: BlogPost[];
+    tags: string[];
+    alternateLinks: AlternateLink[];
+}
+
+const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
+---
+
+<Layout
+    title={dictionary.blogIndex.metaTitle}
+    description={dictionary.blogIndex.metaDescription}
+    locale={locale}
+    dictionary={dictionary}
+    alternateLinks={alternateLinks}
+>
+    <main class="page-shell">
+        <section class="page-intro">
+            <p class="page-eyebrow">{dictionary.blogIndex.eyebrow}</p>
+            <h1 class="page-title">{dictionary.blogIndex.heading}</h1>
+            <p class="page-copy">{dictionary.blogIndex.copy}</p>
+        </section>
+
+        <section class="content-grid">
+            <TerminalWindow
+                title={dictionary.blogIndex.listTitle}
+                subtitle={dictionary.blogIndex.listSubtitle}
+            >
+                <PostList
+                    posts={posts}
+                    locale={locale}
+                    emptyMessage={dictionary.common.noPosts}
+                />
+            </TerminalWindow>
+
+            <div class="side-nav">
+                <TerminalWindow
+                    title={dictionary.blogIndex.navTitle}
+                    subtitle={dictionary.blogIndex.navSubtitle}
+                >
+                    <div class="side-nav">
+                        <a class="profile-link" href={toLocalePath(locale, "/archive")}>
+                            {dictionary.blogIndex.openArchive}
+                        </a>
+                        {
+                            tags.map((tag) => (
+                                <a
+                                    class="profile-link"
+                                    href={toLocalePath(
+                                        locale,
+                                        `/tags/${encodeURIComponent(tag)}`,
+                                    )}
+                                >
+                                    {dictionary.blogIndex.openTag(tag)}
+                                </a>
+                            ))
+                        }
+                    </div>
+                </TerminalWindow>
+            </div>
+        </section>
+    </main>
+</Layout>

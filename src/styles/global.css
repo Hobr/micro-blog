@@ -130,6 +130,26 @@ img {
     box-shadow: 0 0 0 1px rgba(143, 247, 216, 0.2);
 }
 
+.language-switcher {
+    display: inline-flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.language-switcher__link {
+    border: 1px solid var(--surface-border);
+    border-radius: 999px;
+    padding: 0.35rem 0.7rem;
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.82rem;
+}
+
+.language-switcher__link.is-active {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
 .page-shell {
     padding: 2rem 0 4rem;
 }

@@ -1,0 +1,71 @@
+---
+import PostPagination from "../components/PostPagination.astro";
+import TagList from "../components/TagList.astro";
+import TerminalWindow from "../components/TerminalWindow.astro";
+import type { AlternateLink, Locale } from "../i18n/config";
+import { toLocalePath, defaultLocale } from "../i18n/config";
+import type { SiteDictionary } from "../i18n/dictionary";
+import Layout from "../layouts/Layout.astro";
+import type { BlogPost } from "../lib/posts";
+
+interface Props {
+    locale: Locale;
+    dictionary: SiteDictionary;
+    post: BlogPost;
+    previous?: BlogPost;
+    next?: BlogPost;
+    Content: any;
+    alternateLinks: AlternateLink[];
+}
+
+const { locale, dictionary, post, previous, next, Content, alternateLinks } =
+    Astro.props;
+---
+
+<Layout
+    title={dictionary.articlePage.metaTitle(post.title)}
+    description={dictionary.articlePage.metaDescription(post.title)}
+    locale={locale}
+    dictionary={dictionary}
+    alternateLinks={alternateLinks}
+    canonicalPath={toLocalePath(defaultLocale, `/blog/${post.slug}`)}
+>
+    <main class="page-shell">
+        <section class="page-intro">
+            <p class="page-eyebrow">{dictionary.articlePage.eyebrow}</p>
+            <h1 class="page-title">{post.title}</h1>
+            <p class="page-copy">
+                {dictionary.articlePage.intro(post.dateLabel)}
+            </p>
+        </section>
+
+        <article class="article-shell">
+            <TerminalWindow
+                title={dictionary.articlePage.articleTitle}
+                subtitle={toLocalePath(locale, `/blog/${post.slug}`)}
+            >
+                <div class="article-body">
+                    <Content />
+                </div>
+            </TerminalWindow>
+
+            <TerminalWindow
+                title={dictionary.articlePage.metaTitleLabel}
+                subtitle={dictionary.articlePage.metaSubtitle}
+            >
+                <div class="article-footer">
+                    <TagList tags={post.tags} locale={locale} />
+                    <PostPagination
+                        locale={locale}
+                        previous={previous}
+                        next={next}
+                        previousLabel={dictionary.articlePage.previous}
+                        nextLabel={dictionary.articlePage.next}
+                        emptyPreviousLabel={dictionary.articlePage.startOfLog}
+                        emptyNextLabel={dictionary.articlePage.latestEntry}
+                    />
+                </div>
+            </TerminalWindow>
+        </article>
+    </main>
+</Layout>
