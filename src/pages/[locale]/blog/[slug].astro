@@ -4,7 +4,11 @@ import BlogPostPage from "../../../views/BlogPostPage.astro";
 import { buildAlternateLinks, secondaryLocales } from "../../../i18n/config";
 import { getDictionary } from "../../../i18n/dictionary";
 import { assertSecondaryLocale } from "../../../i18n/static-paths";
-import { getAdjacentPosts, getAllPosts, type BlogPost } from "../../../lib/posts";
+import {
+    getAdjacentPosts,
+    getAllPosts,
+    type BlogPost,
+} from "../../../lib/posts";
 
 export async function getStaticPaths() {
     const posts = await getAllPosts();
