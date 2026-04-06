@@ -15,7 +15,6 @@
           typescript-language-server
           typst
           tinymist
-          just
         ];
     };
 }

@@ -17,4 +17,7 @@ pnpm preview
 
 # 使用 Astro CLI
 pnpm astro -- --help
+
+# 格式化代码
+pnpm exec prettier . --write
 ```
