@@ -30,7 +30,7 @@ importers:
                 version: 5.9.3
         devDependencies:
             "@eslint/compat":
-                specifier: ^2.0.3
+                specifier: ^2.0.4
                 version: 2.0.4(eslint@10.2.0)
             "@eslint/css":
                 specifier: ^1.1.0
@@ -42,10 +42,10 @@ importers:
                 specifier: ^1.2.0
                 version: 1.2.0
             "@types/node":
-                specifier: ^24
+                specifier: ^24.12.2
                 version: 24.12.2
             eslint:
-                specifier: ^10.0.3
+                specifier: ^10.2.0
                 version: 10.2.0
             eslint-config-prettier:
                 specifier: ^10.1.8
@@ -54,7 +54,7 @@ importers:
                 specifier: ^5.5.5
                 version: 5.5.5(eslint-config-prettier@10.1.8(eslint@10.2.0))(eslint@10.2.0)(prettier@3.8.1)
             eslint-plugin-svelte:
-                specifier: ^3.15.2
+                specifier: ^3.17.0
                 version: 3.17.0(eslint@10.2.0)(svelte@5.55.1)
             globals:
                 specifier: ^17.4.0
@@ -72,10 +72,10 @@ importers:
                 specifier: 0.14.1
                 version: 0.14.1
             prettier-plugin-svelte:
-                specifier: ^3.4.1
+                specifier: ^3.5.1
                 version: 3.5.1(prettier@3.8.1)(svelte@5.55.1)
             typescript-eslint:
-                specifier: ^8.57.0
+                specifier: ^8.58.0
                 version: 8.58.0(eslint@10.2.0)(typescript@5.9.3)
 
 packages:
