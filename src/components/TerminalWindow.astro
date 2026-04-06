@@ -1,0 +1,25 @@
+---
+interface Props {
+    title: string;
+    subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="terminal-window">
+    <header class="terminal-window__header">
+        <div class="terminal-window__lights" aria-hidden="true">
+            <span class="terminal-window__light is-red"></span>
+            <span class="terminal-window__light is-amber"></span>
+            <span class="terminal-window__light is-cyan"></span>
+        </div>
+        <div class="terminal-window__meta">
+            <p class="terminal-window__title">{title}</p>
+            {subtitle && <p class="terminal-window__subtitle">{subtitle}</p>}
+        </div>
+    </header>
+    <div class="terminal-window__body">
+        <slot />
+    </div>
+</section>

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+    assertUniqueSlugs,
     createAdjacentPostMap,
     groupPostsByTag,
     groupPostsByYear,
@@ -73,4 +74,23 @@ test("createAdjacentPostMap wires previous and next slugs", () => {
 
     assert.equal(adjacency.get("newest")?.next?.slug, "older");
     assert.equal(adjacency.get("older")?.previous?.slug, "newest");
+});
+
+test("assertUniqueSlugs rejects duplicate slugs", () => {
+    assert.throws(
+        () =>
+            assertUniqueSlugs([
+                normalizePostRecord(rawPosts[0]),
+                normalizePostRecord({
+                    id: "dup",
+                    data: {
+                        title: "Duplicate",
+                        slug: "older",
+                        date: "datetime(year: 2026, month: 4, day: 1)",
+                        tags: ["astro"],
+                    },
+                }),
+            ]),
+        /Duplicate post slug: older/,
+    );
 });

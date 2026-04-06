@@ -54,17 +54,17 @@ export function normalizePostRecord(record: RawPostRecord): NormalizedPost {
     };
 }
 
-export function sortPostsByDateDesc(posts: NormalizedPost[]): NormalizedPost[] {
+export function sortPostsByDateDesc<T extends NormalizedPost>(posts: T[]): T[] {
     return [...posts].sort(
         (left, right) =>
             right.publishedAt.getTime() - left.publishedAt.getTime(),
     );
 }
 
-export function groupPostsByTag(
-    posts: NormalizedPost[],
-): Map<string, NormalizedPost[]> {
-    const grouped = new Map<string, NormalizedPost[]>();
+export function groupPostsByTag<T extends NormalizedPost>(
+    posts: T[],
+): Map<string, T[]> {
+    const grouped = new Map<string, T[]>();
 
     for (const post of posts) {
         for (const tag of post.tags) {
@@ -75,10 +75,10 @@ export function groupPostsByTag(
     return grouped;
 }
 
-export function groupPostsByYear(
-    posts: NormalizedPost[],
-): Array<[string, NormalizedPost[]]> {
-    const grouped = new Map<string, NormalizedPost[]>();
+export function groupPostsByYear<T extends NormalizedPost>(
+    posts: T[],
+): Array<[string, T[]]> {
+    const grouped = new Map<string, T[]>();
 
     for (const post of posts) {
         const year = String(post.publishedAt.getUTCFullYear());
@@ -88,7 +88,7 @@ export function groupPostsByYear(
     return [...grouped.entries()];
 }
 
-export function createAdjacentPostMap(posts: NormalizedPost[]) {
+export function createAdjacentPostMap<T extends NormalizedPost>(posts: T[]) {
     return new Map(
         posts.map((post, index) => [
             post.slug,
@@ -98,4 +98,16 @@ export function createAdjacentPostMap(posts: NormalizedPost[]) {
             },
         ]),
     );
+}
+
+export function assertUniqueSlugs<T extends { slug: string }>(posts: T[]) {
+    const seen = new Set<string>();
+
+    for (const post of posts) {
+        if (seen.has(post.slug)) {
+            throw new Error(`Duplicate post slug: ${post.slug}`);
+        }
+
+        seen.add(post.slug);
+    }
 }

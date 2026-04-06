@@ -1,0 +1,40 @@
+---
+const pathname = Astro.url.pathname;
+
+const links = [
+    { href: "/", label: "Home", active: pathname === "/" },
+    { href: "/blog", label: "Blog", active: pathname.startsWith("/blog") },
+    {
+        href: "/archive",
+        label: "Archive",
+        active: pathname.startsWith("/archive"),
+    },
+];
+---
+
+<header class="site-header">
+    <div class="site-header__inner">
+        <div class="site-brand">
+            <p class="site-brand__name">HORB.SITE</p>
+            <span class="site-brand__meta"
+                >static portal / blog / typst logs</span
+            >
+        </div>
+        <nav class="site-nav" aria-label="Primary">
+            {
+                links.map((link) => (
+                    <a
+                        class:list={[
+                            "site-nav__link",
+                            { "is-active": link.active },
+                        ]}
+                        href={link.href}
+                    >
+                        <span>&gt;</span>
+                        <span>{link.label}</span>
+                    </a>
+                ))
+            }
+        </nav>
+    </div>
+</header>

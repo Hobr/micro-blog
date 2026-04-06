@@ -1,11 +1,61 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
+import PostList from "../components/PostList.astro";
+import ProfilePanel from "../components/ProfilePanel.astro";
+import SitesCommandPanel from "../components/SitesCommandPanel.svelte";
+import TerminalWindow from "../components/TerminalWindow.astro";
+import { sites } from "../data/sites";
+import { getLatestPosts } from "../lib/posts";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const latestPosts = await getLatestPosts(5);
 ---
 
-<Layout>
-    <Welcome />
+<Layout
+    title="HORB.SITE / Personal Portal"
+    description="Personal portal homepage with profile, owned-site navigation, and the latest Typst-backed blog posts."
+>
+    <main class="page-shell">
+        <section class="page-intro">
+            <p class="page-eyebrow">boot sequence complete</p>
+            <h1 class="page-title">
+                A terminal portal for shipping code and writing logs.
+            </h1>
+            <p class="page-copy">
+                This homepage is the entry point. Profile on the left, owned
+                destinations on the right, and only the freshest post tail
+                below. Full logs live in <a href="/blog">/blog</a>.
+            </p>
+        </section>
+
+        <section class="portal-grid">
+            <TerminalWindow
+                title="PROFILE"
+                subtitle="whoami && cat profile.txt"
+            >
+                <ProfilePanel />
+            </TerminalWindow>
+
+            <TerminalWindow
+                title="SITE INDEX"
+                subtitle="ls ~/sites && open <target>"
+            >
+                <SitesCommandPanel sites={sites} />
+            </TerminalWindow>
+        </section>
+
+        <section style="margin-top: 1rem;">
+            <TerminalWindow
+                title="LATEST POSTS"
+                subtitle="tail -n 5 journal.log"
+            >
+                <PostList
+                    posts={latestPosts}
+                    emptyMessage="No posts published yet."
+                />
+                <div class="panel-actions">
+                    <a class="profile-link" href="/blog">view all posts</a>
+                </div>
+            </TerminalWindow>
+        </section>
+    </main>
 </Layout>

@@ -1,0 +1,22 @@
+---
+interface Props {
+    tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<ul class="tag-list" aria-label="Tags">
+    {
+        tags.map((tag) => (
+            <li>
+                <a
+                    class="tag-list__link"
+                    href={`/tags/${encodeURIComponent(tag)}`}
+                >
+                    #{tag}
+                </a>
+            </li>
+        ))
+    }
+</ul>

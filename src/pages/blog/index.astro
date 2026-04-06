@@ -1,0 +1,53 @@
+---
+import PostList from "../../components/PostList.astro";
+import TerminalWindow from "../../components/TerminalWindow.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getAllPosts, getAllTags } from "../../lib/posts";
+
+const [posts, tags] = await Promise.all([getAllPosts(), getAllTags()]);
+---
+
+<Layout
+    title="HORB.SITE / Blog"
+    description="Full list of Typst-backed blog posts sorted by date."
+>
+    <main class="page-shell">
+        <section class="page-intro">
+            <p class="page-eyebrow">blog index</p>
+            <h1 class="page-title">Every published entry.</h1>
+            <p class="page-copy">
+                The homepage only shows a short tail. This page is the full
+                chronological log, with tags and archive shortcuts for deeper
+                digging.
+            </p>
+        </section>
+
+        <section class="content-grid">
+            <TerminalWindow title="ALL POSTS" subtitle="ls -lt ./posts">
+                <PostList
+                    posts={posts}
+                    emptyMessage="No posts published yet."
+                />
+            </TerminalWindow>
+
+            <div class="side-nav">
+                <TerminalWindow title="NAV" subtitle="jump targets">
+                    <div class="side-nav">
+                        <a class="profile-link" href="/archive">open /archive</a
+                        >
+                        {
+                            tags.map((tag) => (
+                                <a
+                                    class="profile-link"
+                                    href={`/tags/${encodeURIComponent(tag)}`}
+                                >
+                                    open /tags/{tag}
+                                </a>
+                            ))
+                        }
+                    </div>
+                </TerminalWindow>
+            </div>
+        </section>
+    </main>
+</Layout>

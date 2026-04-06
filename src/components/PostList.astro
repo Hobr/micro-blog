@@ -1,0 +1,27 @@
+---
+import type { BlogPost } from "../lib/posts";
+
+interface Props {
+    posts: BlogPost[];
+    emptyMessage?: string;
+}
+
+const { posts, emptyMessage = "No posts found." } = Astro.props;
+---
+
+{
+    posts.length > 0 ? (
+        <ul class="post-list">
+            {posts.map((post) => (
+                <li class="post-list__item">
+                    <a class="post-link" href={`/blog/${post.slug}`}>
+                        <h2 class="post-link__title">{post.title}</h2>
+                        <span class="post-link__date">{post.dateLabel}</span>
+                    </a>
+                </li>
+            ))}
+        </ul>
+    ) : (
+        <p class="empty-state">{emptyMessage}</p>
+    )
+}

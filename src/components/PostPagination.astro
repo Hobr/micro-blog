@@ -1,0 +1,39 @@
+---
+import type { BlogPost } from "../lib/posts";
+
+interface Props {
+    previous?: BlogPost;
+    next?: BlogPost;
+}
+
+const { previous, next } = Astro.props;
+---
+
+<div class="post-pagination">
+    {
+        previous ? (
+            <a class="post-pagination__link" href={`/blog/${previous.slug}`}>
+                <span class="post-pagination__direction">previous</span>
+                <strong>{previous.title}</strong>
+            </a>
+        ) : (
+            <div class="post-pagination__empty">
+                <span class="post-pagination__direction">previous</span>
+                <strong>Start of the log</strong>
+            </div>
+        )
+    }
+    {
+        next ? (
+            <a class="post-pagination__link" href={`/blog/${next.slug}`}>
+                <span class="post-pagination__direction">next</span>
+                <strong>{next.title}</strong>
+            </a>
+        ) : (
+            <div class="post-pagination__empty">
+                <span class="post-pagination__direction">next</span>
+                <strong>Latest entry reached</strong>
+            </div>
+        )
+    }
+</div>

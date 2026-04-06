@@ -14,6 +14,7 @@ import ts from "typescript-eslint";
 import svelte from "eslint-plugin-svelte";
 
 const gitignorePath = path.resolve(import.meta.dirname, ".gitignore");
+const svelteFiles = ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"];
 
 export default defineConfig([
     includeIgnoreFile(gitignorePath),
@@ -30,9 +31,12 @@ export default defineConfig([
             "no-undef": "off",
         },
     },
+    ...svelte.configs.recommended.map((config) => ({
+        ...config,
+        files: config.files ?? svelteFiles,
+    })),
     {
-        files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
-        ...svelte.configs.recommended,
+        files: svelteFiles,
         languageOptions: {
             parserOptions: {
                 projectService: true,
