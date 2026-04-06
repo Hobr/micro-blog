@@ -7,7 +7,9 @@ import { getArchiveGroups } from "../lib/posts";
 const locale = defaultLocale;
 const dictionary = getDictionary(locale);
 const archiveGroups = await getArchiveGroups();
-const alternateLinks = buildAlternateLinks(Astro.url.pathname);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname).filter(
+    (link) => link.locale === locale,
+);
 ---
 
 <ArchivePage
