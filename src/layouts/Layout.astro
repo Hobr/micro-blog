@@ -8,6 +8,7 @@ interface Props {
     title: string;
     description: string;
     locale: Locale;
+    documentLang?: string;
     dictionary: SiteDictionary;
     alternateLinks: AlternateLink[];
     canonicalPath?: string;
@@ -17,6 +18,7 @@ const {
     title,
     description,
     locale,
+    documentLang = locale,
     dictionary,
     alternateLinks,
     canonicalPath = Astro.url.pathname,
@@ -27,7 +29,7 @@ const canonical = new URL(canonicalPath, siteBase).href;
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang={documentLang}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />

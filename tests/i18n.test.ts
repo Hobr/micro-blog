@@ -164,13 +164,18 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getProfile("ja").linksLabel, "リンク");
     assert.equal(getDictionary("zh-CN").nav.primaryLabel, "主导航");
     assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
+    assert.equal(getDictionary("zh-CN").home.profileTitle, "个人档案");
+    assert.equal(getDictionary("ja").home.latestTitle, "最新記事");
+    assert.equal(getDictionary("ja").blogIndex.openArchive, "開く /archive");
 
     assert.equal(getSites("zh-CN")[1].name, "归档");
+    assert.equal(getSites("zh-CN")[0].command, "打开 /blog");
     assert.equal(
         getSites("en")[1].description,
         "Chronological index of everything already published.",
     );
     assert.equal(getSites("ja")[2].name, "タグ");
+    assert.equal(getSites("ja")[2].command, "開く /tags/site");
     assert.equal(getSites("en")[0].href, "/en/blog");
     assert.equal(getSites("ja")[1].href, "/ja/archive");
 });

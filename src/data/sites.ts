@@ -10,19 +10,19 @@ export type LocalizedSiteCommand = {
 const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
     "zh-CN": [
         {
-            command: "open blog",
+            command: "打开 /blog",
             name: "博客",
             description: "长文笔记、构建日志和写作实验。",
             href: toLocalePath("zh-CN", "/blog"),
         },
         {
-            command: "open archive",
+            command: "打开 /archive",
             name: "归档",
             description: "按时间顺序查看所有已发布内容。",
             href: toLocalePath("zh-CN", "/archive"),
         },
         {
-            command: "open tags/site",
+            command: "打开 /tags/site",
             name: "标签",
             description: "直接跳到与站点构建有关的文章。",
             href: toLocalePath("zh-CN", "/tags/site"),
@@ -51,19 +51,19 @@ const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
     ],
     ja: [
         {
-            command: "open blog",
+            command: "開く /blog",
             name: "ブログ",
             description: "長文メモ、構築ログ、文章実験をまとめた場所。",
             href: toLocalePath("ja", "/blog"),
         },
         {
-            command: "open archive",
+            command: "開く /archive",
             name: "アーカイブ",
             description: "公開済みコンテンツを時系列で一覧できます。",
             href: toLocalePath("ja", "/archive"),
         },
         {
-            command: "open tags/site",
+            command: "開く /tags/site",
             name: "タグ",
             description: "サイト構築に関する記事へ直接移動します。",
             href: toLocalePath("ja", "/tags/site"),

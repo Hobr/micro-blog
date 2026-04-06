@@ -2,7 +2,7 @@
 import LanguageSwitcher from "./LanguageSwitcher.astro";
 import type { AlternateLink, Locale } from "../i18n/config";
 import type { SiteDictionary } from "../i18n/dictionary";
-import { toLocalePath } from "../i18n/config";
+import { stripLocaleFromPathname, toLocalePath } from "../i18n/config";
 
 interface Props {
     locale: Locale;
@@ -11,12 +11,36 @@ interface Props {
 }
 
 const { locale, dictionary, alternateLinks } = Astro.props;
+const { pathnameWithoutLocale } = stripLocaleFromPathname(Astro.url.pathname);
 
 const links = [
-    { href: toLocalePath(locale, "/"), label: dictionary.nav.home },
-    { href: toLocalePath(locale, "/blog"), label: dictionary.nav.blog },
-    { href: toLocalePath(locale, "/archive"), label: dictionary.nav.archive },
+    {
+        href: toLocalePath(locale, "/"),
+        label: dictionary.nav.home,
+        key: "home",
+    },
+    {
+        href: toLocalePath(locale, "/blog"),
+        label: dictionary.nav.blog,
+        key: "blog",
+    },
+    {
+        href: toLocalePath(locale, "/archive"),
+        label: dictionary.nav.archive,
+        key: "archive",
+    },
 ];
+
+const activeSection =
+    pathnameWithoutLocale === "/"
+        ? "home"
+        : pathnameWithoutLocale === "/blog" ||
+            pathnameWithoutLocale.startsWith("/blog/")
+          ? "blog"
+          : pathnameWithoutLocale === "/archive" ||
+              pathnameWithoutLocale.startsWith("/archive/")
+            ? "archive"
+            : null;
 ---
 
 <header class="site-header">
@@ -28,7 +52,16 @@ const links = [
         <nav class="site-nav" aria-label={dictionary.nav.primaryLabel}>
             {
                 links.map((link) => (
-                    <a class="site-nav__link" href={link.href}>
+                    <a
+                        class:list={[
+                            "site-nav__link",
+                            { "is-active": activeSection === link.key },
+                        ]}
+                        href={link.href}
+                        aria-current={
+                            activeSection === link.key ? "page" : undefined
+                        }
+                    >
                         <span>&gt;</span>
                         <span>{link.label}</span>
                     </a>
