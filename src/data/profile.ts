@@ -1,5 +1,5 @@
 export const profile = {
-    name: "HORB",
+    name: "Hobr",
     role: "Software tinkerer / static site builder / typst writer",
     bio: "I build static tools, terminal-flavored interfaces, and long-form notes about the systems I actually ship. This site is my control panel for writing, publishing, and linking the rest of my work together.",
     avatar: "/avatar.svg",

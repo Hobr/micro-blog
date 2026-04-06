@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="avatarTitle avatarDesc">
-  <title id="avatarTitle">Horb avatar placeholder</title>
+  <title id="avatarTitle">Hobr avatar placeholder</title>
   <desc id="avatarDesc">A terminal-style geometric avatar with a framed face and glowing accents.</desc>
   <defs>
     <linearGradient id="frame" x1="0%" x2="100%" y1="0%" y2="100%">
