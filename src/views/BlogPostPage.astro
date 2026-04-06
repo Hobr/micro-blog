@@ -54,7 +54,11 @@ const { locale, dictionary, post, previous, next, Content, alternateLinks } =
                 subtitle={dictionary.articlePage.metaSubtitle}
             >
                 <div class="article-footer">
-                    <TagList tags={post.tags} locale={locale} />
+                    <TagList
+                        tags={post.tags}
+                        locale={locale}
+                        label={dictionary.common.tagsLabel}
+                    />
                     <PostPagination
                         locale={locale}
                         previous={previous}

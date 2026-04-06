@@ -16,9 +16,11 @@ export type SiteDictionary = {
         home: string;
         blog: string;
         archive: string;
+        primaryLabel: string;
     };
     common: {
         noPosts: string;
+        tagsLabel: string;
     };
     home: {
         metaTitle: string;

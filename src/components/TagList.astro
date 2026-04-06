@@ -5,12 +5,13 @@ import { toLocalePath } from "../i18n/config";
 interface Props {
     tags: string[];
     locale: Locale;
+    label: string;
 }
 
-const { tags, locale } = Astro.props;
+const { tags, locale, label } = Astro.props;
 ---
 
-<ul class="tag-list" aria-label="Tags">
+<ul class="tag-list" aria-label={label}>
     {
         tags.map((tag) => (
             <li>

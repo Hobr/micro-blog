@@ -9,9 +9,11 @@ export const zhCN = {
         home: "首页",
         blog: "博客",
         archive: "归档",
+        primaryLabel: "主导航",
     },
     common: {
         noPosts: "暂时还没有文章。",
+        tagsLabel: "标签",
     },
     home: {
         metaTitle: "Hobr.SITE / 个人首页",

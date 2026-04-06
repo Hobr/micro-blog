@@ -9,9 +9,11 @@ export const ja = {
         home: "ホーム",
         blog: "ブログ",
         archive: "アーカイブ",
+        primaryLabel: "メインナビゲーション",
     },
     common: {
         noPosts: "まだ記事はありません。",
+        tagsLabel: "タグ",
     },
     home: {
         metaTitle: "Hobr.SITE / ポータル",

@@ -11,7 +11,7 @@ const { profile } = Astro.props;
 <div class="profile-panel">
     <div class="profile-panel__top">
         <div class="profile-panel__avatar">
-            <img src={profile.avatar} alt={`${profile.name} avatar`} />
+            <img src={profile.avatar} alt={profile.avatarAlt} />
         </div>
         <div>
             <p class="profile-panel__eyebrow">{profile.eyebrow}</p>
@@ -20,10 +20,10 @@ const { profile } = Astro.props;
         </div>
     </div>
     <p class="profile-panel__bio">{profile.bio}</p>
-    <ul class="chip-list" aria-label="Stack">
+    <ul class="chip-list" aria-label={profile.stackLabel}>
         {profile.stack.map((item) => <li class="chip">{item}</li>)}
     </ul>
-    <ul class="link-list" aria-label="Links">
+    <ul class="link-list" aria-label={profile.linksLabel}>
         {
             profile.links.map((link) => (
                 <li>

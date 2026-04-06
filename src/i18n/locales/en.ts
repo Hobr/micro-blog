@@ -9,9 +9,11 @@ export const en = {
         home: "Home",
         blog: "Blog",
         archive: "Archive",
+        primaryLabel: "Primary navigation",
     },
     common: {
         noPosts: "No posts published yet.",
+        tagsLabel: "Tags",
     },
     home: {
         metaTitle: "Hobr.SITE / Personal Portal",

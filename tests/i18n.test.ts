@@ -159,6 +159,11 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
         getProfile("ja").links.find((link) => link.label === "ブログ")?.href,
         "/ja/blog",
     );
+    assert.equal(getProfile("zh-CN").avatarAlt, "Hobr 头像");
+    assert.equal(getProfile("ja").stackLabel, "技術スタック");
+    assert.equal(getProfile("ja").linksLabel, "リンク");
+    assert.equal(getDictionary("zh-CN").nav.primaryLabel, "主导航");
+    assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
 
     assert.equal(getSites("zh-CN")[1].name, "归档");
     assert.equal(
