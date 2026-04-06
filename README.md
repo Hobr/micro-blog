@@ -1,6 +1,6 @@
-# Astro Starter Kit: Basics
+# Hobr's Blog
 
-## 🧞 Commands
+## 命令
 
 ```bash
 # 安装依赖
@@ -18,6 +18,18 @@ pnpm preview
 # 使用 Astro CLI
 pnpm astro -- --help
 
+# 检查代码
+pnpm lint
+
 # 格式化代码
-pnpm exec prettier . --write
+pnpm format
 ```
+
+## 相关工具
+
+- [Astro](https://astro.build/)
+- [Svelte](https://svelte.dev/)
+- [Typst](https://typst.app/)
+- [Typst.ts](https://myriad-dreamin.github.io/typst.ts/)
+- [Astro Typst](https://github.com/OverflowCat/astro-typst)
+- [terminal.css](https://terminalcss.xyz/)
