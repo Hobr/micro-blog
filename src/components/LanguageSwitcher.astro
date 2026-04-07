@@ -4,13 +4,15 @@ import type { AlternateLink, Locale } from "../i18n/config";
 interface Props {
     currentLocale: Locale;
     label: string;
+    shortLabel: string;
     alternateLinks: AlternateLink[];
 }
 
-const { currentLocale, label, alternateLinks } = Astro.props;
+const { currentLocale, label, shortLabel, alternateLinks } = Astro.props;
 ---
 
 <nav class="terminal-menu language-switcher" aria-label={label}>
+    <span class="language-switcher__label">{shortLabel}</span>
     <ul>
         {
             alternateLinks.map((link) => (

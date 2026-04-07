@@ -122,14 +122,13 @@ code {
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
+    min-width: 14rem;
     width: auto;
 }
 
-.language-switcher::before {
+.language-switcher__label {
     color: var(--text-soft);
-    content: "lang";
     font-size: 0.9rem;
-    text-transform: lowercase;
 }
 
 .language-switcher__link {
@@ -156,18 +155,21 @@ code {
 }
 
 .site-footer {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: space-between;
     gap: 1rem 2rem;
     margin-top: 2rem;
     padding-top: 1rem;
     border-top: 1px solid var(--surface-border);
 }
 
-.language-switcher {
-    margin-left: auto;
+.site-footer__copyright {
+    margin: 0;
+    min-width: 0;
+    color: var(--text-soft);
+    text-align: center;
+    white-space: nowrap;
 }
 
 .page-shell {
@@ -257,6 +259,16 @@ code {
 
     .site-footer {
         flex-wrap: wrap;
+    }
+
+    .site-footer {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+
+    .site-footer__copyright {
+        text-align: left;
+        white-space: normal;
     }
 
     .theme-switcher__select {

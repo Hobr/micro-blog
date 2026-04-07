@@ -34,6 +34,7 @@ const {
 
 const siteBase = Astro.site ?? Astro.url;
 const canonical = new URL(canonicalPath, siteBase).href;
+const currentYear = new Date().getFullYear();
 const themeStyles = getThemeStyles();
 const themeBootstrapScript = `
 (() => {
@@ -84,9 +85,14 @@ const themeBootstrapScript = `
             <slot />
             <footer class="site-footer" lang={locale}>
                 <ThemeSwitcher label={dictionary.brand.themeLabel} />
+                <p class="site-footer__copyright">
+                    &copy; {currentYear}
+                    {dictionary.brand.name}
+                </p>
                 <LanguageSwitcher
                     currentLocale={locale}
                     label={dictionary.brand.switcherLabel}
+                    shortLabel={dictionary.brand.switcherShortLabel}
                     alternateLinks={alternateLinks}
                 />
             </footer>

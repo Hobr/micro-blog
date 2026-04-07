@@ -4,6 +4,7 @@ export const en = {
         name: "Hobr.SITE",
         meta: "static portal / blog / typst logs",
         switcherLabel: "Language switcher",
+        switcherShortLabel: "Language",
         themeLabel: "Theme",
     },
     nav: {
@@ -28,7 +29,7 @@ export const en = {
         sitesTitle: "SITE INDEX",
         sitesSubtitle: "ls ~/sites && open <target>",
         latestTitle: "LATEST POSTS",
-        latestSubtitle: "tail -n 5 journal.log",
+        latestSubtitle: "tail -n 5 log.log",
         viewAll: "View all posts",
     },
     blogIndex: {

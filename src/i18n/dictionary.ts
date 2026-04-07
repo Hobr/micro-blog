@@ -11,6 +11,7 @@ export type SiteDictionary = {
         name: string;
         meta: string;
         switcherLabel: string;
+        switcherShortLabel: string;
         themeLabel: string;
     };
     nav: {
