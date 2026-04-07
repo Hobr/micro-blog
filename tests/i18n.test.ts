@@ -150,34 +150,25 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getDictionary("en").nav.blog, "Blog");
     assert.equal(getDictionary("ja").nav.blog, "ブログ");
 
-    assert.equal(
-        getProfile("en").links.find((link) => link.href === "/en/blog")?.label,
-        "Blog",
-    );
     assert.equal(getProfile("ja").eyebrow, "プロフィール");
-    assert.equal(
-        getProfile("ja").links.find((link) => link.label === "ブログ")?.href,
-        "/ja/blog",
-    );
     assert.equal(getProfile("zh-CN").avatarAlt, "Hobr 头像");
     assert.equal(getProfile("ja").stackLabel, "技術スタック");
-    assert.equal(getProfile("ja").linksLabel, "リンク");
     assert.equal(getDictionary("zh-CN").nav.primaryLabel, "主导航");
     assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
     assert.equal(getDictionary("zh-CN").home.profileTitle, "个人档案");
     assert.equal(getDictionary("ja").home.latestTitle, "最新記事");
     assert.equal(getDictionary("ja").blogIndex.openArchive, "開く /archive");
 
-    assert.equal(getSites("zh-CN")[1].name, "归档");
-    assert.equal(getSites("zh-CN")[0].command, "打开 /blog");
+    assert.equal(getSites("zh-CN")[0].name, "GitHub");
+    assert.equal(getSites("zh-CN")[2].command, "打开 /blog");
     assert.equal(
-        getSites("en")[1].description,
+        getSites("en")[3].description,
         "Chronological index of everything already published.",
     );
-    assert.equal(getSites("ja")[2].name, "タグ");
-    assert.equal(getSites("ja")[2].command, "開く /tags/site");
-    assert.equal(getSites("en")[0].href, "/en/blog");
-    assert.equal(getSites("ja")[1].href, "/ja/archive");
+    assert.equal(getSites("ja")[4].name, "タグ");
+    assert.equal(getSites("ja")[4].command, "開く /tags/site");
+    assert.equal(getSites("en")[0].href, "https://github.com");
+    assert.equal(getSites("ja")[3].href, "/ja/archive");
 });
 
 test("profile and sites keep default-locale compatibility exports", () => {

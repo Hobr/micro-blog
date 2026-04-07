@@ -1,5 +1,7 @@
 ---
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import SiteHeader from "../components/SiteHeader.astro";
+import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 import {
     THEME_STORAGE_KEY,
     defaultThemeId,
@@ -78,12 +80,16 @@ const themeBootstrapScript = `
     </head>
     <body class="terminal">
         <div class="site-shell">
-            <SiteHeader
-                locale={locale}
-                dictionary={dictionary}
-                alternateLinks={alternateLinks}
-            />
+            <SiteHeader locale={locale} dictionary={dictionary} />
             <slot />
+            <footer class="site-footer" lang={locale}>
+                <ThemeSwitcher label={dictionary.brand.themeLabel} />
+                <LanguageSwitcher
+                    currentLocale={locale}
+                    label={dictionary.brand.switcherLabel}
+                    alternateLinks={alternateLinks}
+                />
+            </footer>
         </div>
     </body>
 </html>

@@ -1,17 +1,14 @@
 ---
-import LanguageSwitcher from "./LanguageSwitcher.astro";
-import ThemeSwitcher from "./ThemeSwitcher.astro";
-import type { AlternateLink, Locale } from "../i18n/config";
+import type { Locale } from "../i18n/config";
 import type { SiteDictionary } from "../i18n/dictionary";
 import { stripLocaleFromPathname, toLocalePath } from "../i18n/config";
 
 interface Props {
     locale: Locale;
     dictionary: SiteDictionary;
-    alternateLinks: AlternateLink[];
 }
 
-const { locale, dictionary, alternateLinks } = Astro.props;
+const { locale, dictionary } = Astro.props;
 const { pathnameWithoutLocale } = stripLocaleFromPathname(Astro.url.pathname);
 
 const links = [
@@ -54,44 +51,34 @@ const activeSection =
             </a>
             <p class="site-brand__meta">{dictionary.brand.meta}</p>
         </div>
-        <div class="site-header__controls">
-            <nav
-                class="terminal-menu site-nav"
-                aria-label={dictionary.nav.primaryLabel}
-            >
-                <ul>
-                    {
-                        links.map((link) => (
-                            <li>
-                                <a
-                                    class:list={[
-                                        "site-nav__link",
-                                        {
-                                            active: activeSection === link.key,
-                                        },
-                                    ]}
-                                    href={link.href}
-                                    aria-current={
-                                        activeSection === link.key
-                                            ? "page"
-                                            : undefined
-                                    }
-                                >
-                                    {link.label}
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </nav>
-            <div class="site-header__meta">
-                <ThemeSwitcher label={dictionary.brand.themeLabel} />
-                <LanguageSwitcher
-                    currentLocale={locale}
-                    label={dictionary.brand.switcherLabel}
-                    alternateLinks={alternateLinks}
-                />
-            </div>
-        </div>
+        <nav
+            class="terminal-menu site-nav"
+            aria-label={dictionary.nav.primaryLabel}
+        >
+            <ul>
+                {
+                    links.map((link) => (
+                        <li>
+                            <a
+                                class:list={[
+                                    "site-nav__link",
+                                    {
+                                        active: activeSection === link.key,
+                                    },
+                                ]}
+                                href={link.href}
+                                aria-current={
+                                    activeSection === link.key
+                                        ? "page"
+                                        : undefined
+                                }
+                            >
+                                {link.label}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
     </div>
 </header>

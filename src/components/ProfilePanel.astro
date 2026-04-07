@@ -18,13 +18,4 @@ const { profile } = Astro.props;
         <strong>{profile.stackLabel}:</strong>
         {profile.stack.join(", ")}
     </p>
-    <ul aria-label={profile.linksLabel}>
-        {
-            profile.links.map((link) => (
-                <li>
-                    <a href={link.href}>{link.label}</a>
-                </li>
-            ))
-        }
-    </ul>
 </section>

@@ -1,4 +1,4 @@
-import { defaultLocale, toLocalePath, type Locale } from "../i18n/config.ts";
+import { defaultLocale, type Locale } from "../i18n/config.ts";
 
 export type ProfileData = {
     name: string;
@@ -9,8 +9,6 @@ export type ProfileData = {
     avatarAlt: string;
     stack: string[];
     stackLabel: string;
-    links: Array<{ label: string; href: string }>;
-    linksLabel: string;
 };
 
 const profiles: Record<Locale, ProfileData> = {
@@ -23,12 +21,6 @@ const profiles: Record<Locale, ProfileData> = {
         avatarAlt: "Hobr 头像",
         stack: ["TypeScript", "Astro", "Svelte", "Typst", "Nix"],
         stackLabel: "技术栈",
-        links: [
-            { label: "GitHub", href: "https://github.com" },
-            { label: "邮箱", href: "mailto:hello@hobr.site" },
-            { label: "博客", href: toLocalePath("zh-CN", "/blog") },
-        ],
-        linksLabel: "站点链接",
     },
     en: {
         name: "Hobr",
@@ -39,12 +31,6 @@ const profiles: Record<Locale, ProfileData> = {
         avatarAlt: "Hobr avatar",
         stack: ["TypeScript", "Astro", "Svelte", "Typst", "Nix"],
         stackLabel: "Tech stack",
-        links: [
-            { label: "GitHub", href: "https://github.com" },
-            { label: "Email", href: "mailto:hello@hobr.site" },
-            { label: "Blog", href: toLocalePath("en", "/blog") },
-        ],
-        linksLabel: "Links",
     },
     ja: {
         name: "Hobr",
@@ -55,12 +41,6 @@ const profiles: Record<Locale, ProfileData> = {
         avatarAlt: "Hobr のアバター",
         stack: ["TypeScript", "Astro", "Svelte", "Typst", "Nix"],
         stackLabel: "技術スタック",
-        links: [
-            { label: "GitHub", href: "https://github.com" },
-            { label: "メール", href: "mailto:hello@hobr.site" },
-            { label: "ブログ", href: toLocalePath("ja", "/blog") },
-        ],
-        linksLabel: "リンク",
     },
 };
 
