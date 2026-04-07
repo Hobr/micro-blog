@@ -27,7 +27,9 @@ const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
 >
     <main class="page-shell">
         <section class="page-intro">
-            <p class="page-eyebrow">{dictionary.blogIndex.eyebrow}</p>
+            <p class="page-eyebrow terminal-prompt">
+                {dictionary.blogIndex.eyebrow}
+            </p>
             <h1 class="page-title">{dictionary.blogIndex.heading}</h1>
             <p class="page-copy">{dictionary.blogIndex.copy}</p>
         </section>

@@ -217,6 +217,20 @@ code {
     text-transform: uppercase;
 }
 
+.page-eyebrow.terminal-prompt {
+    display: inline-block;
+    width: fit-content;
+}
+
+.page-eyebrow.terminal-prompt::before {
+    color: var(--accent-secondary);
+}
+
+.page-eyebrow.terminal-prompt::after {
+    margin-left: 0.35rem;
+    background: var(--accent-primary);
+}
+
 .page-title {
     margin: 0;
     padding: 0;

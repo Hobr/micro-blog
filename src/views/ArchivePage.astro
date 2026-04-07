@@ -25,7 +25,9 @@ const { locale, dictionary, archiveGroups, alternateLinks } = Astro.props;
 >
     <main class="page-shell">
         <section class="page-intro">
-            <p class="page-eyebrow">{dictionary.archive.eyebrow}</p>
+            <p class="page-eyebrow terminal-prompt">
+                {dictionary.archive.eyebrow}
+            </p>
             <h1 class="page-title">{dictionary.archive.heading}</h1>
             <p class="page-copy">{dictionary.archive.copy}</p>
         </section>

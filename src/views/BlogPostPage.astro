@@ -33,7 +33,9 @@ const { locale, dictionary, post, previous, next, Content, alternateLinks } =
 >
     <main class="page-shell">
         <section class="page-intro" lang={locale}>
-            <p class="page-eyebrow">{dictionary.articlePage.eyebrow}</p>
+            <p class="page-eyebrow terminal-prompt">
+                {dictionary.articlePage.eyebrow}
+            </p>
             <h1 class="page-title">{post.title}</h1>
             <p class="page-copy">
                 {dictionary.articlePage.intro(post.dateLabel)}
