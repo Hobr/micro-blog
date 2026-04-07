@@ -9,17 +9,12 @@
     let { sites = [], label = "Owned sites" }: Props = $props();
 </script>
 
-<ul class="site-command-list" aria-label={label}>
+<ul aria-label={label}>
     {#each sites as site (site.href)}
         <li>
-            <a class="site-command" href={site.href}>
-                <span class="site-command__line">
-                    <span class="site-command__prompt">$</span>
-                    <span>{site.command}</span>
-                    <span class="site-command__name">[{site.name}]</span>
-                </span>
-                <span class="site-command__desc">{site.description}</span>
-            </a>
+            <a href={site.href}>{site.command}</a>
+            <small>[{site.name}]</small>
+            <p>{site.description}</p>
         </li>
     {/each}
 </ul>

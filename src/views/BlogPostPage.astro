@@ -1,7 +1,6 @@
 ---
 import PostPagination from "../components/PostPagination.astro";
 import TagList from "../components/TagList.astro";
-import TerminalWindow from "../components/TerminalWindow.astro";
 import type { AlternateLink, Locale } from "../i18n/config";
 import { toLocalePath, defaultLocale } from "../i18n/config";
 import type { SiteDictionary } from "../i18n/dictionary";
@@ -33,32 +32,24 @@ const { locale, dictionary, post, previous, next, Content, alternateLinks } =
 >
     <main class="page-shell">
         <section class="page-intro" lang={locale}>
-            <p class="page-eyebrow terminal-prompt">
-                {dictionary.articlePage.eyebrow}
-            </p>
-            <h1 class="page-title">{post.title}</h1>
-            <p class="page-copy">
-                {dictionary.articlePage.intro(post.dateLabel)}
-            </p>
+            <p class="terminal-prompt">{dictionary.articlePage.eyebrow}</p>
+            <h1>{post.title}</h1>
+            <p>{dictionary.articlePage.intro(post.dateLabel)}</p>
         </section>
 
         <article class="article-shell">
-            <TerminalWindow
-                title={dictionary.articlePage.articleTitle}
-                subtitle={toLocalePath(locale, `/blog/${post.slug}`)}
-                chromeLang={locale}
-            >
+            <section class="page-block" lang={locale}>
+                <h2>{dictionary.articlePage.articleTitle}</h2>
+                <p>{toLocalePath(locale, `/blog/${post.slug}`)}</p>
                 <div class="article-body">
                     <Content />
                 </div>
-            </TerminalWindow>
+            </section>
 
-            <TerminalWindow
-                title={dictionary.articlePage.metaTitleLabel}
-                subtitle={dictionary.articlePage.metaSubtitle}
-                chromeLang={locale}
-            >
-                <div class="article-footer" lang={locale}>
+            <section class="page-block" lang={locale}>
+                <h2>{dictionary.articlePage.metaTitleLabel}</h2>
+                <p>{dictionary.articlePage.metaSubtitle}</p>
+                <div class="article-footer">
                     <TagList
                         tags={post.tags}
                         locale={locale}
@@ -74,7 +65,7 @@ const { locale, dictionary, post, previous, next, Content, alternateLinks } =
                         emptyNextLabel={dictionary.articlePage.latestEntry}
                     />
                 </div>
-            </TerminalWindow>
+            </section>
         </article>
     </main>
 </Layout>

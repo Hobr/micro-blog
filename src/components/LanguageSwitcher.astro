@@ -10,23 +10,27 @@ interface Props {
 const { currentLocale, label, alternateLinks } = Astro.props;
 ---
 
-<nav class="language-switcher" aria-label={label}>
-    {
-        alternateLinks.map((link) => (
-            <a
-                class:list={[
-                    "language-switcher__link",
-                    { "is-active": link.locale === currentLocale },
-                ]}
-                href={link.href}
-                hreflang={link.lang}
-                lang={link.lang}
-                aria-current={
-                    link.locale === currentLocale ? "page" : undefined
-                }
-            >
-                {link.label}
-            </a>
-        ))
-    }
+<nav class="terminal-menu language-switcher" aria-label={label}>
+    <ul>
+        {
+            alternateLinks.map((link) => (
+                <li>
+                    <a
+                        class:list={[
+                            "language-switcher__link",
+                            { active: link.locale === currentLocale },
+                        ]}
+                        href={link.href}
+                        hreflang={link.lang}
+                        lang={link.lang}
+                        aria-current={
+                            link.locale === currentLocale ? "page" : undefined
+                        }
+                    >
+                        {link.label}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
 </nav>

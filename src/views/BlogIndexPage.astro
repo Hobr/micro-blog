@@ -1,6 +1,5 @@
 ---
 import PostList from "../components/PostList.astro";
-import TerminalWindow from "../components/TerminalWindow.astro";
 import Layout from "../layouts/Layout.astro";
 import type { AlternateLink, Locale } from "../i18n/config";
 import { toLocalePath } from "../i18n/config";
@@ -27,51 +26,52 @@ const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
 >
     <main class="page-shell">
         <section class="page-intro">
-            <p class="page-eyebrow terminal-prompt">
-                {dictionary.blogIndex.eyebrow}
-            </p>
-            <h1 class="page-title">{dictionary.blogIndex.heading}</h1>
-            <p class="page-copy">{dictionary.blogIndex.copy}</p>
+            <p class="terminal-prompt">{dictionary.blogIndex.eyebrow}</p>
+            <h1>{dictionary.blogIndex.heading}</h1>
+            <p>{dictionary.blogIndex.copy}</p>
         </section>
 
         <section class="content-grid">
-            <TerminalWindow
-                title={dictionary.blogIndex.listTitle}
-                subtitle={dictionary.blogIndex.listSubtitle}
-            >
+            <section class="page-block">
+                <h2>{dictionary.blogIndex.listTitle}</h2>
+                <p>{dictionary.blogIndex.listSubtitle}</p>
                 <PostList
                     posts={posts}
                     locale={locale}
                     emptyMessage={dictionary.common.noPosts}
                 />
-            </TerminalWindow>
+            </section>
 
-            <TerminalWindow
-                title={dictionary.blogIndex.navTitle}
-                subtitle={dictionary.blogIndex.navSubtitle}
-            >
-                <div class="side-nav">
-                    <a
-                        class="profile-link"
-                        href={toLocalePath(locale, "/archive")}
-                    >
-                        {dictionary.blogIndex.openArchive}
-                    </a>
-                    {
-                        tags.map((tag) => (
-                            <a
-                                class="profile-link"
-                                href={toLocalePath(
-                                    locale,
-                                    `/tags/${encodeURIComponent(tag)}`,
-                                )}
-                            >
-                                {dictionary.blogIndex.openTag(tag)}
+            <section class="page-block">
+                <h2>{dictionary.blogIndex.navTitle}</h2>
+                <p>{dictionary.blogIndex.navSubtitle}</p>
+                <nav
+                    class="terminal-menu"
+                    aria-label={dictionary.blogIndex.navTitle}
+                >
+                    <ul>
+                        <li>
+                            <a href={toLocalePath(locale, "/archive")}>
+                                {dictionary.blogIndex.openArchive}
                             </a>
-                        ))
-                    }
-                </div>
-            </TerminalWindow>
+                        </li>
+                        {
+                            tags.map((tag) => (
+                                <li>
+                                    <a
+                                        href={toLocalePath(
+                                            locale,
+                                            `/tags/${encodeURIComponent(tag)}`,
+                                        )}
+                                    >
+                                        {dictionary.blogIndex.openTag(tag)}
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </nav>
+            </section>
         </section>
     </main>
 </Layout>

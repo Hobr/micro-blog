@@ -55,26 +55,34 @@ const activeSection =
             <p class="site-brand__meta">{dictionary.brand.meta}</p>
         </div>
         <div class="site-header__controls">
-            <nav class="site-nav" aria-label={dictionary.nav.primaryLabel}>
-                {
-                    links.map((link) => (
-                        <a
-                            class:list={[
-                                "site-nav__link",
-                                { "is-active": activeSection === link.key },
-                            ]}
-                            href={link.href}
-                            aria-current={
-                                activeSection === link.key ? "page" : undefined
-                            }
-                        >
-                            <span class="site-nav__prompt" aria-hidden="true">
-                                $
-                            </span>
-                            <span>{link.label}</span>
-                        </a>
-                    ))
-                }
+            <nav
+                class="terminal-menu site-nav"
+                aria-label={dictionary.nav.primaryLabel}
+            >
+                <ul>
+                    {
+                        links.map((link) => (
+                            <li>
+                                <a
+                                    class:list={[
+                                        "site-nav__link",
+                                        {
+                                            active: activeSection === link.key,
+                                        },
+                                    ]}
+                                    href={link.href}
+                                    aria-current={
+                                        activeSection === link.key
+                                            ? "page"
+                                            : undefined
+                                    }
+                                >
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
             </nav>
             <div class="site-header__meta">
                 <ThemeSwitcher label={dictionary.brand.themeLabel} />

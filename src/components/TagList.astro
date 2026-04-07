@@ -11,12 +11,11 @@ interface Props {
 const { tags, locale, label } = Astro.props;
 ---
 
-<ul class="tag-list" aria-label={label}>
+<ul aria-label={label}>
     {
         tags.map((tag) => (
             <li>
                 <a
-                    class="tag-list__link"
                     href={toLocalePath(
                         locale,
                         `/tags/${encodeURIComponent(tag)}`,

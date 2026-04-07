@@ -27,34 +27,36 @@ const {
 <div class="post-pagination">
     {
         previous ? (
-            <a
-                class="post-pagination__link"
-                href={toLocalePath(locale, `/blog/${previous.slug}`)}
-            >
-                <span class="post-pagination__direction">{previousLabel}</span>
-                <strong>{previous.title}</strong>
-            </a>
+            <p>
+                <small>{previousLabel}</small>
+                <br />
+                <a href={toLocalePath(locale, `/blog/${previous.slug}`)}>
+                    {previous.title}
+                </a>
+            </p>
         ) : (
-            <div class="post-pagination__empty">
-                <span class="post-pagination__direction">{previousLabel}</span>
+            <p>
+                <small>{previousLabel}</small>
+                <br />
                 <strong>{emptyPreviousLabel}</strong>
-            </div>
+            </p>
         )
     }
     {
         next ? (
-            <a
-                class="post-pagination__link"
-                href={toLocalePath(locale, `/blog/${next.slug}`)}
-            >
-                <span class="post-pagination__direction">{nextLabel}</span>
-                <strong>{next.title}</strong>
-            </a>
+            <p>
+                <small>{nextLabel}</small>
+                <br />
+                <a href={toLocalePath(locale, `/blog/${next.slug}`)}>
+                    {next.title}
+                </a>
+            </p>
         ) : (
-            <div class="post-pagination__empty">
-                <span class="post-pagination__direction">{nextLabel}</span>
+            <p>
+                <small>{nextLabel}</small>
+                <br />
                 <strong>{emptyNextLabel}</strong>
-            </div>
+            </p>
         )
     }
 </div>

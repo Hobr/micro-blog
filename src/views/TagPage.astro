@@ -1,6 +1,5 @@
 ---
 import PostList from "../components/PostList.astro";
-import TerminalWindow from "../components/TerminalWindow.astro";
 import type { AlternateLink, Locale } from "../i18n/config";
 import type { SiteDictionary } from "../i18n/dictionary";
 import Layout from "../layouts/Layout.astro";
@@ -26,22 +25,19 @@ const { locale, dictionary, tag, posts, alternateLinks } = Astro.props;
 >
     <main class="page-shell">
         <section class="page-intro">
-            <p class="page-eyebrow terminal-prompt">
-                {dictionary.tagPage.eyebrow}
-            </p>
-            <h1 class="page-title">{dictionary.tagPage.heading(tag)}</h1>
-            <p class="page-copy">{dictionary.tagPage.copy}</p>
+            <p class="terminal-prompt">{dictionary.tagPage.eyebrow}</p>
+            <h1>{dictionary.tagPage.heading(tag)}</h1>
+            <p>{dictionary.tagPage.copy}</p>
         </section>
 
-        <TerminalWindow
-            title={dictionary.tagPage.panelTitle}
-            subtitle={dictionary.tagPage.panelSubtitle(tag)}
-        >
+        <section class="page-block">
+            <h2>{dictionary.tagPage.panelTitle}</h2>
+            <p>{dictionary.tagPage.panelSubtitle(tag)}</p>
             <PostList
                 posts={posts}
                 locale={locale}
                 emptyMessage={dictionary.tagPage.empty}
             />
-        </TerminalWindow>
+        </section>
     </main>
 </Layout>
