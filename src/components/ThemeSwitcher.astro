@@ -2,7 +2,7 @@
 import {
     THEME_STORAGE_KEY,
     defaultThemeId,
-    getThemesByFamily,
+    themes,
     themeIds,
 } from "../data/themes";
 
@@ -11,7 +11,6 @@ interface Props {
 }
 
 const { label } = Astro.props;
-const themeGroups = getThemesByFamily();
 ---
 
 <label class="theme-switcher">
@@ -22,25 +21,13 @@ const themeGroups = getThemesByFamily();
         aria-label={label}
         data-theme-select
     >
-        <optgroup label="Base16">
-            {
-                themeGroups.base16.map((theme) => (
-                    <option
-                        value={theme.id}
-                        selected={theme.id === defaultThemeId}
-                    >
-                        {theme.label}
-                    </option>
-                ))
-            }
-        </optgroup>
-        <optgroup label="Base24">
-            {
-                themeGroups.base24.map((theme) => (
-                    <option value={theme.id}>{theme.label}</option>
-                ))
-            }
-        </optgroup>
+        {
+            themes.map((theme) => (
+                <option value={theme.id} selected={theme.id === defaultThemeId}>
+                    {theme.label}
+                </option>
+            ))
+        }
     </select>
 </label>
 

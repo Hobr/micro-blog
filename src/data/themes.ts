@@ -1,4 +1,3 @@
-export type ThemeFamily = "base16" | "base24";
 export type ThemeVariant = "light" | "dark";
 
 type ThemePalette = Record<string, string>;
@@ -6,7 +5,6 @@ type ThemePalette = Record<string, string>;
 export type SiteTheme = {
     id: string;
     label: string;
-    family: ThemeFamily;
     variant: ThemeVariant;
     palette: ThemePalette;
 };
@@ -17,7 +15,6 @@ export const themes: SiteTheme[] = [
     {
         id: "default-dark",
         label: "Default Dark",
-        family: "base16",
         variant: "dark",
         palette: {
             base00: "#181818",
@@ -41,7 +38,6 @@ export const themes: SiteTheme[] = [
     {
         id: "gruvbox-dark-hard",
         label: "Gruvbox Dark Hard",
-        family: "base16",
         variant: "dark",
         palette: {
             base00: "#1d2021",
@@ -65,7 +61,6 @@ export const themes: SiteTheme[] = [
     {
         id: "nord",
         label: "Nord",
-        family: "base16",
         variant: "dark",
         palette: {
             base00: "#2e3440",
@@ -89,7 +84,6 @@ export const themes: SiteTheme[] = [
     {
         id: "catppuccin-mocha",
         label: "Catppuccin Mocha",
-        family: "base16",
         variant: "dark",
         palette: {
             base00: "#1e1e2e",
@@ -113,7 +107,6 @@ export const themes: SiteTheme[] = [
     {
         id: "ayu-light",
         label: "Ayu Light",
-        family: "base16",
         variant: "light",
         palette: {
             base00: "#fafafa",
@@ -134,81 +127,10 @@ export const themes: SiteTheme[] = [
             base0F: "#e6ba7e",
         },
     },
-    {
-        id: "github-dark",
-        label: "Github Dark",
-        family: "base24",
-        variant: "dark",
-        palette: {
-            base00: "#161b22",
-            base01: "#30363d",
-            base02: "#484f58",
-            base03: "#6e7681",
-            base04: "#8b949e",
-            base05: "#c9d1d9",
-            base06: "#f0f6fc",
-            base07: "#ffffff",
-            base08: "#f85149",
-            base09: "#db6d28",
-            base0A: "#bb8009",
-            base0B: "#2ea043",
-            base0C: "#2a9d9a",
-            base0D: "#388bfd",
-            base0E: "#a371f7",
-            base0F: "#3d2f00",
-            base10: "#1f2328",
-            base11: "#000000",
-            base12: "#ff7b72",
-            base13: "#d29922",
-            base14: "#3fb950",
-            base15: "#33b3ae",
-            base16: "#58a6ff",
-            base17: "#bc8cff",
-        },
-    },
-    {
-        id: "github-light",
-        label: "Github Light",
-        family: "base24",
-        variant: "light",
-        palette: {
-            base00: "#eaeef2",
-            base01: "#d0d7de",
-            base02: "#afb8c1",
-            base03: "#8c959f",
-            base04: "#6e7781",
-            base05: "#424a53",
-            base06: "#32383f",
-            base07: "#1f2328",
-            base08: "#fa4549",
-            base09: "#e16f24",
-            base0A: "#bf8700",
-            base0B: "#2da44e",
-            base0C: "#339d9b",
-            base0D: "#218bff",
-            base0E: "#a475f9",
-            base0F: "#4d2d00",
-            base10: "#1f2328",
-            base11: "#000000",
-            base12: "#ff8182",
-            base13: "#d4a72c",
-            base14: "#4ac26b",
-            base15: "#49bcb7",
-            base16: "#54aeff",
-            base17: "#c297ff",
-        },
-    },
 ];
 
 export const defaultThemeId = "default-dark";
 export const themeIds = themes.map((theme) => theme.id);
-
-export function getThemesByFamily() {
-    return {
-        base16: themes.filter((theme) => theme.family === "base16"),
-        base24: themes.filter((theme) => theme.family === "base24"),
-    };
-}
 
 export function getThemeStyles() {
     const themeRules = themes
