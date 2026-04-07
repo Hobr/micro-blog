@@ -8,19 +8,24 @@ interface Props {
 const { title, subtitle, chromeLang } = Astro.props;
 ---
 
-<section class="terminal-window">
-    <header class="terminal-window__header" lang={chromeLang}>
-        <div class="terminal-window__lights" aria-hidden="true">
-            <span class="terminal-window__light is-red"></span>
-            <span class="terminal-window__light is-amber"></span>
-            <span class="terminal-window__light is-cyan"></span>
-        </div>
-        <div class="terminal-window__meta">
-            <p class="terminal-window__title">{title}</p>
-            {subtitle && <p class="terminal-window__subtitle">{subtitle}</p>}
-        </div>
+<section class="terminal-window terminal-block">
+    <header
+        class="terminal-window__header terminal-block__header"
+        lang={chromeLang}
+    >
+        <p class="terminal-window__title terminal-block__title">
+            <span class="terminal-window__prompt" aria-hidden="true">$</span>
+            <span>{title}</span>
+        </p>
+        {
+            subtitle && (
+                <p class="terminal-window__subtitle terminal-block__subtitle">
+                    {subtitle}
+                </p>
+            )
+        }
     </header>
-    <div class="terminal-window__body">
+    <div class="terminal-window__body terminal-block__body">
         <slot />
     </div>
 </section>

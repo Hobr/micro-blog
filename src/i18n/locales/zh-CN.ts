@@ -4,6 +4,7 @@ export const zhCN = {
         name: "Hobr.SITE",
         meta: "静态门户 / 博客 / Typst 日志",
         switcherLabel: "语言切换",
+        themeLabel: "主题",
     },
     nav: {
         home: "首页",

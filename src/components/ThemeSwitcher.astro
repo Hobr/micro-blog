@@ -1,0 +1,97 @@
+---
+import {
+    THEME_STORAGE_KEY,
+    defaultThemeId,
+    getThemesByFamily,
+    themeIds,
+} from "../data/themes";
+
+interface Props {
+    label: string;
+}
+
+const { label } = Astro.props;
+const themeGroups = getThemesByFamily();
+---
+
+<label class="theme-switcher">
+    <span class="theme-switcher__label">{label}</span>
+    <select
+        class="theme-switcher__select"
+        name="theme"
+        aria-label={label}
+        data-theme-select
+    >
+        <optgroup label="Base16">
+            {
+                themeGroups.base16.map((theme) => (
+                    <option
+                        value={theme.id}
+                        selected={theme.id === defaultThemeId}
+                    >
+                        {theme.label}
+                    </option>
+                ))
+            }
+        </optgroup>
+        <optgroup label="Base24">
+            {
+                themeGroups.base24.map((theme) => (
+                    <option value={theme.id}>{theme.label}</option>
+                ))
+            }
+        </optgroup>
+    </select>
+</label>
+
+<script
+    is:inline
+    define:vars={{
+        storageKey: THEME_STORAGE_KEY,
+        fallbackTheme: defaultThemeId,
+        knownThemes: themeIds,
+    }}
+>
+    const applyTheme = (themeId) => {
+        document.documentElement.dataset.theme = themeId;
+        document.querySelectorAll("[data-theme-select]").forEach((select) => {
+            if (select instanceof HTMLSelectElement) {
+                select.value = themeId;
+            }
+        });
+    };
+
+    const readTheme = () => {
+        try {
+            const stored = window.localStorage.getItem(storageKey);
+            return stored && knownThemes.includes(stored)
+                ? stored
+                : fallbackTheme;
+        } catch {
+            return fallbackTheme;
+        }
+    };
+
+    applyTheme(readTheme());
+
+    document.addEventListener("change", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLSelectElement)) {
+            return;
+        }
+
+        if (!target.matches("[data-theme-select]")) {
+            return;
+        }
+
+        const nextTheme = knownThemes.includes(target.value)
+            ? target.value
+            : fallbackTheme;
+
+        applyTheme(nextTheme);
+
+        try {
+            window.localStorage.setItem(storageKey, nextTheme);
+        } catch {}
+    });
+</script>

@@ -1,5 +1,11 @@
 ---
 import SiteHeader from "../components/SiteHeader.astro";
+import {
+    THEME_STORAGE_KEY,
+    defaultThemeId,
+    getThemeStyles,
+    themeIds,
+} from "../data/themes";
 import type { AlternateLink, Locale } from "../i18n/config";
 import type { SiteDictionary } from "../i18n/dictionary";
 import "../styles/global.css";
@@ -26,10 +32,28 @@ const {
 
 const siteBase = Astro.site ?? Astro.url;
 const canonical = new URL(canonicalPath, siteBase).href;
+const themeStyles = getThemeStyles();
+const themeBootstrapScript = `
+(() => {
+    const storageKey = ${JSON.stringify(THEME_STORAGE_KEY)};
+    const fallbackTheme = ${JSON.stringify(defaultThemeId)};
+    const knownThemes = new Set(${JSON.stringify(themeIds)});
+    let nextTheme = fallbackTheme;
+
+    try {
+        const storedTheme = window.localStorage.getItem(storageKey);
+        if (storedTheme && knownThemes.has(storedTheme)) {
+            nextTheme = storedTheme;
+        }
+    } catch {}
+
+    document.documentElement.dataset.theme = nextTheme;
+})();
+`;
 ---
 
 <!doctype html>
-<html lang={documentLang}>
+<html lang={documentLang} data-theme={defaultThemeId}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -48,9 +72,11 @@ const canonical = new URL(canonicalPath, siteBase).href;
         }
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
+        <style is:inline set:html={themeStyles}></style>
+        <script is:inline set:html={themeBootstrapScript} />
         <title>{title}</title>
     </head>
-    <body>
+    <body class="terminal">
         <div class="site-shell">
             <SiteHeader
                 locale={locale}

@@ -4,6 +4,7 @@ export const ja = {
         name: "Hobr.SITE",
         meta: "静的ポータル / ブログ / Typst ログ",
         switcherLabel: "言語切替",
+        themeLabel: "テーマ",
     },
     nav: {
         home: "ホーム",

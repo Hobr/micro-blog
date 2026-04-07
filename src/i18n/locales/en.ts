@@ -4,6 +4,7 @@ export const en = {
         name: "Hobr.SITE",
         meta: "static portal / blog / typst logs",
         switcherLabel: "Language switcher",
+        themeLabel: "Theme",
     },
     nav: {
         home: "Home",

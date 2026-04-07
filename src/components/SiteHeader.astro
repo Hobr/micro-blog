@@ -1,5 +1,6 @@
 ---
 import LanguageSwitcher from "./LanguageSwitcher.astro";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
 import type { AlternateLink, Locale } from "../i18n/config";
 import type { SiteDictionary } from "../i18n/dictionary";
 import { stripLocaleFromPathname, toLocalePath } from "../i18n/config";
@@ -48,32 +49,41 @@ const activeSection =
 <header class="site-header" lang={locale}>
     <div class="site-header__inner">
         <div class="site-brand">
-            <p class="site-brand__name">{dictionary.brand.name}</p>
-            <span class="site-brand__meta">{dictionary.brand.meta}</span>
+            <a class="site-brand__name" href={toLocalePath(locale, "/")}>
+                {dictionary.brand.name}
+            </a>
+            <p class="site-brand__meta">{dictionary.brand.meta}</p>
         </div>
-        <nav class="site-nav" aria-label={dictionary.nav.primaryLabel}>
-            {
-                links.map((link) => (
-                    <a
-                        class:list={[
-                            "site-nav__link",
-                            { "is-active": activeSection === link.key },
-                        ]}
-                        href={link.href}
-                        aria-current={
-                            activeSection === link.key ? "page" : undefined
-                        }
-                    >
-                        <span>&gt;</span>
-                        <span>{link.label}</span>
-                    </a>
-                ))
-            }
-        </nav>
-        <LanguageSwitcher
-            currentLocale={locale}
-            label={dictionary.brand.switcherLabel}
-            alternateLinks={alternateLinks}
-        />
+        <div class="site-header__controls">
+            <nav class="site-nav" aria-label={dictionary.nav.primaryLabel}>
+                {
+                    links.map((link) => (
+                        <a
+                            class:list={[
+                                "site-nav__link",
+                                { "is-active": activeSection === link.key },
+                            ]}
+                            href={link.href}
+                            aria-current={
+                                activeSection === link.key ? "page" : undefined
+                            }
+                        >
+                            <span class="site-nav__prompt" aria-hidden="true">
+                                $
+                            </span>
+                            <span>{link.label}</span>
+                        </a>
+                    ))
+                }
+            </nav>
+            <div class="site-header__meta">
+                <ThemeSwitcher label={dictionary.brand.themeLabel} />
+                <LanguageSwitcher
+                    currentLocale={locale}
+                    label={dictionary.brand.switcherLabel}
+                    alternateLinks={alternateLinks}
+                />
+            </div>
+        </div>
     </div>
 </header>
