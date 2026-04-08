@@ -11,7 +11,7 @@ interface Props {
 const { currentLocale, label, shortLabel, alternateLinks } = Astro.props;
 ---
 
-<nav class="terminal-menu language-switcher" aria-label={label}>
+<nav class="language-switcher" aria-label={label}>
     <span class="language-switcher__label">{shortLabel}</span>
     <ul>
         {

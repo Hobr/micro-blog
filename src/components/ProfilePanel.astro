@@ -9,12 +9,7 @@ const { profile } = Astro.props;
 ---
 
 <section>
-    <p>{profile.eyebrow}</p>
     <h2>{profile.name}</h2>
     <p>{profile.role}</p>
     <p>{profile.bio}</p>
-    <p>
-        <strong>{profile.stackLabel}:</strong>
-        {profile.stack.join(", ")}
-    </p>
 </section>

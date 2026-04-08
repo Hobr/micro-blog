@@ -30,7 +30,8 @@
 ```text
 .
 ├── public/
-│   └── avatar.svg
+│   ├── avatar.svg
+│   └── posts/              # Typst 文章图片等静态资源
 ├── src/
 │   ├── components/         # 终端窗口、文章列表、标签、分页等组件
 │   ├── content/
@@ -128,6 +129,27 @@ pnpm preview
 - `/tags/<tag>`
 - `/archive`
 - 上一篇 / 下一篇导航
+
+### 3. Typst 图片资源约定
+
+Typst 博文里的图片统一放在 `public/posts/<slug>/` 下, 例如:
+
+```text
+public/posts/hello-terminal/cover.png
+public/posts/hello-terminal/diagram.png
+```
+
+在 `.typ` 里用项目根目录下的 `public/` 绝对路径引用:
+
+```typ
+#image("/public/posts/hello-terminal/cover.png")
+```
+
+约定:
+
+- 一个 slug 对应一个资源目录, 方便迁移和清理
+- 图片文件名保持英文小写加连字符
+- 优先把文章图片放进 `public/posts/<slug>/`, 不要散落在根级 `public/`
 
 ## 路由说明
 

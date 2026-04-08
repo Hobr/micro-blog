@@ -47,21 +47,12 @@ export type SiteDictionary = {
     tagPage: {
         metaTitle: StringFormatter;
         metaDescription: StringFormatter;
-        eyebrow: string;
-        heading: StringFormatter;
-        copy: string;
-        panelTitle: string;
         panelSubtitle: StringFormatter;
         empty: string;
     };
     articlePage: {
         metaTitle: StringFormatter;
         metaDescription: StringFormatter;
-        eyebrow: string;
-        intro: StringFormatter;
-        articleTitle: string;
-        metaTitleLabel: string;
-        metaSubtitle: string;
         previous: string;
         next: string;
         startOfLog: string;

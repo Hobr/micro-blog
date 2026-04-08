@@ -31,24 +31,15 @@ const { locale, dictionary, post, previous, next, Content, alternateLinks } =
     canonicalPath={toLocalePath(defaultLocale, `/blog/${post.slug}/`)}
 >
     <main class="page-shell">
-        <section class="page-intro" lang={locale}>
-            <p class="terminal-prompt">{dictionary.articlePage.eyebrow}</p>
-            <h1>{post.title}</h1>
-            <p>{dictionary.articlePage.intro(post.dateLabel)}</p>
-        </section>
-
         <article class="article-shell">
-            <section class="page-block" lang={locale}>
-                <h2>{dictionary.articlePage.articleTitle}</h2>
-                <p>{toLocalePath(locale, `/blog/${post.slug}`)}</p>
+            <section class="page-block page-block--flush" lang={locale}>
                 <div class="article-body">
                     <Content />
                 </div>
+                <p>{post.dateLabel}</p>
             </section>
 
             <section class="page-block" lang={locale}>
-                <h2>{dictionary.articlePage.metaTitleLabel}</h2>
-                <p>{dictionary.articlePage.metaSubtitle}</p>
                 <div class="article-footer">
                     <TagList
                         tags={post.tags}

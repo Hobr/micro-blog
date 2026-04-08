@@ -24,15 +24,10 @@ const { locale, dictionary, tag, posts, alternateLinks } = Astro.props;
     alternateLinks={alternateLinks}
 >
     <main class="page-shell">
-        <section class="page-intro">
-            <p class="terminal-prompt">{dictionary.tagPage.eyebrow}</p>
-            <h1>{dictionary.tagPage.heading(tag)}</h1>
-            <p>{dictionary.tagPage.copy}</p>
-        </section>
-
-        <section class="page-block">
-            <h2>{dictionary.tagPage.panelTitle}</h2>
-            <p>{dictionary.tagPage.panelSubtitle(tag)}</p>
+        <section class="page-block page-block--flush">
+            <p class="terminal-prompt">
+                {dictionary.tagPage.panelSubtitle(tag)}
+            </p>
             <PostList
                 posts={posts}
                 locale={locale}

@@ -150,9 +150,7 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getDictionary("en").nav.blog, "Blog");
     assert.equal(getDictionary("ja").nav.blog, "ブログ");
 
-    assert.equal(getProfile("ja").eyebrow, "プロフィール");
     assert.equal(getProfile("zh-CN").avatarAlt, "Hobr 头像");
-    assert.equal(getProfile("ja").stackLabel, "技術スタック");
     assert.equal(getDictionary("zh-CN").nav.primaryLabel, "主导航");
     assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
     assert.equal(getDictionary("ja").blogIndex.openArchive, "開く /archive");
@@ -170,7 +168,6 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
 });
 
 test("profile and sites keep default-locale compatibility exports", () => {
-    assert.equal(profile.eyebrow, getProfile(defaultLocale).eyebrow);
     assert.equal(sites[0].href, getSites(defaultLocale)[0].href);
 });
 

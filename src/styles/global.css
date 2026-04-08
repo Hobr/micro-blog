@@ -110,12 +110,19 @@ code {
 }
 
 .language-switcher ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
     width: auto;
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .language-switcher li {
     margin: 0;
+    padding: 0;
 }
 
 .language-switcher a:not(.btn) {
@@ -131,7 +138,6 @@ code {
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
-    min-width: 14rem;
     width: auto;
 }
 
@@ -184,11 +190,6 @@ code {
 .page-shell {
     display: grid;
     gap: 1.75rem;
-}
-
-.page-intro {
-    padding-bottom: 1rem;
-    border-bottom: 1px dashed var(--surface-border);
 }
 
 .portal-grid,
