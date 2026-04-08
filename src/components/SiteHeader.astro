@@ -1,4 +1,5 @@
 ---
+import { getProfile } from "../data/profile";
 import type { Locale } from "../i18n/config";
 import type { SiteDictionary } from "../i18n/dictionary";
 import { stripLocaleFromPathname, toLocalePath } from "../i18n/config";
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const { locale, dictionary } = Astro.props;
+const profile = getProfile(locale);
 const { pathnameWithoutLocale } = stripLocaleFromPathname(Astro.url.pathname);
 
 const links = [
@@ -44,10 +46,18 @@ const activeSection =
 ---
 
 <header class="site-header" lang={locale}>
-    <div class="site-header__inner">
+    <div class="site-header__inner terminal-nav">
         <div class="site-brand">
             <a class="site-brand__name" href={toLocalePath(locale, "/")}>
                 <span class="terminal-cursor-prefix">
+                    <img
+                        class="site-brand__avatar"
+                        src={profile.avatar}
+                        alt=""
+                        aria-hidden="true"
+                        width="16"
+                        height="16"
+                    />
                     {dictionary.brand.name}
                 </span>
             </a>

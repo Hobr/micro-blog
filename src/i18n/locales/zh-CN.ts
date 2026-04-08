@@ -19,11 +19,8 @@ export const zhCN = {
     home: {
         metaTitle: "Hobr.SITE / 个人首页",
         metaDescription: "个人门户首页, 包含简介、站点导航和最新文章",
-        profileTitle: "个人档案",
         profileSubtitle: "whoami && cat profile.txt",
-        sitesTitle: "站点索引",
         sitesSubtitle: "ls ~/页面 && open <目标>",
-        latestTitle: "最新文章",
         latestSubtitle: "tail -n 5 日志.log",
         viewAll: "查看全部文章",
     },

@@ -20,11 +20,8 @@ export const en = {
         metaTitle: "Hobr.SITE / Personal Portal",
         metaDescription:
             "Personal portal homepage with profile, site navigation, and latest posts.",
-        profileTitle: "PROFILE",
         profileSubtitle: "whoami && cat profile.txt",
-        sitesTitle: "SITE INDEX",
         sitesSubtitle: "ls ~/sites && open <target>",
-        latestTitle: "LATEST POSTS",
         latestSubtitle: "tail -n 5 log.log",
         viewAll: "View all posts",
     },

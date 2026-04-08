@@ -20,11 +20,8 @@ export const ja = {
         metaTitle: "Hobr.SITE / ポータル",
         metaDescription:
             "プロフィール、サイト案内、最新記事をまとめた個人ポータル。",
-        profileTitle: "プロフィール",
         profileSubtitle: "whoami && cat profile.txt",
-        sitesTitle: "サイト一覧",
         sitesSubtitle: "ls ~/sites && 開く <target>",
-        latestTitle: "最新記事",
         latestSubtitle: "tail -n 5 journal.log",
         viewAll: "すべての記事を見る",
     },

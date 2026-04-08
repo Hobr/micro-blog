@@ -26,11 +26,8 @@ export type SiteDictionary = {
     home: {
         metaTitle: string;
         metaDescription: string;
-        profileTitle: string;
         profileSubtitle: string;
-        sitesTitle: string;
         sitesSubtitle: string;
-        latestTitle: string;
         latestSubtitle: string;
         viewAll: string;
     };

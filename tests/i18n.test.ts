@@ -155,8 +155,6 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getProfile("ja").stackLabel, "技術スタック");
     assert.equal(getDictionary("zh-CN").nav.primaryLabel, "主导航");
     assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
-    assert.equal(getDictionary("zh-CN").home.profileTitle, "个人档案");
-    assert.equal(getDictionary("ja").home.latestTitle, "最新記事");
     assert.equal(getDictionary("ja").blogIndex.openArchive, "開く /archive");
 
     assert.equal(getSites("zh-CN")[0].name, "GitHub");
