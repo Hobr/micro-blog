@@ -37,7 +37,8 @@ export const ja = {
     archive: {
         metaTitle: "Hobr.SITE / アーカイブ",
         metaDescription: "年ごとに整理した記事アーカイブ。",
-        panelSubtitle: "年ごとに表示",
+        panelSubtitle:
+            "find ./posts -type f | xargs stat -c %y | cut -d- -f1 | sort -ur",
     },
     tagPage: {
         metaTitle: (tag: string) => `Hobr.SITE / #${tag}`,

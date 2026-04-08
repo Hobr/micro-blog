@@ -29,14 +29,15 @@ export const zhCN = {
         metaDescription: "按时间倒序排列的完整博客文章列表",
         listSubtitle: "ls -lt ./posts",
         navTitle: "导航",
-        navSubtitle: "跳转目标",
+        navSubtitle: "jump <targets>",
         openArchive: "打开 /archive",
         openTag: (tag: string) => `打开 /tags/${tag}`,
     },
     archive: {
         metaTitle: "Hobr.SITE / 归档",
         metaDescription: "按年份整理的全部博客归档",
-        panelSubtitle: "按年份分组",
+        panelSubtitle:
+            "find ./posts -type f | xargs stat -c %y | cut -d- -f1 | sort -ur",
     },
     tagPage: {
         metaTitle: (tag: string) => `Hobr.SITE / #${tag}`,

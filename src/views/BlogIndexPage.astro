@@ -41,32 +41,27 @@ const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
                 <p class="terminal-prompt">
                     {dictionary.blogIndex.navSubtitle}
                 </p>
-                <nav
-                    class="terminal-menu"
-                    aria-label={dictionary.blogIndex.navTitle}
-                >
-                    <ul>
-                        <li>
-                            <a href={toLocalePath(locale, "/archive")}>
-                                {dictionary.blogIndex.openArchive}
-                            </a>
-                        </li>
-                        {
-                            tags.map((tag) => (
-                                <li>
-                                    <a
-                                        href={toLocalePath(
-                                            locale,
-                                            `/tags/${encodeURIComponent(tag)}`,
-                                        )}
-                                    >
-                                        {dictionary.blogIndex.openTag(tag)}
-                                    </a>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </nav>
+                <ul aria-label={dictionary.blogIndex.navTitle}>
+                    <li>
+                        <a href={toLocalePath(locale, "/archive")}>
+                            {dictionary.blogIndex.openArchive}
+                        </a>
+                    </li>
+                    {
+                        tags.map((tag) => (
+                            <li>
+                                <a
+                                    href={toLocalePath(
+                                        locale,
+                                        `/tags/${encodeURIComponent(tag)}`,
+                                    )}
+                                >
+                                    {dictionary.blogIndex.openTag(tag)}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
             </section>
         </section>
     </main>

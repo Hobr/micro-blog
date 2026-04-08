@@ -30,14 +30,15 @@ export const en = {
         metaDescription: "Full list of blog posts sorted by date.",
         listSubtitle: "ls -lt ./posts",
         navTitle: "NAV",
-        navSubtitle: "jump targets",
+        navSubtitle: "jump <目标>",
         openArchive: "open /archive",
         openTag: (tag: string) => `open /tags/${tag}`,
     },
     archive: {
         metaTitle: "Hobr.SITE / Archive",
         metaDescription: "Year-grouped archive of all posts.",
-        panelSubtitle: "group by year",
+        panelSubtitle:
+            "find ./posts -type f | xargs stat -c %y | cut -d- -f1 | sort -ur",
     },
     tagPage: {
         metaTitle: (tag: string) => `Hobr.SITE / #${tag}`,
