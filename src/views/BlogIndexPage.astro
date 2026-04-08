@@ -41,7 +41,7 @@ const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
                 <p class="terminal-prompt">
                     {dictionary.blogIndex.navSubtitle}
                 </p>
-                <ul aria-label={dictionary.blogIndex.navTitle}>
+                <ul aria-label={dictionary.blogIndex.navSubtitle}>
                     <li>
                         <a href={toLocalePath(locale, "/archive")}>
                             {dictionary.blogIndex.openArchive}

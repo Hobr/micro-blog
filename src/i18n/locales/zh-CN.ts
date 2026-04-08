@@ -28,7 +28,6 @@ export const zhCN = {
         metaTitle: "Hobr.SITE / 博客",
         metaDescription: "按时间倒序排列的完整博客文章列表",
         listSubtitle: "ls -lt ./posts",
-        navTitle: "导航",
         navSubtitle: "jump <targets>",
         openArchive: "打开 /archive",
         openTag: (tag: string) => `打开 /tags/${tag}`,

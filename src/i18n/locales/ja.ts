@@ -29,7 +29,6 @@ export const ja = {
         metaTitle: "Hobr.SITE / ブログ",
         metaDescription: "公開済み記事の一覧ページ。",
         listSubtitle: "ls -lt ./posts",
-        navTitle: "ナビ",
         navSubtitle: "移動先",
         openArchive: "開く /archive",
         openTag: (tag: string) => `開く /tags/${tag}`,

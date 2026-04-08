@@ -35,7 +35,6 @@ export type SiteDictionary = {
         metaTitle: string;
         metaDescription: string;
         listSubtitle: string;
-        navTitle: string;
         navSubtitle: string;
         openArchive: string;
         openTag: StringFormatter;

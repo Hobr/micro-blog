@@ -29,7 +29,6 @@ export const en = {
         metaTitle: "Hobr.SITE / Blog",
         metaDescription: "Full list of blog posts sorted by date.",
         listSubtitle: "ls -lt ./posts",
-        navTitle: "NAV",
         navSubtitle: "jump <目标>",
         openArchive: "open /archive",
         openTag: (tag: string) => `open /tags/${tag}`,
