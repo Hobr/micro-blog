@@ -14,15 +14,8 @@
     --page-max-width: 72rem;
 }
 
-html {
-    background: var(--background-color);
-    color: var(--font-color);
-}
-
 body {
     min-height: 100vh;
-    background: var(--background-color);
-    color: var(--font-color);
 }
 
 a:focus-visible,
@@ -116,21 +109,15 @@ code {
     gap: 0.55rem;
     width: auto;
     margin: 0;
-    padding: 0;
-    list-style: none;
 }
 
-.language-switcher li {
-    margin: 0;
-    padding: 0;
-}
-
-.language-switcher a:not(.btn) {
+.language-switcher a {
     width: auto;
+    color: inherit;
 }
 
-.site-nav__link.active,
-.language-switcher__link.active {
+.site-nav a.active,
+.language-switcher a.active {
     color: var(--font-color);
 }
 
@@ -144,10 +131,6 @@ code {
 .language-switcher__label {
     color: var(--text-soft);
     font-size: 0.9rem;
-}
-
-.language-switcher__link {
-    color: inherit;
 }
 
 .theme-switcher {
@@ -278,10 +261,6 @@ code {
     .site-shell {
         width: min(calc(100% - 1rem), var(--page-max-width));
         padding-top: 1rem;
-    }
-
-    .site-footer {
-        flex-wrap: wrap;
     }
 
     .site-footer {

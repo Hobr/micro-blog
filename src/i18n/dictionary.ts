@@ -6,7 +6,6 @@ import { zhCN } from "./locales/zh-CN.ts";
 type StringFormatter = typeof zhCN.blogIndex.openTag;
 
 export type SiteDictionary = {
-    lang: Locale;
     brand: {
         name: string;
         switcherLabel: string;

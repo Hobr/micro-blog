@@ -1,29 +1,6 @@
 # Hobr's Blog
 
-> Hobr的个人门户
-
-一个终端风网站
-
-## 技术栈
-
-- [Astro](https://astro.build/)
-- [Svelte](https://svelte.dev/)
-- [Typst](https://typst.app/)
-- [Typst.ts](https://myriad-dreamin.github.io/typst.ts/)
-- [astro-typst](https://github.com/OverflowCat/astro-typst)
-- [terminal.css](https://terminalcss.xyz/)
-- TypeScript
-
-## 功能概览
-
-- 终端风个人门户首页
-- Typst 内容驱动的静态博客
-- 首页最新文章聚合
-- 博客文章按日期排序
-- 自动生成标签页
-- 自动生成归档页
-- 自动生成上一篇 / 下一篇导航
-- Astro sitemap 集成
+> Hobr的终端风个人门户
 
 ## 目录结构
 
@@ -38,7 +15,7 @@
 │   │   └── posts/          # Typst 博文
 │   ├── data/
 │   │   ├── profile.ts      # 首页个人信息
-│   │   └── sites.ts        # 首页旗下站点导航
+│   │   └── sites.ts        # 首页站点命令列表
 │   ├── layouts/
 │   │   └── Layout.astro    # 全站布局
 │   ├── lib/
@@ -83,7 +60,7 @@ pnpm preview
 
 ## 内容维护
 
-### 1. 修改首页个人信息
+### 1. 修改首页信息
 
 编辑:
 
@@ -92,8 +69,8 @@ pnpm preview
 
 其中:
 
-- `profile.ts` 控制头像、简介、技术栈和链接
-- `sites.ts` 控制首页“旗下站点导航”的命令式列表
+- `profile.ts` 控制头像和简介
+- `sites.ts` 控制首页站点命令列表
 
 ### 2. 新增 Typst 博文
 

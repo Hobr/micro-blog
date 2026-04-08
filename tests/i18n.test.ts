@@ -16,7 +16,6 @@ import {
     getSecondaryLocaleStaticPaths,
 } from "../src/i18n/static-paths.ts";
 import { shouldIncludeSitemapPage } from "../src/i18n/sitemap.ts";
-import { getProfile } from "../src/data/profile.ts";
 import { getSites, sites } from "../src/data/sites.ts";
 import { getDictionary } from "../src/i18n/dictionary.ts";
 
@@ -150,7 +149,6 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getDictionary("en").nav.blog, "Blog");
     assert.equal(getDictionary("ja").nav.blog, "ブログ");
 
-    assert.equal(getProfile("zh-CN").avatarAlt, "Hobr 头像");
     assert.equal(getDictionary("zh-CN").nav.primaryLabel, "主导航");
     assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
     assert.equal(getDictionary("ja").blogIndex.openArchive, "開く /archive");

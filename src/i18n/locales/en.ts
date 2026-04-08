@@ -1,5 +1,4 @@
 export const en = {
-    lang: "en",
     brand: {
         name: "Hobr.SITE",
         switcherLabel: "Language switcher",

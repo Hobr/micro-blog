@@ -1,5 +1,4 @@
 export const zhCN = {
-    lang: "zh-CN",
     brand: {
         name: "Hobr.SITE",
         switcherLabel: "语言切换",

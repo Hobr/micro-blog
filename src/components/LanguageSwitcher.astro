@@ -18,10 +18,7 @@ const { currentLocale, label, shortLabel, alternateLinks } = Astro.props;
             alternateLinks.map((link) => (
                 <li>
                     <a
-                        class:list={[
-                            "language-switcher__link",
-                            { active: link.locale === currentLocale },
-                        ]}
+                        class:list={[{ active: link.locale === currentLocale }]}
                         href={link.href}
                         hreflang={link.lang}
                         lang={link.lang}

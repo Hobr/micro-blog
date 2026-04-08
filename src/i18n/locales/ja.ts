@@ -1,5 +1,4 @@
 export const ja = {
-    lang: "ja",
     brand: {
         name: "Hobr.SITE",
         switcherLabel: "言語切替",
