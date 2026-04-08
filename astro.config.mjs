@@ -9,7 +9,9 @@ import { shouldIncludeSitemapPage } from "./src/i18n/sitemap.ts";
 export default defineConfig({
     site: "https://hobr.site",
     integrations: [
-        svelte(),
+        svelte({
+            configFile: false,
+        }),
         sitemap({
             filter: shouldIncludeSitemapPage,
         }),

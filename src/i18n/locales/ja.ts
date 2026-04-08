@@ -28,10 +28,6 @@ export const ja = {
     blogIndex: {
         metaTitle: "Hobr.SITE / ブログ",
         metaDescription: "公開済み記事の一覧ページ。",
-        eyebrow: "ブログ一覧",
-        heading: "公開済みの記事一覧。",
-        copy: "ホームには最新数件だけを表示し、このページでは全文字列を時系列でまとめて確認できます。",
-        listTitle: "全記事",
         listSubtitle: "ls -lt ./posts",
         navTitle: "ナビ",
         navSubtitle: "移動先",
@@ -41,10 +37,6 @@ export const ja = {
     archive: {
         metaTitle: "Hobr.SITE / アーカイブ",
         metaDescription: "年ごとに整理した記事アーカイブ。",
-        eyebrow: "アーカイブ",
-        heading: "年単位のログブック。",
-        copy: "タグより広く、一覧より静かな見方が必要なときのためのページです。",
-        panelTitle: "アーカイブ",
         panelSubtitle: "年ごとに表示",
     },
     tagPage: {

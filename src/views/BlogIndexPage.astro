@@ -25,16 +25,11 @@ const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
     alternateLinks={alternateLinks}
 >
     <main class="page-shell">
-        <section class="page-intro">
-            <p class="terminal-prompt">{dictionary.blogIndex.eyebrow}</p>
-            <h1>{dictionary.blogIndex.heading}</h1>
-            <p>{dictionary.blogIndex.copy}</p>
-        </section>
-
         <section class="content-grid">
-            <section class="page-block">
-                <h2>{dictionary.blogIndex.listTitle}</h2>
-                <p>{dictionary.blogIndex.listSubtitle}</p>
+            <section class="page-block page-block--flush">
+                <p class="terminal-prompt">
+                    {dictionary.blogIndex.listSubtitle}
+                </p>
                 <PostList
                     posts={posts}
                     locale={locale}
@@ -42,9 +37,10 @@ const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
                 />
             </section>
 
-            <section class="page-block">
-                <h2>{dictionary.blogIndex.navTitle}</h2>
-                <p>{dictionary.blogIndex.navSubtitle}</p>
+            <section class="page-block page-block--flush">
+                <p class="terminal-prompt">
+                    {dictionary.blogIndex.navSubtitle}
+                </p>
                 <nav
                     class="terminal-menu"
                     aria-label={dictionary.blogIndex.navTitle}

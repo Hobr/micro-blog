@@ -34,10 +34,6 @@ export type SiteDictionary = {
     blogIndex: {
         metaTitle: string;
         metaDescription: string;
-        eyebrow: string;
-        heading: string;
-        copy: string;
-        listTitle: string;
         listSubtitle: string;
         navTitle: string;
         navSubtitle: string;
@@ -47,10 +43,6 @@ export type SiteDictionary = {
     archive: {
         metaTitle: string;
         metaDescription: string;
-        eyebrow: string;
-        heading: string;
-        copy: string;
-        panelTitle: string;
         panelSubtitle: string;
     };
     tagPage: {

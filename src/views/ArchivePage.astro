@@ -23,15 +23,8 @@ const { locale, dictionary, archiveGroups, alternateLinks } = Astro.props;
     alternateLinks={alternateLinks}
 >
     <main class="page-shell">
-        <section class="page-intro">
-            <p class="terminal-prompt">{dictionary.archive.eyebrow}</p>
-            <h1>{dictionary.archive.heading}</h1>
-            <p>{dictionary.archive.copy}</p>
-        </section>
-
-        <section class="page-block">
-            <h2>{dictionary.archive.panelTitle}</h2>
-            <p>{dictionary.archive.panelSubtitle}</p>
+        <section class="page-block page-block--flush">
+            <p class="terminal-prompt">{dictionary.archive.panelSubtitle}</p>
             {
                 archiveGroups.map(([year, posts]) => (
                     <section>

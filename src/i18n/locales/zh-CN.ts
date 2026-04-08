@@ -27,10 +27,6 @@ export const zhCN = {
     blogIndex: {
         metaTitle: "Hobr.SITE / 博客",
         metaDescription: "按时间倒序排列的完整博客文章列表",
-        eyebrow: "博客索引",
-        heading: "所有已发布文章",
-        copy: "首页只展示最新几篇, 这里是完整日志流, 并提供标签和归档入口",
-        listTitle: "全部文章",
         listSubtitle: "ls -lt ./posts",
         navTitle: "导航",
         navSubtitle: "跳转目标",
@@ -40,10 +36,6 @@ export const zhCN = {
     archive: {
         metaTitle: "Hobr.SITE / 归档",
         metaDescription: "按年份整理的全部博客归档",
-        eyebrow: "归档",
-        heading: "按年份整理的日志",
-        copy: "当标签太窄、时间线太平时, 可以从归档页回看全部内容",
-        panelTitle: "归档",
         panelSubtitle: "按年份分组",
     },
     tagPage: {

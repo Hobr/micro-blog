@@ -28,10 +28,6 @@ export const en = {
     blogIndex: {
         metaTitle: "Hobr.SITE / Blog",
         metaDescription: "Full list of blog posts sorted by date.",
-        eyebrow: "blog index",
-        heading: "Every published entry.",
-        copy: "The homepage only shows a short tail. This page is the full chronological log, with tag and archive shortcuts for deeper browsing.",
-        listTitle: "ALL POSTS",
         listSubtitle: "ls -lt ./posts",
         navTitle: "NAV",
         navSubtitle: "jump targets",
@@ -41,10 +37,6 @@ export const en = {
     archive: {
         metaTitle: "Hobr.SITE / Archive",
         metaDescription: "Year-grouped archive of all posts.",
-        eyebrow: "archive",
-        heading: "Year-grouped logbook.",
-        copy: "A slower browsing mode for revisiting everything in order.",
-        panelTitle: "ARCHIVE",
         panelSubtitle: "group by year",
     },
     tagPage: {
