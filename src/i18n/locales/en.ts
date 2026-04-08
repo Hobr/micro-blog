@@ -2,7 +2,6 @@ export const en = {
     lang: "en",
     brand: {
         name: "Hobr.SITE",
-        meta: "static portal / blog / typst logs",
         switcherLabel: "Language switcher",
         switcherShortLabel: "Language",
         themeLabel: "Theme",

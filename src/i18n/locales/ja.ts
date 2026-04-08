@@ -2,7 +2,6 @@ export const ja = {
     lang: "ja",
     brand: {
         name: "Hobr.SITE",
-        meta: "静的ポータル / ブログ / Typst ログ",
         switcherLabel: "言語切替",
         switcherShortLabel: "言語",
         themeLabel: "テーマ",

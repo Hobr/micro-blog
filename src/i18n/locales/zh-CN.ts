@@ -2,7 +2,6 @@ export const zhCN = {
     lang: "zh-CN",
     brand: {
         name: "Hobr.SITE",
-        meta: "静态门户 / 博客 / Typst 日志",
         switcherLabel: "语言切换",
         switcherShortLabel: "语言",
         themeLabel: "主题",

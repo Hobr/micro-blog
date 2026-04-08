@@ -9,7 +9,6 @@ export type SiteDictionary = {
     lang: Locale;
     brand: {
         name: string;
-        meta: string;
         switcherLabel: string;
         switcherShortLabel: string;
         themeLabel: string;
