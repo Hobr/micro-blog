@@ -69,8 +69,9 @@ pnpm preview
 
 其中:
 
-- `profile.ts` 控制头像和简介
+- `profile.ts` 控制首页简介
 - `sites.ts` 控制首页站点命令列表
+- `public/avatar.svg` 是页头头像资源
 
 ### 2. 新增 Typst 博文
 
