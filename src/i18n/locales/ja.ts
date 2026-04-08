@@ -21,9 +21,6 @@ export const ja = {
         metaTitle: "Hobr.SITE / ポータル",
         metaDescription:
             "プロフィール、サイト案内、最新記事をまとめた個人ポータル。",
-        eyebrow: "起動完了",
-        heading: "コードと文章を公開するためのターミナル風ポータル。",
-        copy: "ここが入口です。左にプロフィール、右に自分のサイト案内、下に最新記事だけを置きます。長文コンテンツは /blog に集約します。",
         profileTitle: "プロフィール",
         profileSubtitle: "whoami && cat profile.txt",
         sitesTitle: "サイト一覧",

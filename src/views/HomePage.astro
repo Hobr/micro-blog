@@ -31,21 +31,23 @@ const { locale, dictionary, latestPosts, profile, sites, alternateLinks } =
     alternateLinks={alternateLinks}
 >
     <main class="page-shell">
-        <section class="page-intro">
-            <p class="terminal-prompt">{dictionary.home.eyebrow}</p>
-            <h1>{dictionary.home.heading}</h1>
-            <p>{dictionary.home.copy}</p>
-        </section>
-
         <section class="portal-grid">
-            <section class="page-block">
-                <h2>{dictionary.home.profileTitle}</h2>
+            <section class="page-block page-block--flush">
+                <h2>
+                    <span class="terminal-cursor-prefix">
+                        {dictionary.home.profileTitle}
+                    </span>
+                </h2>
                 <p>{dictionary.home.profileSubtitle}</p>
                 <ProfilePanel profile={profile} />
             </section>
 
-            <section class="page-block">
-                <h2>{dictionary.home.sitesTitle}</h2>
+            <section class="page-block page-block--flush">
+                <h2>
+                    <span class="terminal-cursor-prefix">
+                        {dictionary.home.sitesTitle}
+                    </span>
+                </h2>
                 <p>{dictionary.home.sitesSubtitle}</p>
                 <SitesCommandPanel
                     sites={sites}
@@ -55,7 +57,11 @@ const { locale, dictionary, latestPosts, profile, sites, alternateLinks } =
         </section>
 
         <section class="page-block">
-            <h2>{dictionary.home.latestTitle}</h2>
+            <h2>
+                <span class="terminal-cursor-prefix">
+                    {dictionary.home.latestTitle}
+                </span>
+            </h2>
             <p>{dictionary.home.latestSubtitle}</p>
             <PostList
                 posts={latestPosts}

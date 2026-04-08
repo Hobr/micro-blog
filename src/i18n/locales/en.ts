@@ -21,9 +21,6 @@ export const en = {
         metaTitle: "Hobr.SITE / Personal Portal",
         metaDescription:
             "Personal portal homepage with profile, site navigation, and latest posts.",
-        eyebrow: "boot sequence complete",
-        heading: "A terminal portal for shipping code and writing logs.",
-        copy: "This is the entry point. Identity on the left, owned-site links on the right, and only the freshest posts below. Full long-form content lives at /blog.",
         profileTitle: "PROFILE",
         profileSubtitle: "whoami && cat profile.txt",
         sitesTitle: "SITE INDEX",

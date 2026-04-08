@@ -84,6 +84,23 @@ code {
     text-transform: uppercase;
 }
 
+.terminal-cursor-prefix {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.terminal-cursor-prefix::before {
+    content: "";
+    flex: none;
+    width: 3px;
+    height: 1em;
+    background: var(--primary-color);
+    animation: cursor 800ms infinite;
+    position: relative;
+    bottom: -1px;
+}
+
 .site-brand__meta {
     margin: 0;
     color: var(--text-soft);
@@ -200,6 +217,11 @@ code {
 .page-block {
     padding-top: 0.9rem;
     border-top: 1px solid var(--surface-border-strong);
+}
+
+.page-block--flush {
+    padding-top: 0;
+    border-top: 0;
 }
 
 .article-shell {

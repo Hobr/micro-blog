@@ -20,9 +20,6 @@ export const zhCN = {
     home: {
         metaTitle: "Hobr.SITE / 个人首页",
         metaDescription: "个人门户首页, 包含简介、站点导航和最新文章",
-        eyebrow: "启动完成",
-        heading: "一个用于发布代码与写作日志的终端门户",
-        copy: "这里是入口页, 左侧是身份信息, 右侧是旗下站点导航, 下方只展示最新文章, 完整内容在 /blog",
         profileTitle: "个人档案",
         profileSubtitle: "whoami && cat profile.txt",
         sitesTitle: "站点索引",

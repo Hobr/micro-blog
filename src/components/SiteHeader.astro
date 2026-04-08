@@ -47,7 +47,9 @@ const activeSection =
     <div class="site-header__inner">
         <div class="site-brand">
             <a class="site-brand__name" href={toLocalePath(locale, "/")}>
-                {dictionary.brand.name}
+                <span class="terminal-cursor-prefix">
+                    {dictionary.brand.name}
+                </span>
             </a>
             <p class="site-brand__meta">{dictionary.brand.meta}</p>
         </div>
