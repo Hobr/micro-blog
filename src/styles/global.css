@@ -236,7 +236,21 @@ code {
 }
 
 .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
     margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tag-list li {
+    margin: 0;
+    padding: 0;
+}
+
+.tag-list li::after {
+    content: none;
 }
 
 .post-pagination {

@@ -28,16 +28,14 @@ const {
     {
         previous ? (
             <p>
-                <small>{previousLabel}</small>
-                <br />
+                <small>{previousLabel}</small>{" "}
                 <a href={toLocalePath(locale, `/blog/${previous.slug}`)}>
                     {previous.title}
                 </a>
             </p>
         ) : (
             <p>
-                <small>{previousLabel}</small>
-                <br />
+                <small>{previousLabel}</small>{" "}
                 <strong>{emptyPreviousLabel}</strong>
             </p>
         )
@@ -45,17 +43,14 @@ const {
     {
         next ? (
             <p>
-                <small>{nextLabel}</small>
-                <br />
+                <small>{nextLabel}</small>{" "}
                 <a href={toLocalePath(locale, `/blog/${next.slug}`)}>
                     {next.title}
                 </a>
             </p>
         ) : (
             <p>
-                <small>{nextLabel}</small>
-                <br />
-                <strong>{emptyNextLabel}</strong>
+                <small>{nextLabel}</small> <strong>{emptyNextLabel}</strong>
             </p>
         )
     }
