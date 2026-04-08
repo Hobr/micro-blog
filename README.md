@@ -73,6 +73,8 @@ pnpm preview
 - `sites.ts` 控制首页站点命令列表
 - `public/avatar.svg` 是页头头像资源
 
+这个项目当前不再依赖 Svelte 组件, 首页站点列表也使用 Astro 组件渲染。
+
 ### 2. 新增 Typst 博文
 
 在 `src/content/posts/` 下新建一个 `.typ` 文件, 例如:

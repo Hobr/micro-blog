@@ -18,18 +18,16 @@
     },
     "dependencies": {
         "@astrojs/sitemap": "^3.7.2",
-        "@astrojs/svelte": "^8.0.4",
         "@myriaddreamin/typst-ts-node-compiler": "0.7.0-rc2",
         "@myriaddreamin/typst-ts-renderer": "0.7.0-rc2",
         "@myriaddreamin/typst.ts": "0.7.0-rc2",
         "astro": "^6.1.4",
         "astro-typst": "^0.12.3",
-        "svelte": "^5.55.2",
         "terminal.css": "^0.7.5",
         "typescript": "^5.9.3"
     },
     "devDependencies": {
-        "@eslint/compat": "^2.0.4",
+        "@eslint/compat": "^2.0.5",
         "@eslint/css": "^1.1.0",
         "@eslint/js": "^10.0.1",
         "@eslint/json": "^1.2.0",
@@ -37,14 +35,12 @@
         "eslint": "^10.2.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.5",
-        "eslint-plugin-svelte": "^3.17.0",
         "globals": "^17.4.0",
         "husky": "^9.1.7",
         "jiti": "^2.6.1",
         "lint-staged": "^16.4.0",
         "prettier": "^3.8.1",
         "prettier-plugin-astro": "0.14.1",
-        "prettier-plugin-svelte": "^3.5.1",
         "typescript-eslint": "^8.58.1"
     },
     "lint-staged": {

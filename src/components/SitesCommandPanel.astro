@@ -1,0 +1,22 @@
+---
+import type { LocalizedSiteCommand } from "../data/sites";
+
+interface Props {
+    sites?: LocalizedSiteCommand[];
+    label?: string;
+}
+
+const { sites = [], label = "Owned sites" } = Astro.props;
+---
+
+<ul aria-label={label}>
+    {
+        sites.map((site) => (
+            <li>
+                <a href={site.href}>{site.command}</a>
+                <small>[{site.name}]</small>
+                <p>{site.description}</p>
+            </li>
+        ))
+    }
+</ul>

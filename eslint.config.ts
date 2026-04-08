@@ -9,12 +9,8 @@ import css from "@eslint/css";
 import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import svelteConfig from "./svelte.config.js";
-import ts from "typescript-eslint";
-import svelte from "eslint-plugin-svelte";
 
 const gitignorePath = path.resolve(import.meta.dirname, ".gitignore");
-const svelteFiles = ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"];
 
 export default defineConfig([
     includeIgnoreFile(gitignorePath),
@@ -29,21 +25,6 @@ export default defineConfig([
         },
         rules: {
             "no-undef": "off",
-        },
-    },
-    ...svelte.configs.recommended.map((config) => ({
-        ...config,
-        files: config.files ?? svelteFiles,
-    })),
-    {
-        files: svelteFiles,
-        languageOptions: {
-            parserOptions: {
-                projectService: true,
-                extraFileExtensions: [".svelte"],
-                parser: ts.parser,
-                svelteConfig,
-            },
         },
     },
     {

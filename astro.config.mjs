@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import svelte from "@astrojs/svelte";
 import sitemap from "@astrojs/sitemap";
 import { typst } from "astro-typst";
 import { shouldIncludeSitemapPage } from "./src/i18n/sitemap.ts";
@@ -9,9 +8,6 @@ import { shouldIncludeSitemapPage } from "./src/i18n/sitemap.ts";
 export default defineConfig({
     site: "https://hobr.site",
     integrations: [
-        svelte({
-            configFile: false,
-        }),
         sitemap({
             filter: shouldIncludeSitemapPage,
         }),
