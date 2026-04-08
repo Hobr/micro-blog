@@ -11,7 +11,7 @@ interface Props {
 const { tags, locale, label } = Astro.props;
 ---
 
-<ul aria-label={label}>
+<ul class="tag-list" aria-label={label}>
     {
         tags.map((tag) => (
             <li>
