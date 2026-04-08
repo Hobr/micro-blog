@@ -16,7 +16,7 @@ import {
     getSecondaryLocaleStaticPaths,
 } from "../src/i18n/static-paths.ts";
 import { shouldIncludeSitemapPage } from "../src/i18n/sitemap.ts";
-import { getProfile, profile } from "../src/data/profile.ts";
+import { getProfile } from "../src/data/profile.ts";
 import { getSites, sites } from "../src/data/sites.ts";
 import { getDictionary } from "../src/i18n/dictionary.ts";
 

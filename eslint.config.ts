@@ -69,6 +69,10 @@ export default defineConfig([
         plugins: { css },
         language: "css/css",
         extends: ["css/recommended"],
+        rules: {
+            // Theme variables come from terminal.css imports and runtime-injected styles.
+            "css/no-invalid-properties": "off",
+        },
     },
     eslintConfigPrettier,
     eslintPluginPrettierRecommended,

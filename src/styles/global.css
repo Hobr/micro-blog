@@ -242,6 +242,11 @@ code {
     color: var(--accent-primary);
 }
 
+.article-date {
+    color: var(--text-soft);
+    text-align: right;
+}
+
 .article-footer {
     display: grid;
     gap: 1rem;
