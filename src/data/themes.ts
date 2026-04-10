@@ -14,7 +14,7 @@ export const THEME_STORAGE_KEY = "hobr.theme";
 export const themes: SiteTheme[] = [
     {
         id: "default-sakura",
-        label: "Default Sakura",
+        label: "Default",
         variant: "light",
         palette: {
             base00: "#feedf3",

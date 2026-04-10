@@ -15,7 +15,7 @@ const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
         },
         {
             command: "./Telegram",
-            name: "Telegram",
+            name: "电报",
             href: "https://t.me/Hobrd",
         },
         {
