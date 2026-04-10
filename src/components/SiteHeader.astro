@@ -43,7 +43,12 @@ const activeSection =
             : null;
 ---
 
-<header class="site-header" lang={locale}>
+<header
+    class="site-header"
+    lang={locale}
+    transition:name="site-header"
+    transition:animate="none"
+>
     <div class="site-header__inner terminal-nav">
         <a class="site-brand__name" href={toLocalePath(locale, "/")}>
             <span class="terminal-cursor-prefix">

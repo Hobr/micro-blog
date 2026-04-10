@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import ThemeSwitcher from "../components/ThemeSwitcher.astro";
@@ -36,6 +37,70 @@ const siteBase = Astro.site ?? Astro.url;
 const canonical = new URL(canonicalPath, siteBase).href;
 const currentYear = new Date().getFullYear();
 const themeStyles = getThemeStyles();
+const pageTransition = {
+    forwards: {
+        old: [
+            {
+                name: "pageContentFadeOut",
+                duration: "140ms",
+                easing: "cubic-bezier(0.55, 0, 1, 0.45)",
+                fillMode: "both",
+            },
+            {
+                name: "pageContentShiftUp",
+                duration: "220ms",
+                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                fillMode: "both",
+            },
+        ],
+        new: [
+            {
+                name: "pageContentFadeIn",
+                duration: "240ms",
+                delay: "30ms",
+                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                fillMode: "both",
+            },
+            {
+                name: "pageContentRiseIn",
+                duration: "240ms",
+                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                fillMode: "both",
+            },
+        ],
+    },
+    backwards: {
+        old: [
+            {
+                name: "pageContentFadeOut",
+                duration: "140ms",
+                easing: "cubic-bezier(0.55, 0, 1, 0.45)",
+                fillMode: "both",
+            },
+            {
+                name: "pageContentShiftDown",
+                duration: "220ms",
+                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                fillMode: "both",
+            },
+        ],
+        new: [
+            {
+                name: "pageContentFadeIn",
+                duration: "240ms",
+                delay: "30ms",
+                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                fillMode: "both",
+            },
+            {
+                name: "pageContentDropIn",
+                duration: "240ms",
+                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                fillMode: "both",
+            },
+        ],
+    },
+};
 const themeBootstrapScript = `
 (() => {
     const storageKey = ${JSON.stringify(THEME_STORAGE_KEY)};
@@ -77,13 +142,25 @@ const themeBootstrapScript = `
         <meta name="description" content={description} />
         <style is:inline set:html={themeStyles}></style>
         <script is:inline set:html={themeBootstrapScript} />
+        <ClientRouter />
         <title>{title}</title>
     </head>
     <body class="terminal">
         <div class="site-shell">
             <SiteHeader locale={locale} dictionary={dictionary} />
-            <slot />
-            <footer class="site-footer" lang={locale}>
+            <div
+                class="page-transition-shell"
+                transition:name="page-content"
+                transition:animate={pageTransition}
+            >
+                <slot />
+            </div>
+            <footer
+                class="site-footer"
+                lang={locale}
+                transition:name="site-footer"
+                transition:animate="none"
+            >
                 <ThemeSwitcher label={dictionary.brand.themeLabel} />
                 <p class="site-footer__copyright">
                     &copy; {currentYear}
