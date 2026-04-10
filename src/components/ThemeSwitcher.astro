@@ -59,7 +59,25 @@ const { label } = Astro.props;
         }
     };
 
-    applyTheme(readTheme());
+    const syncTheme = () => {
+        applyTheme(readTheme());
+    };
+
+    syncTheme();
+
+    document.addEventListener("astro:before-swap", (event) => {
+        if (
+            !("newDocument" in event) ||
+            !(event.newDocument instanceof Document)
+        ) {
+            return;
+        }
+
+        event.newDocument.documentElement.dataset.theme = readTheme();
+    });
+
+    document.addEventListener("astro:after-swap", syncTheme);
+    document.addEventListener("astro:page-load", syncTheme);
 
     document.addEventListener("change", (event) => {
         const target = event.target;
