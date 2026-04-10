@@ -118,6 +118,51 @@ const themeBootstrapScript = `
     document.documentElement.dataset.theme = nextTheme;
 })();
 `;
+const footerDockScript = `
+(() => {
+    if (window.__footerDockInitialized) {
+        return;
+    }
+
+    window.__footerDockInitialized = true;
+
+    const root = document.documentElement;
+    let resizeObserver;
+    let observedFooter;
+
+    const setFooterHeight = (footer) => {
+        root.style.setProperty(
+            "--site-footer-dock-height",
+            \`\${Math.ceil(footer.getBoundingClientRect().height)}px\`,
+        );
+    };
+
+    const syncFooterDock = () => {
+        const footer = document.querySelector("[data-site-footer-dock]");
+        if (!(footer instanceof HTMLElement)) {
+            return;
+        }
+
+        setFooterHeight(footer);
+
+        if (observedFooter === footer || typeof ResizeObserver === "undefined") {
+            return;
+        }
+
+        resizeObserver?.disconnect();
+        resizeObserver = new ResizeObserver(() => {
+            setFooterHeight(footer);
+        });
+        resizeObserver.observe(footer);
+        observedFooter = footer;
+    };
+
+    syncFooterDock();
+    window.addEventListener("resize", syncFooterDock, { passive: true });
+    document.addEventListener("astro:after-swap", syncFooterDock);
+    document.addEventListener("astro:page-load", syncFooterDock);
+})();
+`;
 ---
 
 <!doctype html>
@@ -158,6 +203,7 @@ const themeBootstrapScript = `
             <footer
                 class="site-footer"
                 lang={locale}
+                data-site-footer-dock
                 transition:name="site-footer"
                 transition:animate="none"
             >
@@ -174,5 +220,6 @@ const themeBootstrapScript = `
                 />
             </footer>
         </div>
+        <script is:inline set:html={footerDockScript} />
     </body>
 </html>

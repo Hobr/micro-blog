@@ -4,6 +4,8 @@
     --global-font-size: 16px;
     --global-line-height: 1.65;
     --global-space: 12px;
+    --shell-gutter: 1rem;
+    --site-footer-dock-height: 5.75rem;
     --global-font-family:
         "Iosevka Term", "IBM Plex Mono", "Sarasa Mono SC", "JetBrains Mono",
         monospace;
@@ -47,9 +49,13 @@ code {
 }
 
 .site-shell {
-    width: min(calc(100% - 2rem), var(--page-max-width));
+    width: min(calc(100% - (var(--shell-gutter) * 2)), var(--page-max-width));
     margin: 0 auto;
-    padding: 1.25rem 0 4rem;
+    padding: 1.25rem 0
+        calc(
+            var(--site-footer-dock-height) + 1.5rem +
+                env(safe-area-inset-bottom)
+        );
 }
 
 .site-header {
@@ -161,7 +167,16 @@ code {
     grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     gap: 1rem 2rem;
-    margin-top: 2rem;
+    width: min(calc(100% - (var(--shell-gutter) * 2)), var(--page-max-width));
+    box-sizing: border-box;
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 30;
+    transform: translateX(-50%);
+    margin-top: 0;
+    padding: 1rem 0 calc(1rem + env(safe-area-inset-bottom));
+    background: var(--background-color);
     padding-top: 1rem;
     border-top: 1px solid var(--surface-border);
 }
@@ -341,14 +356,19 @@ code {
 }
 
 @media (max-width: 640px) {
+    :root {
+        --shell-gutter: 0.5rem;
+        --site-footer-dock-height: 8.5rem;
+    }
+
     .site-shell {
-        width: min(calc(100% - 1rem), var(--page-max-width));
         padding-top: 1rem;
     }
 
     .site-footer {
         grid-template-columns: 1fr;
         justify-items: start;
+        gap: 0.75rem;
     }
 
     .site-footer__copyright {
