@@ -9,86 +9,96 @@ export type LocalizedSiteCommand = {
 const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
     "zh-CN": [
         {
-            command: "打开 GitHub.com",
-            name: "GitHub",
-            href: "https://github.com/Hobr",
-        },
-        {
-            command: "发送邮件 mail@hobr.site",
+            command: "./mail@hobr.site",
             name: "邮箱",
             href: "mailto:mail@hobr.site",
         },
         {
-            command: "打开 Telegram",
+            command: "./Telegram",
             name: "Telegram",
             href: "https://t.me/Hobrd",
         },
         {
-            command: "打开 /blog",
+            command: "./GitHub",
+            name: "GitHub",
+            href: "https://github.com/Hobr",
+        },
+        {
+            command: "./blog",
             name: "博客",
             href: toLocalePath("zh-CN", "/blog"),
         },
         {
-            command: "打开 /archive",
+            command: "./archive",
             name: "归档",
             href: toLocalePath("zh-CN", "/archive"),
         },
         {
-            command: "打开 /tags/site",
+            command: "./tags/site",
             name: "标签",
             href: toLocalePath("zh-CN", "/tags/site"),
         },
     ],
     en: [
         {
-            command: "open GitHub.com",
-            name: "GitHub",
-            href: "https://github.com/Hobr",
-        },
-        {
-            command: "mail mail@hobr.site",
+            command: "./mail@hobr.site",
             name: "Email",
             href: "mailto:mail@hobr.site",
         },
         {
-            command: "open blog",
+            command: "./Telegram",
+            name: "Telegram",
+            href: "https://t.me/Hobrd",
+        },
+        {
+            command: "./GitHub",
+            name: "GitHub",
+            href: "https://github.com/Hobr",
+        },
+        {
+            command: "./blog",
             name: "Blog",
             href: toLocalePath("en", "/blog"),
         },
         {
-            command: "open archive",
+            command: "./archive",
             name: "Archive",
             href: toLocalePath("en", "/archive"),
         },
         {
-            command: "open tags/site",
+            command: "./tags/site",
             name: "Tag View",
             href: toLocalePath("en", "/tags/site"),
         },
     ],
     ja: [
         {
-            command: "開く github.com",
-            name: "GitHub",
-            href: "https://github.com",
-        },
-        {
-            command: "送信 hello@hobr.site",
+            command: "./mail@hobr.site",
             name: "メール",
             href: "mailto:hello@hobr.site",
         },
         {
-            command: "開く /blog",
+            command: "./Telegram",
+            name: "Telegram",
+            href: "https://t.me/Hobrd",
+        },
+        {
+            command: "./GitHub",
+            name: "GitHub",
+            href: "https://github.com",
+        },
+        {
+            command: "./blog",
             name: "ブログ",
             href: toLocalePath("ja", "/blog"),
         },
         {
-            command: "開く /archive",
+            command: "./archive",
             name: "アーカイブ",
             href: toLocalePath("ja", "/archive"),
         },
         {
-            command: "開く /tags/site",
+            command: "./tags/site",
             name: "タグ",
             href: toLocalePath("ja", "/tags/site"),
         },

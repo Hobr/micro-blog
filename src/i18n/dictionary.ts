@@ -24,7 +24,6 @@ export type SiteDictionary = {
     };
     home: {
         metaTitle: string;
-        metaDescription: string;
         profileSubtitle: string;
         sitesSubtitle: string;
         latestSubtitle: string;
@@ -32,7 +31,6 @@ export type SiteDictionary = {
     };
     blogIndex: {
         metaTitle: string;
-        metaDescription: string;
         listSubtitle: string;
         navSubtitle: string;
         openArchive: string;
@@ -40,18 +38,15 @@ export type SiteDictionary = {
     };
     archive: {
         metaTitle: string;
-        metaDescription: string;
         panelSubtitle: string;
     };
     tagPage: {
         metaTitle: StringFormatter;
-        metaDescription: StringFormatter;
         panelSubtitle: StringFormatter;
         empty: string;
     };
     articlePage: {
         metaTitle: StringFormatter;
-        metaDescription: StringFormatter;
         previous: string;
         next: string;
         startOfLog: string;
