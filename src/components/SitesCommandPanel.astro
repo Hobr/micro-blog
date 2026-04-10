@@ -15,7 +15,6 @@ const { sites = [], label = "Owned sites" } = Astro.props;
             <li>
                 <a href={site.href}>{site.command}</a>
                 <small>[{site.name}]</small>
-                <p>{site.description}</p>
             </li>
         ))
     }
