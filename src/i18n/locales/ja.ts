@@ -1,15 +1,13 @@
 export const ja = {
     brand: {
         name: "Hobr.SITE",
-        switcherLabel: "言語切替",
-        switcherShortLabel: "言語",
+        switcherLabel: "言語",
         themeLabel: "テーマ",
     },
     nav: {
         home: "ホーム",
         blog: "ブログ",
         archive: "アーカイブ",
-        primaryLabel: "メインナビゲーション",
     },
     common: {
         noPosts: "まだ記事はありません。",

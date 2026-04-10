@@ -149,7 +149,6 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getDictionary("en").nav.blog, "Blog");
     assert.equal(getDictionary("ja").nav.blog, "ブログ");
 
-    assert.equal(getDictionary("zh-CN").nav.primaryLabel, "主导航");
     assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
     assert.equal(getDictionary("ja").blogIndex.openArchive, "開く /archive");
 

@@ -1,15 +1,13 @@
 export const en = {
     brand: {
         name: "Hobr.SITE",
-        switcherLabel: "Language switcher",
-        switcherShortLabel: "Language",
+        switcherLabel: "Language",
         themeLabel: "Theme",
     },
     nav: {
         home: "Home",
         blog: "Blog",
         archive: "Archive",
-        primaryLabel: "Primary navigation",
     },
     common: {
         noPosts: "No posts published yet.",

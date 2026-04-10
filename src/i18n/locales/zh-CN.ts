@@ -1,15 +1,13 @@
 export const zhCN = {
     brand: {
         name: "Hobr.Site",
-        switcherLabel: "语言切换",
-        switcherShortLabel: "语言",
+        switcherLabel: "语言",
         themeLabel: "主题",
     },
     nav: {
         home: "首页",
         blog: "博客",
         archive: "归档",
-        primaryLabel: "主导航",
     },
     common: {
         noPosts: "暂无文章",

@@ -9,14 +9,12 @@ export type SiteDictionary = {
     brand: {
         name: string;
         switcherLabel: string;
-        switcherShortLabel: string;
         themeLabel: string;
     };
     nav: {
         home: string;
         blog: string;
         archive: string;
-        primaryLabel: string;
     };
     common: {
         noPosts: string;
