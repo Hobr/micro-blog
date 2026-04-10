@@ -153,16 +153,13 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
     assert.equal(getDictionary("ja").blogIndex.openArchive, "開く /archive");
 
-    assert.equal(getSites("zh-CN")[0].name, "GitHub");
-    assert.equal(getSites("zh-CN")[2].command, "打开 /blog");
-    assert.equal(
-        getSites("en")[3].description,
-        "Chronological index of everything already published.",
-    );
-    assert.equal(getSites("ja")[4].name, "タグ");
-    assert.equal(getSites("ja")[4].command, "開く /tags/site");
-    assert.equal(getSites("en")[0].href, "https://github.com");
-    assert.equal(getSites("ja")[3].href, "/ja/archive");
+    assert.equal(getSites("zh-CN")[0].name, "邮箱");
+    assert.equal(getSites("zh-CN")[3].command, "./blog");
+    assert.equal(getSites("en")[4].name, "Archive");
+    assert.equal(getSites("ja")[5].name, "タグ");
+    assert.equal(getSites("ja")[5].command, "./tags/site");
+    assert.equal(getSites("en")[2].href, "https://github.com/Hobr");
+    assert.equal(getSites("ja")[4].href, "/ja/archive");
 });
 
 test("profile and sites keep default-locale compatibility exports", () => {

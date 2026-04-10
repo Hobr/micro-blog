@@ -17,8 +17,6 @@ export const ja = {
     },
     home: {
         metaTitle: "Hobr.SITE / ポータル",
-        metaDescription:
-            "プロフィール、サイト案内、最新記事をまとめた個人ポータル。",
         profileSubtitle: "whoami && cat 个人资料.txt",
         sitesSubtitle: "ls ~/サイト && open <ページ>",
         latestSubtitle: "tail -n 5 journal.log",
@@ -26,7 +24,6 @@ export const ja = {
     },
     blogIndex: {
         metaTitle: "Hobr.SITE / ブログ",
-        metaDescription: "公開済み記事の一覧ページ。",
         listSubtitle: "ls -lt ./posts",
         navSubtitle: "ls ./tags && open /archive",
         openArchive: "開く /archive",
@@ -34,19 +31,16 @@ export const ja = {
     },
     archive: {
         metaTitle: "Hobr.SITE / アーカイブ",
-        metaDescription: "年ごとに整理した記事アーカイブ。",
         panelSubtitle:
             "find ./posts -type f | xargs stat -c %y | cut -d- -f1 | sort -ur",
     },
     tagPage: {
         metaTitle: (tag: string) => `Hobr.SITE / #${tag}`,
-        metaDescription: (tag: string) => `タグ ${tag} の記事一覧。`,
         panelSubtitle: (tag: string) => `grep -r ${tag} ./posts`,
         empty: "このタグの記事はまだありません。",
     },
     articlePage: {
         metaTitle: (title: string) => `Hobr.SITE / ${title}`,
-        metaDescription: (title: string) => `${title} を読む。`,
         previous: "前の記事",
         next: "次の記事",
         startOfLog: "これが最初の記事です",

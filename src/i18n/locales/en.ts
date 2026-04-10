@@ -17,8 +17,6 @@ export const en = {
     },
     home: {
         metaTitle: "Hobr.SITE / Personal Portal",
-        metaDescription:
-            "Personal portal homepage with profile, site navigation, and latest posts.",
         profileSubtitle: "whoami && cat profile.txt",
         sitesSubtitle: "ls ~/sites && open <target>",
         latestSubtitle: "tail -n 5 log.log",
@@ -26,7 +24,6 @@ export const en = {
     },
     blogIndex: {
         metaTitle: "Hobr.SITE / Blog",
-        metaDescription: "Full list of blog posts sorted by date.",
         listSubtitle: "ls -lt ./posts",
         navSubtitle: "ls ./tags && open /archive",
         openArchive: "open /archive",
@@ -34,19 +31,16 @@ export const en = {
     },
     archive: {
         metaTitle: "Hobr.SITE / Archive",
-        metaDescription: "Year-grouped archive of all posts.",
         panelSubtitle:
             "find ./posts -type f | xargs stat -c %y | cut -d- -f1 | sort -ur",
     },
     tagPage: {
         metaTitle: (tag: string) => `Hobr.SITE / #${tag}`,
-        metaDescription: (tag: string) => `Posts tagged ${tag} on Hobr.SITE.`,
         panelSubtitle: (tag: string) => `grep -r ${tag} ./posts`,
         empty: "No posts found for this tag.",
     },
     articlePage: {
         metaTitle: (title: string) => `Hobr.SITE / ${title}`,
-        metaDescription: (title: string) => `Read ${title} on Hobr.SITE.`,
         previous: "previous",
         next: "next",
         startOfLog: "Start of the log",

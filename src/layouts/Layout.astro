@@ -15,7 +15,6 @@ import "../styles/global.css";
 
 interface Props {
     title: string;
-    description: string;
     locale: Locale;
     documentLang?: string;
     dictionary: SiteDictionary;
@@ -25,7 +24,6 @@ interface Props {
 
 const {
     title,
-    description,
     locale,
     documentLang = locale,
     dictionary,
@@ -36,6 +34,7 @@ const {
 const siteBase = Astro.site ?? Astro.url;
 const canonical = new URL(canonicalPath, siteBase).href;
 const currentYear = new Date().getFullYear();
+const siteDescription = `${dictionary.brand.name} personal blogs.`;
 const themeStyles = getThemeStyles();
 const pageTransition = {
     forwards: {
@@ -184,7 +183,7 @@ const footerDockScript = `
             ))
         }
         <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={description} />
+        <meta name="description" content={siteDescription} />
         <style is:inline set:html={themeStyles}></style>
         <script is:inline set:html={themeBootstrapScript} />
         <ClientRouter />
