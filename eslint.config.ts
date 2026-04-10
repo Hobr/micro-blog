@@ -55,6 +55,21 @@ export default defineConfig([
             "css/no-invalid-properties": "off",
         },
     },
+    {
+        files: ["src/styles/global.css"],
+        rules: {
+            // Astro view transitions rely on these pseudo-elements.
+            "css/use-baseline": [
+                "error",
+                {
+                    allowSelectors: [
+                        "view-transition-old",
+                        "view-transition-new",
+                    ],
+                },
+            ],
+        },
+    },
     eslintConfigPrettier,
     eslintPluginPrettierRecommended,
 ]);
