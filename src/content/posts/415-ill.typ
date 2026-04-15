@@ -1,0 +1,14 @@
+#import "../presets/post.typ": post
+
+#show: post.with(
+  title: "生病",
+  slug: "415-ill",
+  date: datetime(year: 2026, month: 4, day: 10),
+  tags: ("个人"),
+)
+
+= 生病
+
+哎, 刚有了点动力打算干点什么就生病了, 从周一躺倒现在, 浑身没劲
+
+这几天仅有的好消息就是今天Key Live和RAS都宣布了香港Live, 又有活下去的动力了
