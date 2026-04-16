@@ -4,7 +4,7 @@
   title: "生病",
   slug: "415-ill",
   date: datetime(year: 2026, month: 4, day: 10),
-  tags: ("个人"),
+  tags: ("个人",),
 )
 
 = 生病
