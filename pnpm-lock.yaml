@@ -22,10 +22,10 @@ importers:
         version: 0.7.0-rc2(@myriaddreamin/typst-ts-renderer@0.7.0-rc2)
       astro:
         specifier: ^6.2.2
-        version: 6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.3)
+        version: 6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.4)
       astro-typst:
         specifier: ^0.12.3
-        version: 0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0-rc2)(@myriaddreamin/typst-ts-renderer@0.7.0-rc2)(@myriaddreamin/typst.ts@0.7.0-rc2(@myriaddreamin/typst-ts-renderer@0.7.0-rc2))(astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.3))(cheerio@1.2.0)(rollup@4.60.3)
+        version: 0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0-rc2)(@myriaddreamin/typst-ts-renderer@0.7.0-rc2)(@myriaddreamin/typst.ts@0.7.0-rc2(@myriaddreamin/typst-ts-renderer@0.7.0-rc2))(astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.4))(cheerio@1.2.0)(rollup@4.60.3)
       terminal.css:
         specifier: ^0.7.5
         version: 0.7.5
@@ -67,8 +67,8 @@ importers:
         specifier: ^2.6.1
         version: 2.6.1
       lint-staged:
-        specifier: ^16.4.0
-        version: 16.4.0
+        specifier: ^17.0.2
+        version: 17.0.2
       prettier:
         specifier: ^3.8.3
         version: 3.8.3
@@ -927,6 +927,7 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1057,19 +1058,12 @@ packages:
   collapse-white-space@2.1.0:
     resolution: {integrity: sha512-loKTxY1zCOuG4j9f6EPnuyyYkf58RnhhWTvRoZEokgB+WbdXehfjFviyOVYkqzEWz1Q5kRiZdBYS5SwxbQYwzw==}
 
-  colorette@2.0.20:
-    resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
-
   comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
 
   commander@11.1.0:
     resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
     engines: {node: '>=16'}
-
-  commander@14.0.3:
-    resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
-    engines: {node: '>=20'}
 
   common-ancestor-path@2.0.0:
     resolution: {integrity: sha512-dnN3ibLeoRf2HNC+OlCiNc5d2zxbLJXOtiZUudNFSXZrNSydxcCsSpRzXwfu7BBWCIfHPw+xTayeBvJCP/D8Ng==}
@@ -1563,14 +1557,14 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  lint-staged@16.4.0:
-    resolution: {integrity: sha512-lBWt8hujh/Cjysw5GYVmZpFHXDCgZzhrOm8vbcUdobADZNOK/bRshr2kM3DfgrrtR1DQhfupW9gnIXOfiFi+bw==}
-    engines: {node: '>=20.17'}
+  lint-staged@17.0.2:
+    resolution: {integrity: sha512-Rbr6rdmbCn1fIDHBZpn0madg0hEkdlh+QwajnL3Qq0ZUq/icAJfLGj9BVBajAXi7657ZzKQ7kobGP9S5XOHYRw==}
+    engines: {node: '>=22.22.1'}
     hasBin: true
 
-  listr2@9.0.5:
-    resolution: {integrity: sha512-ME4Fb83LgEgwNw96RKNvKV4VTLuXfoKudAmm2lP8Kk87KaMK0/Xrx/aAkMWmT8mDb+3MlFDspfbCs7adjRxA2g==}
-    engines: {node: '>=20.0.0'}
+  listr2@10.2.1:
+    resolution: {integrity: sha512-7I5knELsJKTUjXG+A6BkKAiGkW1i25fNa/xlUl9hFtk15WbE9jndA89xu5FzQKrY5llajE1hfZZFMILXkDHk/Q==}
+    engines: {node: '>=22.13.0'}
 
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
@@ -2105,8 +2099,8 @@ packages:
     resolution: {integrity: sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==}
     engines: {node: '>=18'}
 
-  string-width@8.2.0:
-    resolution: {integrity: sha512-6hJPQ8N0V0P3SNmP6h2J99RLuzrWz2gvT7VnK5tKvrNqJoyS9W4/Fb8mo31UiPvy00z7DQXkP2hnKBVav76thw==}
+  string-width@8.2.1:
+    resolution: {integrity: sha512-IIaP0g3iy9Cyy18w3M9YcaDudujEAVHKt3a3QJg1+sr/oX96TbaGUubG0hJyCjCBThFH+tFpcIyoUHUn1ogaLA==}
     engines: {node: '>=20'}
 
   stringify-entities@4.0.4:
@@ -2147,10 +2141,6 @@ packages:
   tinyclip@0.1.12:
     resolution: {integrity: sha512-Ae3OVUqifDw0wBriIBS7yVaW44Dp6eSHQcyq4Igc7eN2TJH/2YsicswaW+J/OuMvhpDPOKEgpAZCjkb4hpoyeA==}
     engines: {node: ^16.14.0 || >= 17.3.0}
-
-  tinyexec@1.1.1:
-    resolution: {integrity: sha512-VKS/ZaQhhkKFMANmAOhhXVoIfBXblQxGX1myCQ2faQrfmobMftXeJPcZGp0gS07ocvGJWDLZGyOZDadDBqYIJg==}
-    engines: {node: '>=18'}
 
   tinyexec@1.1.2:
     resolution: {integrity: sha512-dAqSqE/RabpBKI8+h26GfLq6Vb3JVXs30XYQjdMjaj/c2tS8IYYMbIzP599KtRj7c57/wYApb3QjgRgXmrCukA==}
@@ -2396,6 +2386,10 @@ packages:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
 
+  wrap-ansi@10.0.0:
+    resolution: {integrity: sha512-SGcvg80f0wUy2/fXES19feHMz8E0JoXv2uNgHOu4Dgi2OrCy1lqwFYEJz1BLbDI0exjPMe/ZdzZ/YpGECBG/aQ==}
+    engines: {node: '>=20'}
+
   wrap-ansi@9.0.2:
     resolution: {integrity: sha512-42AtmgqjV+X1VpdOfyTGOYRi0/zsoLqtXQckTmqTeybT+BDIbM/Guxo7x3pE2vtpr1ok6xRqM9OpBe+Jyoqyww==}
     engines: {node: '>=18'}
@@ -2403,8 +2397,8 @@ packages:
   xxhash-wasm@1.1.0:
     resolution: {integrity: sha512-147y/6YNh+tlp6nd/2pWq38i9h6mz/EuQ6njIrmW8D1BS5nCqs0P6DG+m6zTGnNz5I+uhZ0SHxBs9BsPrwcKDA==}
 
-  yaml@2.8.3:
-    resolution: {integrity: sha512-AvbaCLOO2Otw/lW5bmh9d/WEdcDFdQp2Z2ZUH3pX9U2ihyUY0nvLv7J6TrWowklRGPYbB/IuIMfYgxaCPg5Bpg==}
+  yaml@2.8.4:
+    resolution: {integrity: sha512-ml/JPOj9fOQK8RNnWojA67GbZ0ApXAUlN2UQclwv2eVgTgn7O9gg9o7paZWKMp4g0H3nTLtS9LVzhkpOFIKzog==}
     engines: {node: '>= 14.6'}
     hasBin: true
 
@@ -3145,19 +3139,19 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-integration-kit@0.19.1(astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.3)):
+  astro-integration-kit@0.19.1(astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.4)):
     dependencies:
-      astro: 6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.3)
+      astro: 6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.4)
       pathe: 1.1.2
 
-  astro-typst@0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0-rc2)(@myriaddreamin/typst-ts-renderer@0.7.0-rc2)(@myriaddreamin/typst.ts@0.7.0-rc2(@myriaddreamin/typst-ts-renderer@0.7.0-rc2))(astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.3))(cheerio@1.2.0)(rollup@4.60.3):
+  astro-typst@0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0-rc2)(@myriaddreamin/typst-ts-renderer@0.7.0-rc2)(@myriaddreamin/typst.ts@0.7.0-rc2(@myriaddreamin/typst-ts-renderer@0.7.0-rc2))(astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.4))(cheerio@1.2.0)(rollup@4.60.3):
     dependencies:
       '@myriaddreamin/typst-ts-node-compiler': 0.7.0-rc2
       '@myriaddreamin/typst-ts-renderer': 0.7.0-rc2
       '@myriaddreamin/typst.ts': 0.7.0-rc2(@myriaddreamin/typst-ts-renderer@0.7.0-rc2)
       '@rollup/plugin-node-resolve': 16.0.3(rollup@4.60.3)
-      astro: 6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.3)
-      astro-integration-kit: 0.19.1(astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.3))
+      astro: 6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.4)
+      astro-integration-kit: 0.19.1(astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.4))
       cheerio: 1.2.0
       rehype-stringify: 10.0.1
       typstx: 0.0.1-beta.1
@@ -3166,7 +3160,7 @@ snapshots:
       - rollup
       - supports-color
 
-  astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.3):
+  astro@6.2.2(@types/node@25.6.0)(jiti@2.6.1)(rollup@4.60.3)(yaml@2.8.4):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.9.0
@@ -3218,8 +3212,8 @@ snapshots:
       unist-util-visit: 5.1.0
       unstorage: 1.17.5
       vfile: 6.0.3
-      vite: 7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.3)
-      vitefu: 1.1.3(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.3))
+      vite: 7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.4)
+      vitefu: 1.1.3(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.4))
       xxhash-wasm: 1.1.0
       yargs-parser: 22.0.0
       zod: 4.4.3
@@ -3317,19 +3311,15 @@ snapshots:
   cli-truncate@5.2.0:
     dependencies:
       slice-ansi: 8.0.0
-      string-width: 8.2.0
+      string-width: 8.2.1
 
   clsx@2.1.1: {}
 
   collapse-white-space@2.1.0: {}
 
-  colorette@2.0.20: {}
-
   comma-separated-tokens@2.0.3: {}
 
   commander@11.1.0: {}
-
-  commander@14.0.3: {}
 
   common-ancestor-path@2.0.0: {}
 
@@ -3914,23 +3904,22 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  lint-staged@16.4.0:
+  lint-staged@17.0.2:
     dependencies:
-      commander: 14.0.3
-      listr2: 9.0.5
+      listr2: 10.2.1
       picomatch: 4.0.4
       string-argv: 0.3.2
-      tinyexec: 1.1.1
-      yaml: 2.8.3
+      tinyexec: 1.1.2
+    optionalDependencies:
+      yaml: 2.8.4
 
-  listr2@9.0.5:
+  listr2@10.2.1:
     dependencies:
       cli-truncate: 5.2.0
-      colorette: 2.0.20
       eventemitter3: 5.0.4
       log-update: 6.1.0
       rfdc: 1.4.1
-      wrap-ansi: 9.0.2
+      wrap-ansi: 10.0.0
 
   locate-path@6.0.0:
     dependencies:
@@ -4853,7 +4842,7 @@ snapshots:
       get-east-asian-width: 1.5.0
       strip-ansi: 7.2.0
 
-  string-width@8.2.0:
+  string-width@8.2.1:
     dependencies:
       get-east-asian-width: 1.5.0
       strip-ansi: 7.2.0
@@ -4900,8 +4889,6 @@ snapshots:
   tiny-inflate@1.0.3: {}
 
   tinyclip@0.1.12: {}
-
-  tinyexec@1.1.1: {}
 
   tinyexec@1.1.2: {}
 
@@ -5073,7 +5060,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.3):
+  vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.4):
     dependencies:
       esbuild: 0.27.7
       fdir: 6.5.0(picomatch@4.0.4)
@@ -5085,11 +5072,11 @@ snapshots:
       '@types/node': 25.6.0
       fsevents: 2.3.3
       jiti: 2.6.1
-      yaml: 2.8.3
+      yaml: 2.8.4
 
-  vitefu@1.1.3(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.3)):
+  vitefu@1.1.3(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.4)):
     optionalDependencies:
-      vite: 7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.3)
+      vite: 7.3.2(@types/node@25.6.0)(jiti@2.6.1)(yaml@2.8.4)
 
   web-namespaces@2.0.1: {}
 
@@ -5107,6 +5094,12 @@ snapshots:
 
   word-wrap@1.2.5: {}
 
+  wrap-ansi@10.0.0:
+    dependencies:
+      ansi-styles: 6.2.3
+      string-width: 8.2.1
+      strip-ansi: 7.2.0
+
   wrap-ansi@9.0.2:
     dependencies:
       ansi-styles: 6.2.3
@@ -5115,7 +5108,8 @@ snapshots:
 
   xxhash-wasm@1.1.0: {}
 
-  yaml@2.8.3: {}
+  yaml@2.8.4:
+    optional: true
 
   yargs-parser@22.0.0: {}
 
