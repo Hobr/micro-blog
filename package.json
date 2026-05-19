@@ -31,7 +31,7 @@
         "@eslint/css": "^1.2.0",
         "@eslint/js": "^10.0.1",
         "@eslint/json": "^1.2.0",
-        "@types/node": "^25.8.0",
+        "@types/node": "^25.9.0",
         "eslint": "^10.4.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.5",
