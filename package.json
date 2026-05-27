@@ -17,7 +17,7 @@
         "format": "prettier --write ."
     },
     "dependencies": {
-        "@astrojs/sitemap": "^3.7.2",
+        "@astrojs/sitemap": "^3.7.3",
         "@myriaddreamin/typst-ts-node-compiler": "0.7.0-rc2",
         "@myriaddreamin/typst-ts-renderer": "0.7.0-rc2",
         "@myriaddreamin/typst.ts": "0.7.0-rc2",
