@@ -30,7 +30,7 @@
         "@eslint/compat": "^2.1.0",
         "@eslint/css": "^1.2.0",
         "@eslint/js": "^10.0.1",
-        "@eslint/json": "^1.2.0",
+        "@eslint/json": "^2.0.0",
         "@types/node": "^25.9.1",
         "eslint": "^10.4.0",
         "eslint-config-prettier": "^10.1.8",
