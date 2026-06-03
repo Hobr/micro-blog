@@ -19,9 +19,9 @@
     "dependencies": {
         "@astrojs/sitemap": "^3.7.3",
         "@myriaddreamin/typst-ts-node-compiler": "0.7.0",
-        "@myriaddreamin/typst-ts-renderer": "0.7.0-rc2",
+        "@myriaddreamin/typst-ts-renderer": "0.7.0",
         "@myriaddreamin/typst.ts": "0.7.0",
-        "astro": "^6.4.2",
+        "astro": "^6.4.3",
         "astro-typst": "^0.12.3",
         "terminal.css": "^0.7.5",
         "typescript": "^6.0.3"
