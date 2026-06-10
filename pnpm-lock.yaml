@@ -21,11 +21,11 @@ importers:
         specifier: 0.7.0
         version: 0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0)
       astro:
-        specifier: ^6.4.4
-        version: 6.4.4(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0)
+        specifier: ^6.4.5
+        version: 6.4.5(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0)
       astro-typst:
         specifier: ^0.12.3
-        version: 0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0)(@myriaddreamin/typst-ts-renderer@0.7.0)(@myriaddreamin/typst.ts@0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0))(astro@6.4.4(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0))(cheerio@1.2.0)(rollup@4.61.1)
+        version: 0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0)(@myriaddreamin/typst-ts-renderer@0.7.0)(@myriaddreamin/typst.ts@0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0))(astro@6.4.5(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0))(cheerio@1.2.0)(rollup@4.61.1)
       terminal.css:
         specifier: ^0.7.5
         version: 0.7.5
@@ -985,8 +985,8 @@ packages:
       astro: '>= 3.0.0'
       cheerio: '>=1.0.0 <2.0.0'
 
-  astro@6.4.4:
-    resolution: {integrity: sha512-hVe8tq3lqt/Dr0UyB//yUmQSlHMTU8scTiF/vQddQVahLE4TTaSdH5H0nb7OvRcwo0UmlAO8DWYar4jNaS7H+A==}
+  astro@6.4.5:
+    resolution: {integrity: sha512-0R7WLD1+WD/mTPcZxyKtcF0CztQi9ahFRtGM7oChJhxjNbr4lSBenxi+mk91k5bPTaUEoZ6edg1fDo2qP8bCwg==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3126,19 +3126,19 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-integration-kit@0.19.1(astro@6.4.4(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0)):
+  astro-integration-kit@0.19.1(astro@6.4.5(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0)):
     dependencies:
-      astro: 6.4.4(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0)
+      astro: 6.4.5(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0)
       pathe: 1.1.2
 
-  astro-typst@0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0)(@myriaddreamin/typst-ts-renderer@0.7.0)(@myriaddreamin/typst.ts@0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0))(astro@6.4.4(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0))(cheerio@1.2.0)(rollup@4.61.1):
+  astro-typst@0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0)(@myriaddreamin/typst-ts-renderer@0.7.0)(@myriaddreamin/typst.ts@0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0))(astro@6.4.5(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0))(cheerio@1.2.0)(rollup@4.61.1):
     dependencies:
       '@myriaddreamin/typst-ts-node-compiler': 0.7.0
       '@myriaddreamin/typst-ts-renderer': 0.7.0
       '@myriaddreamin/typst.ts': 0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0)
       '@rollup/plugin-node-resolve': 16.0.3(rollup@4.61.1)
-      astro: 6.4.4(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0)
-      astro-integration-kit: 0.19.1(astro@6.4.4(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0))
+      astro: 6.4.5(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0)
+      astro-integration-kit: 0.19.1(astro@6.4.5(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0))
       cheerio: 1.2.0
       rehype-stringify: 10.0.1
       typstx: 0.0.1-beta.1
@@ -3147,7 +3147,7 @@ snapshots:
       - rollup
       - supports-color
 
-  astro@6.4.4(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0):
+  astro@6.4.5(@types/node@25.9.2)(jiti@2.7.0)(rollup@4.61.1)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.10.0
