@@ -21,11 +21,11 @@ importers:
         specifier: 0.7.0
         version: 0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0)
       astro:
-        specifier: ^6.4.6
-        version: 6.4.6(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0)
+        specifier: ^6.4.7
+        version: 6.4.7(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0)
       astro-typst:
         specifier: ^0.12.3
-        version: 0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0)(@myriaddreamin/typst-ts-renderer@0.7.0)(@myriaddreamin/typst.ts@0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0))(astro@6.4.6(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0))(cheerio@1.2.0)(rollup@4.62.0)
+        version: 0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0)(@myriaddreamin/typst-ts-renderer@0.7.0)(@myriaddreamin/typst.ts@0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0))(astro@6.4.7(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0))(cheerio@1.2.0)(rollup@4.62.0)
       terminal.css:
         specifier: ^0.7.5
         version: 0.7.5
@@ -985,8 +985,8 @@ packages:
       astro: '>= 3.0.0'
       cheerio: '>=1.0.0 <2.0.0'
 
-  astro@6.4.6:
-    resolution: {integrity: sha512-48OBTBKR9ctbf+DQxpOuxGl8ebfn59zTuNQMBzptmG/Mi/H8IdfMSbJgGuX1I/4U6g9yazG1p4BHlf4+2hWU4Q==}
+  astro@6.4.7:
+    resolution: {integrity: sha512-5vsXx0H52u23Jpshs9tM81D03Tb3Oh2Vt2Zo0bpqjXN+njkAWjFyGjTfmWJLAcrCQd9Q+iWB1eqfhR1sZJEaUA==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2192,8 +2192,8 @@ packages:
   undici-types@7.24.6:
     resolution: {integrity: sha512-WRNW+sJgj5OBN4/0JpHFqtqzhpbnV0GuB+OozA9gCL7a993SmU+1JBZCzLNxYsbMfIeDL+lTsphD5jN5N+n0zg==}
 
-  undici@7.27.2:
-    resolution: {integrity: sha512-uZsKNuzQxDMUY6M3pIMvy5tvlGmtq8XJ2oLAkfRKGNu+1VQAIvLy2xIVG5ATZl5wDXl/tddByAWCizRbOme+TA==}
+  undici@7.28.0:
+    resolution: {integrity: sha512-cRZYrTDwWznlnRiPjggAGxZXanty6M8RV1ff8Wm4LWXBp7/IG8v5DnOm74DtUBp9OONpK75YlPnIjQqX0dBDtA==}
     engines: {node: '>=20.18.1'}
 
   unified@11.0.5:
@@ -3126,19 +3126,19 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-integration-kit@0.19.1(astro@6.4.6(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0)):
+  astro-integration-kit@0.19.1(astro@6.4.7(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0)):
     dependencies:
-      astro: 6.4.6(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0)
+      astro: 6.4.7(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0)
       pathe: 1.1.2
 
-  astro-typst@0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0)(@myriaddreamin/typst-ts-renderer@0.7.0)(@myriaddreamin/typst.ts@0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0))(astro@6.4.6(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0))(cheerio@1.2.0)(rollup@4.62.0):
+  astro-typst@0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0)(@myriaddreamin/typst-ts-renderer@0.7.0)(@myriaddreamin/typst.ts@0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0))(astro@6.4.7(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0))(cheerio@1.2.0)(rollup@4.62.0):
     dependencies:
       '@myriaddreamin/typst-ts-node-compiler': 0.7.0
       '@myriaddreamin/typst-ts-renderer': 0.7.0
       '@myriaddreamin/typst.ts': 0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0)
       '@rollup/plugin-node-resolve': 16.0.3(rollup@4.62.0)
-      astro: 6.4.6(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0)
-      astro-integration-kit: 0.19.1(astro@6.4.6(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0))
+      astro: 6.4.7(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0)
+      astro-integration-kit: 0.19.1(astro@6.4.7(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0))
       cheerio: 1.2.0
       rehype-stringify: 10.0.1
       typstx: 0.0.1-beta.1
@@ -3147,7 +3147,7 @@ snapshots:
       - rollup
       - supports-color
 
-  astro@6.4.6(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0):
+  astro@6.4.7(@types/node@25.9.3)(jiti@2.7.0)(rollup@4.62.0)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.10.0
@@ -3282,7 +3282,7 @@ snapshots:
       parse5: 7.3.0
       parse5-htmlparser2-tree-adapter: 7.1.0
       parse5-parser-stream: 7.1.2
-      undici: 7.27.2
+      undici: 7.28.0
       whatwg-mimetype: 4.0.0
 
   chokidar@5.0.0:
@@ -4951,7 +4951,7 @@ snapshots:
 
   undici-types@7.24.6: {}
 
-  undici@7.27.2: {}
+  undici@7.28.0: {}
 
   unified@11.0.5:
     dependencies:
