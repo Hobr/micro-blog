@@ -21,7 +21,7 @@
         "@myriaddreamin/typst-ts-node-compiler": "0.7.0",
         "@myriaddreamin/typst-ts-renderer": "0.7.0",
         "@myriaddreamin/typst.ts": "0.7.0",
-        "astro": "^6.4.8",
+        "astro": "^7.0.0",
         "astro-typst": "^0.12.3",
         "terminal.css": "^0.7.5",
         "typescript": "^6.0.3"
@@ -35,13 +35,13 @@
         "eslint": "^10.5.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.6",
-        "globals": "^17.6.0",
+        "globals": "^17.7.0",
         "husky": "^9.1.7",
         "jiti": "^2.7.0",
         "lint-staged": "^17.0.8",
         "prettier": "^3.8.4",
         "prettier-plugin-astro": "0.14.1",
-        "typescript-eslint": "^8.61.1"
+        "typescript-eslint": "^8.62.0"
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"
