@@ -12,7 +12,6 @@
         "preview": "astro preview",
         "astro": "astro",
         "test": "node --test --experimental-strip-types tests/*.test.ts",
-        "prepare": "husky",
         "lint": "prettier --check . && eslint .",
         "format": "prettier --write ."
     },
@@ -36,7 +35,6 @@
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.6",
         "globals": "^17.7.0",
-        "husky": "^9.1.7",
         "jiti": "^2.7.0",
         "lint-staged": "^17.0.8",
         "prettier": "^3.8.4",
