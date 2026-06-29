@@ -56,7 +56,7 @@ importers:
         version: 10.1.8(eslint@10.6.0(jiti@2.7.0))
       eslint-plugin-prettier:
         specifier: ^5.5.6
-        version: 5.5.6(eslint-config-prettier@10.1.8(eslint@10.6.0(jiti@2.7.0)))(eslint@10.6.0(jiti@2.7.0))(prettier@3.9.1)
+        version: 5.5.6(eslint-config-prettier@10.1.8(eslint@10.6.0(jiti@2.7.0)))(eslint@10.6.0(jiti@2.7.0))(prettier@3.9.3)
       globals:
         specifier: ^17.7.0
         version: 17.7.0
@@ -67,8 +67,8 @@ importers:
         specifier: ^17.0.8
         version: 17.0.8
       prettier:
-        specifier: ^3.9.1
-        version: 3.9.1
+        specifier: ^3.9.3
+        version: 3.9.3
       prettier-plugin-astro:
         specifier: 0.14.1
         version: 0.14.1
@@ -2204,8 +2204,8 @@ packages:
     resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
     engines: {node: ^14.15.0 || >=16.0.0}
 
-  prettier@3.9.1:
-    resolution: {integrity: sha512-ppiDo2CSwexck1eyZUwJHg/N3nf1+6IRCv7W/VJ5vaLnVCmB7+3CdRfMwoCHBBX6xTrREDTksZ4OZl5SSf4zXA==}
+  prettier@3.9.3:
+    resolution: {integrity: sha512-HWmu+K+zvHNpaMfSnYeqdqrDbR16cuIXaPx8WoHaviQkDJh1/0BNtOZmHVQI5jc3wXv0H1yXc9wjvFdXh+n3hQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3961,10 +3961,10 @@ snapshots:
     dependencies:
       eslint: 10.6.0(jiti@2.7.0)
 
-  eslint-plugin-prettier@5.5.6(eslint-config-prettier@10.1.8(eslint@10.6.0(jiti@2.7.0)))(eslint@10.6.0(jiti@2.7.0))(prettier@3.9.1):
+  eslint-plugin-prettier@5.5.6(eslint-config-prettier@10.1.8(eslint@10.6.0(jiti@2.7.0)))(eslint@10.6.0(jiti@2.7.0))(prettier@3.9.3):
     dependencies:
       eslint: 10.6.0(jiti@2.7.0)
-      prettier: 3.9.1
+      prettier: 3.9.3
       prettier-linter-helpers: 1.0.1
       synckit: 0.11.13
     optionalDependencies:
@@ -5082,10 +5082,10 @@ snapshots:
   prettier-plugin-astro@0.14.1:
     dependencies:
       '@astrojs/compiler': 2.13.1
-      prettier: 3.9.1
+      prettier: 3.9.3
       sass-formatter: 0.7.9
 
-  prettier@3.9.1: {}
+  prettier@3.9.3: {}
 
   prismjs@1.30.0: {}
 
