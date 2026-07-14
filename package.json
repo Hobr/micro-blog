@@ -20,7 +20,7 @@
         "@myriaddreamin/typst-ts-node-compiler": "0.7.0",
         "@myriaddreamin/typst-ts-renderer": "0.7.0",
         "@myriaddreamin/typst.ts": "0.7.0",
-        "astro": "^7.0.8",
+        "astro": "^7.0.9",
         "astro-typst": "^0.12.3",
         "terminal.css": "^0.7.5",
         "typescript": "^7.0.2"
