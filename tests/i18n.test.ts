@@ -150,7 +150,7 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getDictionary("ja").nav.blog, "ブログ");
 
     assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
-    assert.equal(getDictionary("ja").blogIndex.openArchive, "開く /archive");
+    assert.equal(getDictionary("ja").blogIndex.openArchive, "./archive");
 
     assert.equal(getSites("zh-CN")[0].name, "邮箱");
     assert.equal(getSites("zh-CN")[3].command, "./blog");

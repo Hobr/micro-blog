@@ -23,9 +23,9 @@ export const ja = {
     blogIndex: {
         metaTitle: "Hobr.Site | ブログ",
         listSubtitle: "ls -lt ~/記事",
-        navSubtitle: "ls ~/タグ && ls ~/アーカイブ",
-        openArchive: "exec ~/アーカイブ",
-        openTag: (tag: string) => `exec ~/タグ/${tag}`,
+        navSubtitle: "ls ~/移動先 && open ~/移動先/<ページ>",
+        openArchive: "./archive",
+        openTag: (tag: string) => `./tags/${tag}`,
     },
     archive: {
         metaTitle: "Hobr.Site | アーカイブ",

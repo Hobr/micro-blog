@@ -1,6 +1,8 @@
 ---
 import PostList from "../components/PostList.astro";
+import SitesCommandPanel from "../components/SitesCommandPanel.astro";
 import Layout from "../layouts/Layout.astro";
+import type { LocalizedSiteCommand } from "../data/sites";
 import type { AlternateLink, Locale } from "../i18n/config";
 import { toLocalePath } from "../i18n/config";
 import type { SiteDictionary } from "../i18n/dictionary";
@@ -15,6 +17,18 @@ interface Props {
 }
 
 const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
+const browseCommands: LocalizedSiteCommand[] = [
+    {
+        command: dictionary.blogIndex.openArchive,
+        name: dictionary.nav.archive,
+        href: toLocalePath(locale, "/archive"),
+    },
+    ...tags.map((tag) => ({
+        command: dictionary.blogIndex.openTag(tag),
+        name: `#${tag}`,
+        href: toLocalePath(locale, `/tags/${encodeURIComponent(tag)}`),
+    })),
+];
 ---
 
 <Layout
@@ -23,45 +37,30 @@ const { locale, dictionary, posts, tags, alternateLinks } = Astro.props;
     dictionary={dictionary}
     alternateLinks={alternateLinks}
 >
-    <main class="page-shell">
-        <section class="content-grid">
-            <section class="page-block page-block--flush">
+    <main class="page-shell index-page" id="main-content">
+        <section class="terminal-panel post-index-panel">
+            <div class="section-heading">
                 <p class="terminal-prompt">
+                    <span aria-hidden="true">$</span>
                     {dictionary.blogIndex.listSubtitle}
                 </p>
-                <PostList
-                    posts={posts}
-                    locale={locale}
-                    emptyMessage={dictionary.common.noPosts}
-                />
-            </section>
-
-            <section class="page-block page-block--flush">
-                <p class="terminal-prompt">
-                    {dictionary.blogIndex.navSubtitle}
-                </p>
-                <ul aria-label={dictionary.blogIndex.navSubtitle}>
-                    <li>
-                        <a href={toLocalePath(locale, "/archive")}>
-                            {dictionary.blogIndex.openArchive}
-                        </a>
-                    </li>
-                    {
-                        tags.map((tag) => (
-                            <li>
-                                <a
-                                    href={toLocalePath(
-                                        locale,
-                                        `/tags/${encodeURIComponent(tag)}`,
-                                    )}
-                                >
-                                    {dictionary.blogIndex.openTag(tag)}
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
+            </div>
+            <PostList
+                posts={posts}
+                locale={locale}
+                emptyMessage={dictionary.common.noPosts}
+            />
         </section>
+
+        <aside class="terminal-panel browse-panel">
+            <p class="terminal-prompt">
+                <span aria-hidden="true">$</span>
+                {dictionary.blogIndex.navSubtitle}
+            </p>
+            <SitesCommandPanel
+                sites={browseCommands}
+                label={dictionary.blogIndex.navSubtitle}
+            />
+        </aside>
     </main>
 </Layout>

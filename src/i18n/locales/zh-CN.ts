@@ -23,9 +23,9 @@ export const zhCN = {
     blogIndex: {
         metaTitle: "Hobr.Site | 博客",
         listSubtitle: "ls -lt ~/博客",
-        navSubtitle: "ls ~/标签 && ls ~/存档",
-        openArchive: "exec ~/存档",
-        openTag: (tag: string) => `exec ~/标签/${tag}`,
+        navSubtitle: "ls ~/导航 && open ~/导航/<目标>",
+        openArchive: "./archive",
+        openTag: (tag: string) => `./tags/${tag}`,
     },
     archive: {
         metaTitle: "Hobr.Site | 归档",

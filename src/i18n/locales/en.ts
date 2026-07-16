@@ -23,9 +23,9 @@ export const en = {
     blogIndex: {
         metaTitle: "Hobr.Site | Blog",
         listSubtitle: "ls -lt ~/posts",
-        navSubtitle: "ls ~/tags && ls ~/archive",
-        openArchive: "exec ~/archive",
-        openTag: (tag: string) => `exec ~/tags/${tag}`,
+        navSubtitle: "ls ~/browse && open ~/browse/<target>",
+        openArchive: "./archive",
+        openTag: (tag: string) => `./tags/${tag}`,
     },
     archive: {
         metaTitle: "Hobr.Site | Archive",
