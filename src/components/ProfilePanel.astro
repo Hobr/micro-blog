@@ -1,4 +1,5 @@
 ---
+import { createHash } from "node:crypto";
 import type { ProfileData } from "../data/profile";
 
 interface Props {
@@ -6,10 +7,26 @@ interface Props {
 }
 
 const { profile } = Astro.props;
+const gravatarHash = createHash("sha256")
+    .update(profile.email.trim().toLowerCase())
+    .digest("hex");
+const avatarUrl = `https://gravatar.com/avatar/${gravatarHash}?s=320&d=404&r=g`;
 ---
 
-<section>
-    <h2>{profile.name}</h2>
-    <p>{profile.role}</p>
-    <p>{profile.bio}</p>
-</section>
+<div class="profile-panel">
+    <div class="profile-panel__portrait">
+        <img
+            src={avatarUrl}
+            alt={profile.name}
+            width="160"
+            height="160"
+            decoding="async"
+            referrerpolicy="no-referrer"
+        />
+    </div>
+    <div class="profile-panel__copy">
+        <h1>{profile.name}</h1>
+        <p class="profile-panel__role">{profile.role}</p>
+        <p class="profile-panel__bio">{profile.bio}</p>
+    </div>
+</div>
