@@ -7,13 +7,13 @@
 ```text
 .
 ├── public/
-│   ├── avatar.svg
 │   └── posts/              # Typst 文章图片等静态资源
 ├── src/
 │   ├── components/         # 终端窗口、文章列表、标签、分页等组件
 │   ├── content/
 │   │   └── posts/          # Typst 博文
 │   ├── data/
+│   │   ├── themes.ts       # 硬编码主题配置
 │   │   ├── profile.ts      # 首页个人信息
 │   │   └── sites.ts        # 首页站点命令列表
 │   ├── layouts/
@@ -27,9 +27,10 @@
 │   │   ├── blog/           # 博客列表和文章页
 │   │   └── tags/           # 标签页
 │   ├── styles/
-│   │   └── global.css      # terminal.css 主题覆盖
+│   │   └── global.css      # 全站终端风设计系统
 │   └── content.config.ts   # 内容集合配置
 └── tests/
+    ├── i18n.test.ts        # 多语言路由和文案测试
     └── post-data.test.ts   # 文章数据处理测试
 ```
 
@@ -71,7 +72,7 @@ pnpm preview
 
 - `profile.ts` 控制首页简介
 - `sites.ts` 控制首页站点命令列表
-- `public/avatar.svg` 是页头头像资源
+- `profile.ts` 中的邮箱会在构建时生成 Gravatar 头像地址
 
 这个项目当前不再依赖 Svelte 组件, 首页站点列表也使用 Astro 组件渲染。
 
@@ -131,13 +132,17 @@ public/posts/hello-terminal/diagram.png
 - 图片文件名保持英文小写加连字符
 - 优先把文章图片放进 `public/posts/<slug>/`, 不要散落在根级 `public/`
 
+### 4. 调整主题
+
+深色和浅色主题直接写在 `src/data/themes.ts` 中。新增或修改主题时编辑该文件内的主题数组即可。
+
 ## 路由说明
 
 - `/`: 个人门户首页
 - `/blog`: 博客列表页
 - `/blog/<slug>`: 文章详情页
 - `/tags/<tag>`: 标签聚合页
-- `/archive`: 按年份归档
+- `/archive`: 按月份归档
 
 ## 构建与部署
 
