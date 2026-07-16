@@ -30,7 +30,7 @@ export const zhCN = {
     archive: {
         metaTitle: "Hobr.Site | 归档",
         panelSubtitle:
-            "find ~/博客 -type f | xargs stat -c %y | cut -d- -f1 | sort -ur",
+            "find ~/博客 -type f | xargs stat -c %y | cut -d- -f1,2 | sort -ur",
     },
     tagPage: {
         metaTitle: (tag: string) => `Hobr.Site | #${tag}`,

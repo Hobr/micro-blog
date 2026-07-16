@@ -30,7 +30,7 @@ export const en = {
     archive: {
         metaTitle: "Hobr.Site | Archive",
         panelSubtitle:
-            "find ~/posts -type f | xargs stat -c %y | cut -d- -f1 | sort -ur",
+            "find ~/posts -type f | xargs stat -c %y | cut -d- -f1,2 | sort -ur",
     },
     tagPage: {
         metaTitle: (tag: string) => `Hobr.Site | #${tag}`,

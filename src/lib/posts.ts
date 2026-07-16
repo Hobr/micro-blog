@@ -3,8 +3,8 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import {
     assertUniqueSlugs,
     createAdjacentPostMap,
+    groupPostsByMonth,
     groupPostsByTag,
-    groupPostsByYear,
     normalizePostRecord,
     sortPostsByDateDesc,
     type NormalizedPost,
@@ -49,7 +49,7 @@ export async function getPostsByTag(tag: string) {
 }
 
 export async function getArchiveGroups() {
-    return groupPostsByYear(await collectPosts());
+    return groupPostsByMonth(await collectPosts());
 }
 
 export async function getAdjacentPosts(slug: string) {

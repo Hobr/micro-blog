@@ -88,6 +88,19 @@ export function groupPostsByYear<T extends NormalizedPost>(
     return [...grouped.entries()];
 }
 
+export function groupPostsByMonth<T extends NormalizedPost>(
+    posts: T[],
+): Array<[string, T[]]> {
+    const grouped = new Map<string, T[]>();
+
+    for (const post of posts) {
+        const month = post.publishedAt.toISOString().slice(0, 7);
+        grouped.set(month, [...(grouped.get(month) ?? []), post]);
+    }
+
+    return [...grouped.entries()];
+}
+
 export function createAdjacentPostMap<T extends NormalizedPost>(posts: T[]) {
     return new Map(
         posts.map((post, index) => [

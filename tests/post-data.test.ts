@@ -4,6 +4,7 @@ import test from "node:test";
 import {
     assertUniqueSlugs,
     createAdjacentPostMap,
+    groupPostsByMonth,
     groupPostsByTag,
     groupPostsByYear,
     normalizePostRecord,
@@ -65,6 +66,10 @@ test("groupPostsByTag and groupPostsByYear derive navigation views", () => {
     assert.deepEqual(
         groupPostsByYear(sorted).map(([year]) => year),
         ["2026", "2025"],
+    );
+    assert.deepEqual(
+        groupPostsByMonth(sorted).map(([month]) => month),
+        ["2026-04", "2025-12"],
     );
 });
 

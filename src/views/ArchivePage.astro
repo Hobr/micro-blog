@@ -21,17 +21,31 @@ const { locale, dictionary, archiveGroups, alternateLinks } = Astro.props;
     dictionary={dictionary}
     alternateLinks={alternateLinks}
 >
-    <main class="page-shell">
-        <section class="page-block page-block--flush">
-            <p class="terminal-prompt">{dictionary.archive.panelSubtitle}</p>
-            {
-                archiveGroups.map(([year, posts]) => (
-                    <section>
-                        <h2>{year}</h2>
-                        <PostList posts={posts} locale={locale} />
-                    </section>
-                ))
-            }
+    <main class="page-shell" id="main-content">
+        <section class="terminal-panel archive-panel">
+            <p class="terminal-prompt">
+                <span aria-hidden="true">$</span>
+                {dictionary.archive.panelSubtitle}
+            </p>
+            <div class="archive-groups">
+                {
+                    archiveGroups.map(([period, posts]) => {
+                        const [year, month] = period.split("-");
+
+                        return (
+                            <section class="archive-group" aria-label={period}>
+                                <div class="archive-group__period">
+                                    <h2>
+                                        <span>{year}</span>
+                                        <strong>{month}</strong>
+                                    </h2>
+                                </div>
+                                <PostList posts={posts} locale={locale} />
+                            </section>
+                        );
+                    })
+                }
+            </div>
         </section>
     </main>
 </Layout>
