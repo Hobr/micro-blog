@@ -29,33 +29,33 @@ const { locale, dictionary, post, previous, next, Content, alternateLinks } =
     alternateLinks={alternateLinks}
     canonicalPath={toLocalePath(defaultLocale, `/blog/${post.slug}/`)}
 >
-    <main class="page-shell">
+    <main class="page-shell article-page" id="main-content">
         <article class="article-shell">
-            <section class="page-block page-block--flush" lang={locale}>
-                <div class="article-body">
-                    <Content />
-                </div>
-                <p class="article-date">{post.dateLabel}</p>
-            </section>
-
-            <section class="page-block" lang={locale}>
-                <div class="article-footer">
-                    <TagList
-                        tags={post.tags}
-                        locale={locale}
-                        label={dictionary.common.tagsLabel}
-                    />
-                    <PostPagination
-                        locale={locale}
-                        previous={previous}
-                        next={next}
-                        previousLabel={dictionary.articlePage.previous}
-                        nextLabel={dictionary.articlePage.next}
-                        emptyPreviousLabel={dictionary.articlePage.startOfLog}
-                        emptyNextLabel={dictionary.articlePage.latestEntry}
-                    />
-                </div>
-            </section>
+            <header class="article-meta" lang={locale}>
+                <p class="article-meta__path">~/blog/{post.slug}.typ</p>
+                <time datetime={post.publishedAt.toISOString()}
+                    >{post.dateLabel}</time
+                >
+                <TagList
+                    tags={post.tags}
+                    locale={locale}
+                    label={dictionary.common.tagsLabel}
+                />
+            </header>
+            <div class="article-body">
+                <Content />
+            </div>
+            <footer class="article-footer" lang={locale}>
+                <PostPagination
+                    locale={locale}
+                    previous={previous}
+                    next={next}
+                    previousLabel={dictionary.articlePage.previous}
+                    nextLabel={dictionary.articlePage.next}
+                    emptyPreviousLabel={dictionary.articlePage.startOfLog}
+                    emptyNextLabel={dictionary.articlePage.latestEntry}
+                />
+            </footer>
         </article>
     </main>
 </Layout>

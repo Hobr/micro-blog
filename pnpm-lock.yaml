@@ -26,9 +26,6 @@ importers:
       astro-typst:
         specifier: ^0.12.3
         version: 0.12.3(@myriaddreamin/typst-ts-node-compiler@0.7.0)(@myriaddreamin/typst-ts-renderer@0.7.0)(@myriaddreamin/typst.ts@0.7.0(@myriaddreamin/typst-ts-renderer@0.7.0))(astro@7.0.9(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.1.1)(jiti@2.7.0)(rollup@4.62.2)(yaml@2.9.0))(cheerio@1.2.0)(rollup@4.62.2)
-      terminal.css:
-        specifier: ^0.7.5
-        version: 0.7.5
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -2463,9 +2460,6 @@ packages:
   synckit@0.11.13:
     resolution: {integrity: sha512-eNRKgb3z66Yp3D2CixVujOUvXLFUTij/zVnV8KRyvFdQwpz7I5DS8UfRkTeLzb64u+dkzDSdelE24izu+zSSUg==}
     engines: {node: ^14.18.0 || >=16.0.0}
-
-  terminal.css@0.7.5:
-    resolution: {integrity: sha512-M4RU7IRzqSZoJNRZCmxbRJqjxZqP2eV5cWyUlfAwqJx2GkoHlakTyoPLj0tLJwVJurfac38MwL5Mpwr23Yb0ow==}
 
   tiny-inflate@1.0.3:
     resolution: {integrity: sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw==}
@@ -5260,8 +5254,6 @@ snapshots:
   synckit@0.11.13:
     dependencies:
       '@pkgr/core': 0.3.6
-
-  terminal.css@0.7.5: {}
 
   tiny-inflate@1.0.3: {}
 

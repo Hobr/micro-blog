@@ -39,62 +39,26 @@ const themeStyles = getThemeStyles();
 const pageTransition = {
     forwards: {
         old: [
-            {
-                name: "pageContentFadeOut",
-                duration: "140ms",
-                easing: "cubic-bezier(0.55, 0, 1, 0.45)",
-                fillMode: "both",
-            },
-            {
-                name: "pageContentShiftUp",
-                duration: "220ms",
-                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-                fillMode: "both",
-            },
+            { name: "pageContentFadeOut", duration: "120ms", fillMode: "both" },
         ],
         new: [
             {
-                name: "pageContentFadeIn",
-                duration: "240ms",
-                delay: "30ms",
-                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-                fillMode: "both",
-            },
-            {
                 name: "pageContentRiseIn",
-                duration: "240ms",
-                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                duration: "280ms",
+                easing: "cubic-bezier(0.16, 1, 0.3, 1)",
                 fillMode: "both",
             },
         ],
     },
     backwards: {
         old: [
-            {
-                name: "pageContentFadeOut",
-                duration: "140ms",
-                easing: "cubic-bezier(0.55, 0, 1, 0.45)",
-                fillMode: "both",
-            },
-            {
-                name: "pageContentShiftDown",
-                duration: "220ms",
-                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-                fillMode: "both",
-            },
+            { name: "pageContentFadeOut", duration: "120ms", fillMode: "both" },
         ],
         new: [
             {
-                name: "pageContentFadeIn",
-                duration: "240ms",
-                delay: "30ms",
-                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-                fillMode: "both",
-            },
-            {
                 name: "pageContentDropIn",
-                duration: "240ms",
-                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                duration: "280ms",
+                easing: "cubic-bezier(0.16, 1, 0.3, 1)",
                 fillMode: "both",
             },
         ],
@@ -105,7 +69,9 @@ const themeBootstrapScript = `
     const storageKey = ${JSON.stringify(THEME_STORAGE_KEY)};
     const fallbackTheme = ${JSON.stringify(defaultThemeId)};
     const knownThemes = new Set(${JSON.stringify(themeIds)});
-    let nextTheme = fallbackTheme;
+    let nextTheme = window.matchMedia?.("(prefers-color-scheme: light)").matches
+        ? "paper-light"
+        : fallbackTheme;
 
     try {
         const storedTheme = window.localStorage.getItem(storageKey);
@@ -117,51 +83,6 @@ const themeBootstrapScript = `
     document.documentElement.dataset.theme = nextTheme;
 })();
 `;
-const footerDockScript = `
-(() => {
-    if (window.__footerDockInitialized) {
-        return;
-    }
-
-    window.__footerDockInitialized = true;
-
-    const root = document.documentElement;
-    let resizeObserver;
-    let observedFooter;
-
-    const setFooterHeight = (footer) => {
-        root.style.setProperty(
-            "--site-footer-dock-height",
-            \`\${Math.ceil(footer.getBoundingClientRect().height)}px\`,
-        );
-    };
-
-    const syncFooterDock = () => {
-        const footer = document.querySelector("[data-site-footer-dock]");
-        if (!(footer instanceof HTMLElement)) {
-            return;
-        }
-
-        setFooterHeight(footer);
-
-        if (observedFooter === footer || typeof ResizeObserver === "undefined") {
-            return;
-        }
-
-        resizeObserver?.disconnect();
-        resizeObserver = new ResizeObserver(() => {
-            setFooterHeight(footer);
-        });
-        resizeObserver.observe(footer);
-        observedFooter = footer;
-    };
-
-    syncFooterDock();
-    window.addEventListener("resize", syncFooterDock, { passive: true });
-    document.addEventListener("astro:after-swap", syncFooterDock);
-    document.addEventListener("astro:page-load", syncFooterDock);
-})();
-`;
 ---
 
 <!doctype html>
@@ -169,6 +90,7 @@ const footerDockScript = `
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
+        <meta name="theme-color" content="#0b0f0c" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="sitemap" href="/sitemap-index.xml" />
@@ -189,7 +111,7 @@ const footerDockScript = `
         <ClientRouter />
         <title>{title}</title>
     </head>
-    <body class="terminal">
+    <body>
         <div class="site-shell">
             <SiteHeader locale={locale} dictionary={dictionary} />
             <div
@@ -202,22 +124,26 @@ const footerDockScript = `
             <footer
                 class="site-footer"
                 lang={locale}
-                data-site-footer-dock
                 transition:name="site-footer"
                 transition:animate="none"
             >
-                <ThemeSwitcher label={dictionary.brand.themeLabel} />
                 <p class="site-footer__copyright">
-                    &copy; {currentYear}
-                    {dictionary.brand.name}
+                    <span aria-hidden="true">$</span>
+                    <span
+                        >{
+                            `printf "© ${currentYear} ${dictionary.brand.name}"`
+                        }</span
+                    >
                 </p>
-                <LanguageSwitcher
-                    currentLocale={locale}
-                    shortLabel={dictionary.brand.switcherLabel}
-                    alternateLinks={alternateLinks}
-                />
+                <div class="site-footer__controls">
+                    <ThemeSwitcher label={dictionary.brand.themeLabel} />
+                    <LanguageSwitcher
+                        currentLocale={locale}
+                        shortLabel={dictionary.brand.switcherLabel}
+                        alternateLinks={alternateLinks}
+                    />
+                </div>
             </footer>
         </div>
-        <script is:inline set:html={footerDockScript} />
     </body>
 </html>

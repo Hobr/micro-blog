@@ -53,7 +53,9 @@ const { label } = Astro.props;
             const stored = window.localStorage.getItem(storageKey);
             return stored && knownThemes.includes(stored)
                 ? stored
-                : fallbackTheme;
+                : window.matchMedia?.("(prefers-color-scheme: light)").matches
+                  ? "paper-light"
+                  : fallbackTheme;
         } catch {
             return fallbackTheme;
         }

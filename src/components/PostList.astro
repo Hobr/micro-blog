@@ -14,17 +14,22 @@ const { posts, locale, emptyMessage = "No posts found." } = Astro.props;
 
 {
     posts.length > 0 ? (
-        <ul>
+        <ol class="post-list">
             {posts.map((post) => (
                 <li>
                     <a href={toLocalePath(locale, `/blog/${post.slug}`)}>
-                        {post.title}
+                        <span class="post-list__title">{post.title}</span>
+                        <time datetime={post.publishedAt.toISOString()}>
+                            {post.dateLabel}
+                        </time>
+                        <span class="post-list__arrow" aria-hidden="true">
+                            -&gt;
+                        </span>
                     </a>
-                    <small> / {post.dateLabel}</small>
                 </li>
             ))}
-        </ul>
+        </ol>
     ) : (
-        <p>{emptyMessage}</p>
+        <p class="empty-state">{emptyMessage}</p>
     )
 }

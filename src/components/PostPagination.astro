@@ -27,31 +27,34 @@ const {
 <div class="post-pagination">
     {
         previous ? (
-            <p>
-                <small>{previousLabel}</small>{" "}
-                <a href={toLocalePath(locale, `/blog/${previous.slug}`)}>
-                    {previous.title}
-                </a>
-            </p>
+            <a
+                class="post-pagination__item"
+                href={toLocalePath(locale, `/blog/${previous.slug}`)}
+            >
+                <small>{previousLabel}</small>
+                <strong>{previous.title}</strong>
+            </a>
         ) : (
-            <p>
-                <small>{previousLabel}</small>{" "}
-                <strong>{emptyPreviousLabel}</strong>
-            </p>
+            <div class="post-pagination__item is-disabled">
+                <small>{previousLabel}</small>
+                <span>{emptyPreviousLabel}</span>
+            </div>
         )
     }
     {
         next ? (
-            <p>
-                <small>{nextLabel}</small>{" "}
-                <a href={toLocalePath(locale, `/blog/${next.slug}`)}>
-                    {next.title}
-                </a>
-            </p>
+            <a
+                class="post-pagination__item post-pagination__item--next"
+                href={toLocalePath(locale, `/blog/${next.slug}`)}
+            >
+                <small>{nextLabel}</small>
+                <strong>{next.title}</strong>
+            </a>
         ) : (
-            <p>
-                <small>{nextLabel}</small> <strong>{emptyNextLabel}</strong>
-            </p>
+            <div class="post-pagination__item post-pagination__item--next is-disabled">
+                <small>{nextLabel}</small>
+                <span>{emptyNextLabel}</span>
+            </div>
         )
     }
 </div>

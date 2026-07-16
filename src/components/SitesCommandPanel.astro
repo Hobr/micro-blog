@@ -9,12 +9,17 @@ interface Props {
 const { sites = [], label = "Owned sites" } = Astro.props;
 ---
 
-<ul aria-label={label}>
+<ul class="command-list" aria-label={label}>
     {
         sites.map((site) => (
             <li>
-                <a href={site.href}>{site.command}</a>
-                <small>[{site.name}]</small>
+                <a href={site.href}>
+                    <span class="command-list__command">{site.command}</span>
+                    <small>{site.name}</small>
+                    <span class="command-list__arrow" aria-hidden="true">
+                        -&gt;
+                    </span>
+                </a>
             </li>
         ))
     }

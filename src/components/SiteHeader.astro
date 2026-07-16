@@ -49,30 +49,21 @@ const activeSection =
     transition:name="site-header"
     transition:animate="none"
 >
-    <div class="site-header__inner terminal-nav">
-        <a class="site-brand__name" href={toLocalePath(locale, "/")}>
-            <span class="terminal-cursor-prefix">
-                <img
-                    class="site-brand__avatar"
-                    src="/avatar.svg"
-                    alt=""
-                    aria-hidden="true"
-                    width="16"
-                    height="16"
-                />
-                {dictionary.brand.name}
+    <div class="site-header__inner">
+        <a class="site-brand" href={toLocalePath(locale, "/")}>
+            <span class="site-brand__identity">
+                <strong>{dictionary.brand.name}</strong>
+                <span aria-hidden="true">/root</span>
             </span>
         </a>
-        <nav class="terminal-menu site-nav">
+        <nav class="site-nav">
             <ul>
                 {
                     links.map((link) => (
                         <li>
                             <a
                                 class:list={[
-                                    {
-                                        active: activeSection === link.key,
-                                    },
+                                    { active: activeSection === link.key },
                                 ]}
                                 href={link.href}
                                 aria-current={
@@ -81,6 +72,7 @@ const activeSection =
                                         : undefined
                                 }
                             >
+                                <span aria-hidden="true">~/</span>
                                 {link.label}
                             </a>
                         </li>
