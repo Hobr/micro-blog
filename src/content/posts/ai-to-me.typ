@@ -4,7 +4,7 @@
   title: "我对人工智能的看法",
   slug: "ai-to-me",
   date: datetime(year: 2026, month: 4, day: 10),
-  tags: ("AI","社会"),
+  tags: ("AI", "社会"),
 )
 
 = 我对人工智能的看法

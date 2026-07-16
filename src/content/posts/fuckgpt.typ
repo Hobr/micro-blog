@@ -4,7 +4,7 @@
   title: "Fuck GPT",
   slug: "fuckgpt",
   date: datetime(year: 2026, month: 6, day: 1),
-  tags: ("AI","GPT"),
+  tags: ("AI", "GPT"),
 )
 
 = Fuck GPT

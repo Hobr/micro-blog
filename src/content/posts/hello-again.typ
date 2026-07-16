@@ -4,7 +4,7 @@
   title: "Hello Again",
   slug: "hello-again",
   date: datetime(year: 2026, month: 4, day: 9),
-  tags: ("web","JS", "AI"),
+  tags: ("web", "JS", "AI"),
 )
 
 = Hello Again
