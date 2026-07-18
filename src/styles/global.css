@@ -619,10 +619,13 @@ select {
     line-height: 1.9;
 }
 
+/* Typst emits inline dimensions; these overrides keep generated documents responsive. */
+/* eslint-disable css/no-important */
 .article-body .typst-doc {
     width: 100% !important;
     max-width: 100% !important;
 }
+/* eslint-enable css/no-important */
 
 .article-body > :first-child,
 .article-body .typst-doc > :first-child {
@@ -1055,6 +1058,8 @@ select {
         scroll-behavior: auto;
     }
 
+    /* Reduced motion must override component-level animation declarations. */
+    /* eslint-disable css/no-important */
     *,
     *::before,
     *::after {
@@ -1063,6 +1068,7 @@ select {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+    /* eslint-enable css/no-important */
 }
 
 @media (prefers-reduced-transparency: reduce) {

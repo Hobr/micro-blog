@@ -1,4 +1,3 @@
-import prettier from "eslint-config-prettier";
 import js from "@eslint/js";
 import path from "node:path";
 import globals from "globals";
@@ -8,13 +7,11 @@ import { includeIgnoreFile } from "@eslint/compat";
 import css from "@eslint/css";
 import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 const gitignorePath = path.resolve(import.meta.dirname, ".gitignore");
 
 export default defineConfig([
     includeIgnoreFile(gitignorePath),
-    prettier,
     tseslint.configs.recommended,
     {
         languageOptions: {
@@ -62,7 +59,10 @@ export default defineConfig([
             "css/use-baseline": [
                 "error",
                 {
+                    allowMediaConditions: ["prefers-reduced-transparency"],
+                    allowProperties: ["backdrop-filter", "text-wrap"],
                     allowSelectors: [
+                        "selection",
                         "view-transition-old",
                         "view-transition-new",
                     ],
@@ -71,5 +71,4 @@ export default defineConfig([
         },
     },
     eslintConfigPrettier,
-    eslintPluginPrettierRecommended,
 ]);
