@@ -21,24 +21,50 @@ export function parseTypstDate(input: string): Date {
     const year = Number(input.match(/year:\s*(\d{4})/)?.[1]);
     const month = Number(input.match(/month:\s*(\d{1,2})/)?.[1]);
     const day = Number(input.match(/day:\s*(\d{1,2})/)?.[1]);
+    const invalidDateMessage = `Invalid Typst date: ${input}`;
 
-    if (!year || !month || !day) {
-        throw new Error(`Invalid Typst date: ${input}`);
+    if (
+        !Number.isInteger(year) ||
+        year < 1 ||
+        !Number.isInteger(month) ||
+        month < 1 ||
+        month > 12 ||
+        !Number.isInteger(day) ||
+        day < 1 ||
+        day > 31
+    ) {
+        throw new Error(invalidDateMessage);
     }
 
-    return new Date(Date.UTC(year, month - 1, day));
+    const parsed = new Date(0);
+    parsed.setUTCHours(0, 0, 0, 0);
+    parsed.setUTCFullYear(year, month - 1, day);
+
+    if (
+        parsed.getUTCFullYear() !== year ||
+        parsed.getUTCMonth() !== month - 1 ||
+        parsed.getUTCDate() !== day
+    ) {
+        throw new Error(invalidDateMessage);
+    }
+
+    return parsed;
 }
 
 export function normalizePostRecord(record: RawPostRecord): NormalizedPost {
-    if (!record.data.title.trim()) {
+    const title = record.data.title.trim();
+    const slug = record.data.slug.trim();
+    const tags = [...new Set(record.data.tags.map((tag) => tag.trim()))];
+
+    if (!title) {
         throw new Error("Post title is required");
     }
 
-    if (!record.data.slug.trim()) {
+    if (!slug) {
         throw new Error("Post slug is required");
     }
 
-    if (record.data.tags.length === 0) {
+    if (tags.length === 0 || tags.some((tag) => !tag)) {
         throw new Error("Post tags are required");
     }
 
@@ -46,9 +72,9 @@ export function normalizePostRecord(record: RawPostRecord): NormalizedPost {
 
     return {
         id: record.id,
-        title: record.data.title,
-        slug: record.data.slug,
-        tags: record.data.tags,
+        title,
+        slug,
+        tags,
         publishedAt,
         dateLabel: publishedAt.toISOString().slice(0, 10),
     };

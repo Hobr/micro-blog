@@ -10,6 +10,7 @@ import {
     normalizePostRecord,
     parseTypstDate,
     sortPostsByDateDesc,
+    type RawPostRecord,
 } from "../src/lib/post-data.ts";
 
 const rawPosts = [
@@ -31,11 +32,33 @@ const rawPosts = [
             tags: ["typst"],
         },
     },
-] as const;
+] satisfies RawPostRecord[];
+
+function createRawPost(data: Partial<RawPostRecord["data"]>): RawPostRecord {
+    return {
+        id: "test-post",
+        data: {
+            ...rawPosts[0].data,
+            ...data,
+        },
+    };
+}
 
 test("parseTypstDate converts typst datetime text into a UTC date", () => {
     const parsed = parseTypstDate("datetime(year: 2026, month: 4, day: 6)");
     assert.equal(parsed.toISOString(), "2026-04-06T00:00:00.000Z");
+});
+
+test("parseTypstDate rejects missing and impossible calendar dates", () => {
+    const invalidDates = [
+        "datetime(year: 2026, month: 2)",
+        "datetime(year: 2026, month: 13, day: 1)",
+        "datetime(year: 2026, month: 2, day: 29)",
+    ];
+
+    for (const input of invalidDates) {
+        assert.throws(() => parseTypstDate(input), /Invalid Typst date/);
+    }
 });
 
 test("normalizePostRecord validates and decorates a post record", () => {
@@ -43,6 +66,35 @@ test("normalizePostRecord validates and decorates a post record", () => {
 
     assert.equal(normalized.slug, "older");
     assert.equal(normalized.dateLabel, "2025-12-30");
+});
+
+test("normalizePostRecord trims fields and removes duplicate tags", () => {
+    const normalized = normalizePostRecord(
+        createRawPost({
+            title: "  Title  ",
+            slug: "  slug  ",
+            tags: ["astro", " astro ", "notes"],
+        }),
+    );
+
+    assert.equal(normalized.title, "Title");
+    assert.equal(normalized.slug, "slug");
+    assert.deepEqual(normalized.tags, ["astro", "notes"]);
+});
+
+test("normalizePostRecord rejects blank required fields", () => {
+    assert.throws(
+        () => normalizePostRecord(createRawPost({ title: "   " })),
+        /Post title is required/,
+    );
+    assert.throws(
+        () => normalizePostRecord(createRawPost({ slug: "   " })),
+        /Post slug is required/,
+    );
+    assert.throws(
+        () => normalizePostRecord(createRawPost({ tags: ["   "] })),
+        /Post tags are required/,
+    );
 });
 
 test("sortPostsByDateDesc orders newest first", () => {
@@ -78,7 +130,9 @@ test("createAdjacentPostMap wires previous and next slugs", () => {
     const adjacency = createAdjacentPostMap(sorted);
 
     assert.equal(adjacency.get("newest")?.next?.slug, "older");
+    assert.equal(adjacency.get("newest")?.previous, undefined);
     assert.equal(adjacency.get("older")?.previous?.slug, "newest");
+    assert.equal(adjacency.get("older")?.next, undefined);
 });
 
 test("assertUniqueSlugs rejects duplicate slugs", () => {

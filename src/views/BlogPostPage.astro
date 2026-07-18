@@ -1,4 +1,5 @@
 ---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import PostPagination from "../components/PostPagination.astro";
 import TagList from "../components/TagList.astro";
 import type { AlternateLink, Locale } from "../i18n/config";
@@ -13,7 +14,7 @@ interface Props {
     post: BlogPost;
     previous?: BlogPost;
     next?: BlogPost;
-    Content: any;
+    Content: AstroComponentFactory;
     alternateLinks: AlternateLink[];
 }
 

@@ -7,10 +7,10 @@ const posts = defineCollection({
         base: "./src/content/posts",
     }),
     schema: z.object({
-        title: z.string(),
-        slug: z.string().min(1),
-        date: z.string().min(1),
-        tags: z.array(z.string().min(1)).min(1),
+        title: z.string().trim().min(1),
+        slug: z.string().trim().min(1),
+        date: z.string().trim().min(1),
+        tags: z.array(z.string().trim().min(1)).min(1),
     }),
 });
 
