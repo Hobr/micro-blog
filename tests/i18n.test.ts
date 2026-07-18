@@ -16,6 +16,7 @@ import {
     getSecondaryLocaleStaticPaths,
 } from "../src/i18n/static-paths.ts";
 import { shouldIncludeSitemapPage } from "../src/i18n/sitemap.ts";
+import { getProfile, profile } from "../src/data/profile.ts";
 import { getSites, sites } from "../src/data/sites.ts";
 import { getDictionary } from "../src/i18n/dictionary.ts";
 
@@ -144,14 +145,16 @@ test("toLocalePath rejects pathnames without a leading slash", () => {
     );
 });
 
-test("dictionary, profile, and site data resolve translated shell copy", () => {
+test("dictionaries resolve translated shell copy", () => {
     assert.equal(getDictionary("zh-CN").nav.blog, "博客");
     assert.equal(getDictionary("en").nav.blog, "Blog");
     assert.equal(getDictionary("ja").nav.blog, "ブログ");
 
     assert.equal(getDictionary("ja").common.tagsLabel, "タグ");
     assert.equal(getDictionary("ja").blogIndex.openArchive, "./archive");
+});
 
+test("site data localizes labels and preserves shared external targets", () => {
     assert.equal(getSites("zh-CN")[0].name, "邮箱");
     assert.equal(getSites("zh-CN")[3].command, "./blog");
     assert.equal(getSites("en")[4].name, "Archive");
@@ -159,9 +162,17 @@ test("dictionary, profile, and site data resolve translated shell copy", () => {
     assert.equal(getSites("ja")[5].command, "./tags/site");
     assert.equal(getSites("en")[2].href, "https://github.com/Hobr");
     assert.equal(getSites("ja")[4].href, "/ja/archive");
+
+    for (const locale of ["zh-CN", "en", "ja"] as const) {
+        const localizedSites = getSites(locale);
+        assert.equal(localizedSites[0].href, "mailto:mail@hobr.site");
+        assert.equal(localizedSites[1].href, "https://t.me/Hobrd");
+        assert.equal(localizedSites[2].href, "https://github.com/Hobr");
+    }
 });
 
 test("profile and sites keep default-locale compatibility exports", () => {
+    assert.deepEqual(profile, getProfile(defaultLocale));
     assert.equal(sites[0].href, getSites(defaultLocale)[0].href);
 });
 

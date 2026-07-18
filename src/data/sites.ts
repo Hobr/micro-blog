@@ -6,22 +6,34 @@ export type LocalizedSiteCommand = {
     href: string;
 };
 
+const sharedSiteTargets = {
+    email: {
+        command: "./mail@hobr.site",
+        href: "mailto:mail@hobr.site",
+    },
+    telegram: {
+        command: "./Telegram",
+        href: "https://t.me/Hobrd",
+    },
+    github: {
+        command: "./GitHub",
+        href: "https://github.com/Hobr",
+    },
+} as const;
+
 const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
     "zh-CN": [
         {
-            command: "./mail@hobr.site",
+            ...sharedSiteTargets.email,
             name: "邮箱",
-            href: "mailto:mail@hobr.site",
         },
         {
-            command: "./Telegram",
+            ...sharedSiteTargets.telegram,
             name: "电报",
-            href: "https://t.me/Hobrd",
         },
         {
-            command: "./GitHub",
+            ...sharedSiteTargets.github,
             name: "GitHub",
-            href: "https://github.com/Hobr",
         },
         {
             command: "./blog",
@@ -41,19 +53,16 @@ const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
     ],
     en: [
         {
-            command: "./mail@hobr.site",
+            ...sharedSiteTargets.email,
             name: "Email",
-            href: "mailto:mail@hobr.site",
         },
         {
-            command: "./Telegram",
+            ...sharedSiteTargets.telegram,
             name: "Telegram",
-            href: "https://t.me/Hobrd",
         },
         {
-            command: "./GitHub",
+            ...sharedSiteTargets.github,
             name: "GitHub",
-            href: "https://github.com/Hobr",
         },
         {
             command: "./blog",
@@ -73,19 +82,16 @@ const siteSets: Record<Locale, LocalizedSiteCommand[]> = {
     ],
     ja: [
         {
-            command: "./mail@hobr.site",
+            ...sharedSiteTargets.email,
             name: "メール",
-            href: "mailto:hello@hobr.site",
         },
         {
-            command: "./Telegram",
+            ...sharedSiteTargets.telegram,
             name: "Telegram",
-            href: "https://t.me/Hobrd",
         },
         {
-            command: "./GitHub",
+            ...sharedSiteTargets.github,
             name: "GitHub",
-            href: "https://github.com",
         },
         {
             command: "./blog",
