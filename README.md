@@ -46,6 +46,9 @@ pnpm dev
 # 运行测试
 pnpm test
 
+# 检查 TypeScript 类型
+pnpm typecheck
+
 # 检查格式和 lint
 pnpm lint
 
@@ -178,7 +181,7 @@ dist/
 行为:
 
 - push 到 `main` 时自动执行
-- 在 GitHub Actions 里运行 `pnpm install`、`pnpm test`、`pnpm build`
+- 在 GitHub Actions 里运行 `pnpm install`、`pnpm test`、`pnpm typecheck`、`pnpm lint`、`pnpm build`
 - 构建完成后用 `rsync` 通过 SSH 把 `dist/` 同步到服务器
 
 你需要在 GitHub 仓库的 `Settings -> Secrets and variables -> Actions` 里添加这些 secrets:

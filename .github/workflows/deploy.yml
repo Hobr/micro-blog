@@ -35,6 +35,12 @@ jobs:
             - name: Run tests
               run: pnpm test
 
+            - name: Type-check
+              run: pnpm typecheck
+
+            - name: Run lint
+              run: pnpm lint
+
             - name: Build site
               run: pnpm build
 
@@ -43,6 +49,8 @@ jobs:
                   DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
                   DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
               run: |
+                  : "${DEPLOY_SSH_KEY:?DEPLOY_SSH_KEY is required}"
+                  : "${DEPLOY_KNOWN_HOSTS:?DEPLOY_KNOWN_HOSTS is required}"
                   mkdir -p ~/.ssh
                   printf '%s' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
                   chmod 600 ~/.ssh/id_ed25519
@@ -56,6 +64,9 @@ jobs:
                   DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
                   DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
               run: |
+                  : "${DEPLOY_HOST:?DEPLOY_HOST is required}"
+                  : "${DEPLOY_USER:?DEPLOY_USER is required}"
+                  : "${DEPLOY_PATH:?DEPLOY_PATH is required}"
                   rsync -az --delete \
                     -e "ssh -p ${DEPLOY_PORT:-22}" \
                     dist/ "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
