@@ -37,8 +37,15 @@
         "lint-staged": "^17.1.0",
         "prettier": "^3.9.5",
         "prettier-plugin-astro": "0.14.1",
-        "typescript": "~6.0.3",
+        "typescript": "6.0.3",
         "typescript-eslint": "^8.64.0"
+    },
+    "pnpm": {
+        "updateConfig": {
+            "ignoreDependencies": [
+                "typescript"
+            ]
+        }
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"
