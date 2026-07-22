@@ -34,7 +34,7 @@
         "eslint-config-prettier": "^10.1.8",
         "globals": "^17.7.0",
         "jiti": "^2.7.0",
-        "lint-staged": "^17.1.0",
+        "lint-staged": "^17.1.1",
         "prettier": "^3.9.6",
         "prettier-plugin-astro": "0.14.1",
         "typescript": "6.0.3",
