@@ -36,34 +36,6 @@ const canonical = new URL(canonicalPath, siteBase).href;
 const currentYear = new Date().getFullYear();
 const siteDescription = `${dictionary.brand.name} personal blogs.`;
 const themeStyles = getThemeStyles();
-const pageTransition = {
-    forwards: {
-        old: [
-            { name: "pageContentFadeOut", duration: "120ms", fillMode: "both" },
-        ],
-        new: [
-            {
-                name: "pageContentRiseIn",
-                duration: "280ms",
-                easing: "cubic-bezier(0.16, 1, 0.3, 1)",
-                fillMode: "both",
-            },
-        ],
-    },
-    backwards: {
-        old: [
-            { name: "pageContentFadeOut", duration: "120ms", fillMode: "both" },
-        ],
-        new: [
-            {
-                name: "pageContentDropIn",
-                duration: "280ms",
-                easing: "cubic-bezier(0.16, 1, 0.3, 1)",
-                fillMode: "both",
-            },
-        ],
-    },
-};
 const themeBootstrapScript = `
 (() => {
     const storageKey = ${JSON.stringify(THEME_STORAGE_KEY)};
@@ -114,11 +86,7 @@ const themeBootstrapScript = `
     <body>
         <div class="site-shell">
             <SiteHeader locale={locale} dictionary={dictionary} />
-            <div
-                class="page-transition-shell"
-                transition:name="page-content"
-                transition:animate={pageTransition}
-            >
+            <div class="page-transition-shell">
                 <slot />
             </div>
             <footer
