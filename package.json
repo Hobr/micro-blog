@@ -21,7 +21,7 @@
         "@myriaddreamin/typst-ts-node-compiler": "0.8.0-rc3",
         "@myriaddreamin/typst-ts-renderer": "0.8.0-rc3",
         "@myriaddreamin/typst.ts": "0.8.0-rc3",
-        "astro": "^7.2.0",
+        "astro": "^7.2.1",
         "astro-typst": "github:Hobr/astro-typst"
     },
     "devDependencies": {
@@ -33,7 +33,7 @@
         "@typescript/native": "npm:typescript@^7.0.2",
         "eslint": "^10.8.1",
         "eslint-config-prettier": "^10.1.8",
-        "globals": "^17.9.0",
+        "globals": "^17.11.0",
         "jiti": "^2.7.0",
         "lint-staged": "^17.3.0",
         "prettier": "^3.9.6",
