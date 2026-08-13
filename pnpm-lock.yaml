@@ -25,7 +25,7 @@ importers:
         version: 7.2.1(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0)
       astro-typst:
         specifier: github:Hobr/astro-typst
-        version: https://codeload.github.com/Hobr/astro-typst/tar.gz/6ed4bf4ee259a2ed3bce902b72cf068b3ad47ba5(@myriaddreamin/typst-ts-node-compiler@0.8.0-rc3)(@myriaddreamin/typst-ts-renderer@0.8.0-rc3)(@myriaddreamin/typst.ts@0.8.0-rc3(@myriaddreamin/typst-ts-renderer@0.8.0-rc3))(astro@7.2.1(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0))(cheerio@1.2.0)
+        version: https://codeload.github.com/Hobr/astro-typst/tar.gz/62aaebb89da5553181f45b3f1aded8349f98bfc8(@myriaddreamin/typst-ts-node-compiler@0.8.0-rc3)(@myriaddreamin/typst-ts-renderer@0.8.0-rc3)(@myriaddreamin/typst.ts@0.8.0-rc3(@myriaddreamin/typst-ts-renderer@0.8.0-rc3))(astro@7.2.1(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0))(cheerio@1.2.0)
     devDependencies:
       '@eslint/compat':
         specifier: ^2.1.0
@@ -1158,8 +1158,8 @@ packages:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
 
-  astro-typst@https://codeload.github.com/Hobr/astro-typst/tar.gz/6ed4bf4ee259a2ed3bce902b72cf068b3ad47ba5:
-    resolution: {tarball: https://codeload.github.com/Hobr/astro-typst/tar.gz/6ed4bf4ee259a2ed3bce902b72cf068b3ad47ba5}
+  astro-typst@https://codeload.github.com/Hobr/astro-typst/tar.gz/62aaebb89da5553181f45b3f1aded8349f98bfc8:
+    resolution: {tarball: https://codeload.github.com/Hobr/astro-typst/tar.gz/62aaebb89da5553181f45b3f1aded8349f98bfc8}
     version: 0.12.3
     peerDependencies:
       '@myriaddreamin/typst-ts-node-compiler': '>=0.6.1-rc2'
@@ -1727,8 +1727,8 @@ packages:
     resolution: {integrity: sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g==}
     engines: {node: 20 || >=22}
 
-  magic-string@1.1.1:
-    resolution: {integrity: sha512-qFemKPzc3ttrYVaMmnSkGtGc5nE6Ncl4bj7c9IE6C9OUIRXjf6PzJ+UZ1xhVIjYc7dolHq3qKzpAJPZUbvNj+A==}
+  magic-string@1.2.0:
+    resolution: {integrity: sha512-ptco+HFxTLgjafSLim2LojBSwfg5feBjd+SqyiwdGkzC38UPdZy3zgrHMI2CoTf5fJL38tbHMYWVzIH8BxGqJw==}
 
   magicast@0.5.4:
     resolution: {integrity: sha512-llBEhWm1SacoRwgHUoQJYtwp4PBLF4faQi5TCpIGyGs9n4y5+juI0tDgyKIfpqxckRHaHzouUEph3THklWh03w==}
@@ -2201,8 +2201,8 @@ packages:
     engines: {node: '>=16.20.0'}
     hasBin: true
 
-  typstx@0.0.1-beta.1:
-    resolution: {integrity: sha512-zt1qH3i54AzgGSBQzVmLHrXVM87EcM0vpQ+Ez/VyCuHeNkLRRhUfH77JGoE7m5vmP5mhYmTs1yoxcaaw1UI7tQ==}
+  typstx@0.0.1:
+    resolution: {integrity: sha512-vX4Jx+K11L4tLYcUkhbPIauyngrh8iBNSh/K4L/AgJzBgcNYe1EQIyV3jNBFNb6+bWoyVVcRIx/QGS7zUXXRtA==}
 
   ufo@1.6.4:
     resolution: {integrity: sha512-JFNbkD1Svwe0KvGi8GOeLcP4kAWQ609twvCdcHxq1oSL8svv39ZuSvajcD8B+5D0eL4+s1Is2D/O6KN3qcTeRA==}
@@ -3272,7 +3272,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-typst@https://codeload.github.com/Hobr/astro-typst/tar.gz/6ed4bf4ee259a2ed3bce902b72cf068b3ad47ba5(@myriaddreamin/typst-ts-node-compiler@0.8.0-rc3)(@myriaddreamin/typst-ts-renderer@0.8.0-rc3)(@myriaddreamin/typst.ts@0.8.0-rc3(@myriaddreamin/typst-ts-renderer@0.8.0-rc3))(astro@7.2.1(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0))(cheerio@1.2.0):
+  astro-typst@https://codeload.github.com/Hobr/astro-typst/tar.gz/62aaebb89da5553181f45b3f1aded8349f98bfc8(@myriaddreamin/typst-ts-node-compiler@0.8.0-rc3)(@myriaddreamin/typst-ts-renderer@0.8.0-rc3)(@myriaddreamin/typst.ts@0.8.0-rc3(@myriaddreamin/typst-ts-renderer@0.8.0-rc3))(astro@7.2.1(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0))(cheerio@1.2.0):
     dependencies:
       '@myriaddreamin/typst-ts-node-compiler': 0.8.0-rc3
       '@myriaddreamin/typst-ts-renderer': 0.8.0-rc3
@@ -3280,7 +3280,7 @@ snapshots:
       astro: 7.2.1(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0)
       cheerio: 1.2.0
       rehype-stringify: 10.0.1
-      typstx: 0.0.1-beta.1
+      typstx: 0.0.1
       unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
@@ -3314,7 +3314,7 @@ snapshots:
       http-cache-semantics: 4.2.0
       js-yaml: 4.3.1
       jsonc-parser: 3.3.1
-      magic-string: 1.1.1
+      magic-string: 1.2.0
       magicast: 0.5.4
       mrmime: 2.0.1
       neotraverse: 1.0.1
@@ -3989,7 +3989,7 @@ snapshots:
 
   lru-cache@11.5.2: {}
 
-  magic-string@1.1.1:
+  magic-string@1.2.0:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
@@ -4746,7 +4746,7 @@ snapshots:
       '@typescript/typescript-win32-arm64': 7.0.2
       '@typescript/typescript-win32-x64': 7.0.2
 
-  typstx@0.0.1-beta.1:
+  typstx@0.0.1:
     dependencies:
       '@types/estree': 1.0.9
       '@types/estree-jsx': 1.0.5
