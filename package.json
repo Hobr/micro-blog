@@ -23,7 +23,7 @@
         "@xingwangzhe/satteri-mermaid": "^0.7.9",
         "astro": "^7.3.5",
         "satteri-imgattr": "^0.1.1",
-        "sharp": "^0.35.4"
+        "sharp": "^0.35.5"
     },
     "devDependencies": {
         "@eslint/compat": "^2.1.1",
