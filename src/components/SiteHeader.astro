@@ -32,6 +32,11 @@ const links = [
         label: dictionary.nav.tags,
         key: "tags",
     },
+    {
+        href: toLocalePath(locale, "/friends"),
+        label: dictionary.nav.friends,
+        key: "friends",
+    },
 ];
 
 const activeSection =
@@ -46,7 +51,9 @@ const activeSection =
             : pathnameWithoutLocale === "/archive" ||
                 pathnameWithoutLocale.startsWith("/archive/")
               ? "archive"
-              : null;
+              : pathnameWithoutLocale === "/friends"
+                ? "friends"
+                : null;
 ---
 
 <header

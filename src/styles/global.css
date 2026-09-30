@@ -282,6 +282,17 @@ select {
     font-weight: 700;
 }
 
+.command-list a.command-list__link--avatar {
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+}
+
+.command-list__link--avatar img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

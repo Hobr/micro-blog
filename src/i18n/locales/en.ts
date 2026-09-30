@@ -9,6 +9,7 @@ export const en = {
         blog: "Blog",
         tags: "Tags",
         archive: "Archive",
+        friends: "Friends",
     },
     common: {
         noPosts: "No posts published yet",
@@ -49,6 +50,11 @@ export const en = {
         metaTitle: "Hobr.Site | Archive",
         panelSubtitle:
             "find ~/posts -type f | xargs stat -c %y | cut -d- -f1,2 | sort -ur",
+    },
+    friendsPage: {
+        metaTitle: "Hobr.Site | Friends",
+        panelSubtitle: "cat ~/links/friends.txt",
+        empty: "Friend links are being collected",
     },
     contact: {
         imSubtitle: "ls ~/contact/im && open ~/contact/im/<target>",

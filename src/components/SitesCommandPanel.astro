@@ -12,9 +12,25 @@ const { sites = [], label = "Owned sites" } = Astro.props;
 <ul class="command-list" aria-label={label}>
     {sites.map((site) => (
         <li>
-            <a href={site.href}>
+            <a
+                href={site.href}
+                target={site.target}
+                rel={
+                    site.target === "_blank" ? "noopener noreferrer" : undefined
+                }
+                class:list={[{ "command-list__link--avatar": site.avatar }]}
+            >
+                {site.avatar && (
+                    <img
+                        src={site.avatar}
+                        alt=""
+                        width="48"
+                        height="48"
+                        loading="lazy"
+                    />
+                )}
                 <span class="command-list__command">{site.command}</span>
-                <small>{site.name}</small>
+                {!site.avatar && <small>{site.name}</small>}
                 <span class="command-list__arrow" aria-hidden="true">
                     -&gt;
                 </span>

@@ -1,0 +1,17 @@
+---
+import FriendsPage from "../views/FriendsPage.astro";
+import { friends } from "../data/friends";
+import { buildAlternateLinks, defaultLocale } from "../i18n/config";
+import { getDictionary } from "../i18n/dictionary";
+
+const locale = defaultLocale;
+const dictionary = getDictionary(locale);
+const alternateLinks = buildAlternateLinks(Astro.url.pathname);
+---
+
+<FriendsPage
+    locale={locale}
+    dictionary={dictionary}
+    friends={friends}
+    alternateLinks={alternateLinks}
+/>

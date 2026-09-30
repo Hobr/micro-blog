@@ -9,6 +9,7 @@ export const zhCN = {
         blog: "博客",
         tags: "标签",
         archive: "归档",
+        friends: "友情链接",
     },
     common: {
         noPosts: "暂无文章",
@@ -48,6 +49,11 @@ export const zhCN = {
         metaTitle: "Hobr.Site | 归档",
         panelSubtitle:
             "find ~/博客 -type f | xargs stat -c %y | cut -d- -f1,2 | sort -ur",
+    },
+    friendsPage: {
+        metaTitle: "Hobr.Site | 友情链接",
+        panelSubtitle: "cat ~/links/friends.txt",
+        empty: "友情链接正在整理中",
     },
     contact: {
         imSubtitle: "ls ~/联系/即时通讯 && open ~/联系/即时通讯/<方式>",

@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SitesCommandPanel from "../components/SitesCommandPanel.astro";
+import type { FriendLink } from "../data/friends";
+import type { AlternateLink, Locale } from "../i18n/config";
+import type { SiteDictionary } from "../i18n/dictionary";
+import type { LocalizedSiteCommand } from "../data/sites";
+
+interface Props {
+    locale: Locale;
+    dictionary: SiteDictionary;
+    friends: FriendLink[];
+    alternateLinks: AlternateLink[];
+}
+
+const { locale, dictionary, friends, alternateLinks } = Astro.props;
+const friendCommands: LocalizedSiteCommand[] = friends.map((friend) => ({
+    command: friend.name,
+    name: friend.name,
+    href: friend.href,
+    avatar: friend.avatar,
+    target: "_blank",
+}));
+---
+
+<Layout
+    title={dictionary.friendsPage.metaTitle}
+    locale={locale}
+    dictionary={dictionary}
+    alternateLinks={alternateLinks}
+>
+    <main class="page-shell" id="main-content">
+        <section class="terminal-panel" aria-label={dictionary.nav.friends}>
+            <p class="terminal-prompt">
+                <span aria-hidden="true">$</span>
+                {dictionary.friendsPage.panelSubtitle}
+            </p>
+            {friendCommands.length > 0 ? (
+                <SitesCommandPanel
+                    sites={friendCommands}
+                    label={dictionary.nav.friends}
+                />
+            ) : (
+                <p class="empty-state">{dictionary.friendsPage.empty}</p>
+            )}
+        </section>
+    </main>
+</Layout>
