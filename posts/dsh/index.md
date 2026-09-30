@@ -1,8 +1,8 @@
 ---
 date: "2026-08-14"
 tags:
-    - AI
-    - Agent
+  - AI
+  - Agent
 ---
 
 # 锐评DeepSeek Harness

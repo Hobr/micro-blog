@@ -1,7 +1,7 @@
 ---
 date: "2026-04-21"
 tags:
-    - Galgame
+  - Galgame
 ---
 
 # anemoi通关撒花

@@ -88,8 +88,8 @@ pnpm preview
 ---
 date: "2026-04-07"
 tags:
-    - markdown
-    - astro
+  - markdown
+  - astro
 ---
 
 # My New Post
