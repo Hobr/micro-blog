@@ -4,6 +4,7 @@ import { ClientRouter } from "astro:transitions";
 import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import ThemeSwitcher from "../components/ThemeSwitcher.astro";
+import { siteDescription } from "../data/profile";
 import {
     THEME_STORAGE_KEY,
     defaultThemeId,
@@ -35,7 +36,6 @@ const {
 const siteBase = Astro.site ?? Astro.url;
 const canonical = new URL(canonicalPath, siteBase).href;
 const currentYear = new Date().getFullYear();
-const siteDescription = `${dictionary.brand.name} personal blogs.`;
 const themeStyles = getThemeStyles();
 const themeBootstrapScript = `
 (() => {
