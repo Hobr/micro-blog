@@ -8,22 +8,22 @@ tags:
 
 ## 流程
 
-1. 获取源平台*gt*值, 这个值一般是固定的, 获取一次即可, 不重要
+1. 获取源平台 _gt_ 值, 这个值一般是固定的, 获取一次即可, 不重要
 2. 获取流水号challenge, 这个challenge对应本次的验证会话, 从源平台接口获取, 不重要
-3. 获取验证资源, 接口为*api.geetest.com/gettype.php* 参数为*gt*和*callback*, callback值为*geetest_*加上13位毫秒级时间戳
+3. 获取验证资源, 接口为 _api.geetest.com/gettype.php_ 参数为 _gt_ 和 _callback_, callback值为 _geetest__ 加上13位毫秒级时间戳
    - 返回值包括无感验证(fullpage)\点字验证(click)的js文件, fullpage的混淆内容会时常改变, 这几个js文件是我们分析的重点
 4. 第一次get.php 环境检测
-   - 请求中需要*w*, 下文称之为第一个w
+   - 请求中需要 _w_, 下文称之为第一个w
    - 返回c, s
 5. 第一次ajax.php 点击验证, 加载点字
-   - 请求中需要*w*, 下文称之为第二个w
+   - 请求中需要 _w_, 下文称之为第二个w
    - 返回下次验证类型
 6. 第二次get.php
    - 请求中没有w
    - 返回图片, c, s, gct
 7. 第二次ajax.php 提交点字
-   - 请求中需要*w*, 下文称之为第三个w
-   - 返回*validate*校验
+   - 请求中需要 _w_, 下文称之为第三个w
+   - 返回 _validate_ 校验
 8. 源平台校验, 返回challenge和validate
 
 ## 注意
@@ -36,7 +36,7 @@ tags:
 
 ## 逆向
 
-由上文可见, 我们破解geetest的重点就是破解这3个*w*
+由上文可见, 我们破解geetest的重点就是破解这3个 _w_
 
 ### 第一个w
 
@@ -65,7 +65,7 @@ var r = t[$_CEEJl(1133)](), // 断点
   };
 ```
 
-可得*w = i + r*, 现在需要得到*i*和*r*, 而 *i = p(o)*
+可得 _w = i + r_, 现在需要得到 _i_ 和 _r_, 而 _i = p(o)_
 
 #### i
 
@@ -111,7 +111,7 @@ he["stringify"](t["$_EJY"]) = '{
     }'
 ```
 
-步入*aeskey/$\_BFD()*, 查查加密
+步入 _aeskey/$\_BFD()_, 查查加密
 
 ```js
 'encrypt': function (e, t, n, r) {
@@ -141,7 +141,7 @@ blockSize = 4
 mode网友总结为CBC
 ```
 
-再跳到*encrypt1*
+再跳到 _encrypt1_
 
 ```js
 'encrypt1': function (e, t, n) {
@@ -174,11 +174,11 @@ $_EBJV(74) = "0000000000000000"
 ["iv"] = u["parse"]("0000000000000000") = [808464432, 808464432, 808464432, 808464432]
 ```
 
-得出: *o*为*字符串t*经过*AES CBC加密*后的结果, *AES密钥*会变(其实有惊喜, 事后诸葛亮了), iv为*0000000000000000*
+得出: _o_ 为 _字符串t_ 经过 _AES CBC加密_ 后的结果, _AES密钥_ 会变(其实有惊喜, 事后诸葛亮了), iv为 _0000000000000000_
 
 `o(data: dict) = AES(o, key) -> List`
 
-下面求外层算法, 已知*i = function $\_HEv(o)*, 找到这个函数
+下面求外层算法, 已知 _i = function $\_HEv(o)_, 找到这个函数
 
 ```js
 '$_HEv': function (e) {
@@ -210,7 +210,7 @@ t[$_JCJx(461)] = ""
 return = t[$_JCIk(434)] + t[$_JCJx(461)] = "超级长" = i
 ```
 
-得出*i*为`function $_HEv(o)`, 算法扒出来是
+得出 _i_ 为`function $_HEv(o)`, 算法扒出来是
 
 ```js
 p = {
@@ -381,7 +381,7 @@ this[$_CGCIO(1125)](!0) = "随机16位数"
 t = "5dc3e9b8b543a28422fc0408f573d362971a2ceb26c68e53366378f0e408922bc185894f4b56e746df4c88ad9ff6cf32b8e60cd0f348953fd2a75b6372db48b5fcc647d6a60055be5bd22ced161dd9ec8a90d30cff364f36c6d241ba3ab46bf90eac775e91bb1154af390360048ecb2b641e95211f38a7a789fdb31281a30ce9"
 ```
 
-这个16位数似曾相识! 重新回到前面断*aeskey*, 我们惊奇的发现*aeskey = 随机数*
+这个16位数似曾相识! 重新回到前面断 _aeskey_, 我们惊奇的发现 _aeskey = 随机数_
 
 ```js
 aeskey = 27fc7a03bf06227a
@@ -401,9 +401,9 @@ $_JJEM(521) = "00C1E3934D1614465B33053E7F48EE4EC87B14B95EF88947713D25EECBFF7E74C
 $_JJEM(520) = "10001"
 ```
 
-可知他们分别为*RSA公钥和模值*, 因此这个加密函数也就造出来了
+可知他们分别为 _RSA公钥和模值_, 因此这个加密函数也就造出来了
 
-但是还有一个坑: *AES Key是动态更新的!!!*, 所以我们还得挖一下AES Key是怎么来的, 我们回到最初获取到aeskey的*$_CCHI*, 断点
+但是还有一个坑: _AES Key是动态更新的!!!_, 所以我们还得挖一下AES Key是怎么来的, 我们回到最初获取到aeskey的 _$_CCHI_, 断点
 
 ```js
 '$_CCHI': function (e) {
@@ -456,7 +456,7 @@ w = i + r
 
 ### 第二个w
 
-定位ajax网络请求栈跟踪里第一个函数*$_CDIZ*
+定位ajax网络请求栈跟踪里第一个函数 _$_CDIZ_
 
 ```js
 '$_CDIZ': function () {
