@@ -8,14 +8,23 @@ tags:
 
 ## 流程
 
-1.获取源平台*gt*值, 这个值一般是固定的, 获取一次即可, 不重要
-2.获取流水号challenge, 这个challenge对应本次的验证会话, 从源平台接口获取, 不重要
-3.获取验证资源, 接口为*api.geetest.com/gettype.php* 参数为*gt*和*callback*, callback值为*geetest_*加上13位毫秒级时间戳 - 返回值包括无感验证(fullpage)\点字验证(click)的js文件, fullpage的混淆内容会时常改变, 这几个js文件是我们分析的重点
-4.第一次get.php 环境检测 - 请求中需要*w*, 下文称之为第一个w - 返回c, s
-5.第一次ajax.php 点击验证, 加载点字 - 请求中需要*w*, 下文称之为第二个w - 返回下次验证类型
-6.第二次get.php - 请求中没有w - 返回图片, c, s, gct
-7.第二次ajax.php 提交点字 - 请求中需要*w*, 下文称之为第三个w - 返回*validate*校验
-8.源平台校验, 返回challenge和validate
+1. 获取源平台*gt*值, 这个值一般是固定的, 获取一次即可, 不重要
+2. 获取流水号challenge, 这个challenge对应本次的验证会话, 从源平台接口获取, 不重要
+3. 获取验证资源, 接口为*api.geetest.com/gettype.php* 参数为*gt*和*callback*, callback值为*geetest_*加上13位毫秒级时间戳
+   - 返回值包括无感验证(fullpage)\点字验证(click)的js文件, fullpage的混淆内容会时常改变, 这几个js文件是我们分析的重点
+4. 第一次get.php 环境检测
+   - 请求中需要*w*, 下文称之为第一个w
+   - 返回c, s
+5. 第一次ajax.php 点击验证, 加载点字
+   - 请求中需要*w*, 下文称之为第二个w
+   - 返回下次验证类型
+6. 第二次get.php
+   - 请求中没有w
+   - 返回图片, c, s, gct
+7. 第二次ajax.php 提交点字
+   - 请求中需要*w*, 下文称之为第三个w
+   - 返回*validate*校验
+8. 源平台校验, 返回challenge和validate
 
 ## 注意
 
@@ -56,7 +65,7 @@ var r = t[$_CEEJl(1133)](), // 断点
   };
 ```
 
-可得*w = i + r*, 现在需要得到*i*和*r*, 而 _i = p(o)_
+可得*w = i + r*, 现在需要得到*i*和*r*, 而 *i = p(o)*
 
 #### i
 
@@ -394,7 +403,7 @@ $_JJEM(520) = "10001"
 
 可知他们分别为*RSA公钥和模值*, 因此这个加密函数也就造出来了
 
-但是还有一个坑: _AES Key是动态更新的!!!_, 所以我们还得挖一下AES Key是怎么来的, 我们回到最初获取到aeskey的*$_CCHI*, 断点
+但是还有一个坑: *AES Key是动态更新的!!!*, 所以我们还得挖一下AES Key是怎么来的, 我们回到最初获取到aeskey的*$_CCHI*, 断点
 
 ```js
 '$_CCHI': function (e) {

@@ -220,7 +220,7 @@ DATABASES = {
 
 请根据你对数据库的配置修改相应的参数
 
-同时，找到TIME\_ZONE并设置为我们的时区
+同时，找到TIME_ZONE并设置为我们的时区
 
 ```python
 TIME_ZONE = 'Asia/Shanghai'
@@ -274,7 +274,7 @@ class User(models.Model):
 
 ## 激活模型
 
-首先我们要告诉Django这个应用的存在，再次打开projectname/projectname/settings.py并找到"INSTALLED\_APPS"
+首先我们要告诉Django这个应用的存在，再次打开projectname/projectname/settings.py并找到"INSTALLED_APPS"
 
 因为AppnameConfig类位于projectname/appname/apps.py中，所以我们要这样写
 
@@ -282,7 +282,7 @@ class User(models.Model):
 'appname.apps.AppnameConfig',
 ```
 
-实际内容请带入你的应用名称，并将这段代码加入到INSTALLED\_APPS
+实际内容请带入你的应用名称，并将这段代码加入到INSTALLED_APPS
 
 ```python
 INSTALLED_APPS = [

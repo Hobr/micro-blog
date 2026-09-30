@@ -180,13 +180,13 @@ vim.o.showmode = false
 - vim.bo **buffer-local选项**
 - vim.wo **window-local选项**
 
-每个变量的分类可以在 _:help_ 查到
+每个变量的分类可以在 *:help* 查到
 
 ## 快捷键
 
 快捷键是提高开发效率的关键。我们需要让快捷键适应我们的习惯,把我们的习惯告诉Vim。
 
-Vim中,**Normal**模式本身就是快捷键模式,同样,其他模式也可以设置快捷键,这里的快捷键指_快捷键的快捷键_,即把一个或多个连续的按键进行映射等等。
+Vim中,**Normal**模式本身就是快捷键模式,同样,其他模式也可以设置快捷键,这里的快捷键指*快捷键的快捷键*,即把一个或多个连续的按键进行映射等等。
 
 ### 如何设置
 
@@ -213,14 +213,14 @@ vim.api.nvim_buf_set_keymap() -- Buffer快捷键
 
 ### Leader Key
 
-**Leader Key**是常用的前缀,通常设置为_空格_。
+**Leader Key**是常用的前缀,通常设置为*空格*。
 
 ```lua
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 ```
 
-以后定义快捷键时看到**leader** 就表示_空格_。
+以后定义快捷键时看到**leader** 就表示*空格*。
 
 为了简化后续步骤,先简化出map函数及参数
 
@@ -281,7 +281,7 @@ map("n", "s=", "<C-w>=", opt)
 
 #### 终端
 
-Neovim默认命令行要用*Ctrl+\*退出,这里映射为*Esc*,_leader+t_在下方打开,_leader+vt_在侧面打开。
+Neovim默认命令行要用*Ctrl+\*退出,这里映射为*Esc*,*leader+t*在下方打开,*leader+vt*在侧面打开。
 
 ```lua
 --- Terminal
@@ -300,7 +300,7 @@ map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
 
 ### Visual模式
 
-实现_J_ _K_上下移动选中代码,连续缩进代码。
+实现*J*和*K*上下移动选中代码,连续缩进代码。
 
 ```lua
 --- Visual模式
@@ -357,7 +357,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 ```
 
-安装好后创建新的文件_lua/plugin.lua_管理插件。
+安装好后创建新的文件*lua/plugin.lua*管理插件。
 
 ```lua
 local packer = require("packer")
@@ -370,7 +370,7 @@ packer.startup(
 end)
 ```
 
-安装插件的方法是`use 'name/repo'`,_name/repo_对应github。
+安装插件的方法是`use 'name/repo'`,*name/repo*对应github。
 
 安装完成后,我们可以使用以下命令
 
@@ -381,7 +381,7 @@ end)
   - :PackerCompile
 - :PackerLoad
 
-而我们通常安装和更新插件只需要用 _:PackerSync_。
+而我们通常安装和更新插件只需要用 *:PackerSync*。
 
 ### 自动安装
 
@@ -404,7 +404,7 @@ pcall(
 
 ## 编辑器主题
 
-在_init.lua_里新增
+在*init.lua*里新增
 
 ```lua
 --- 主题
@@ -426,7 +426,7 @@ end
 
 **pcall**函数之前提过,lua中用 **..** 连接字符串
 
-主题可自行到[nvim-treesitter/Colorscheme](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Colorschemes)中寻找,因为后面要用到**nvim-treesitter**,所以我们最好用它推荐的主题,找到后记得在_plugin.lua_中安装！
+主题可自行到[nvim-treesitter/Colorscheme](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Colorschemes)中寻找,因为后面要用到**nvim-treesitter**,所以我们最好用它推荐的主题,找到后记得在*plugin.lua*中安装！
 
 ## 侧边栏
 
@@ -552,7 +552,7 @@ require("plugin-config.nvim-tree")
 
 最近nvim-tree推出了新的快捷键映射方法,需要我们手动操作一下
 
-打开nvim,输入命令`:NvimTreeGenerateOnAttach`,将 _/tmp/my_on_attach.lua_文件内容复制到 _nvim-tree.lua_开头,删掉默认的按键映射,并在映射前加入函数`api.config.mappings.default_on_attach(bufnr)`,随后在nvim_tree.setup中添加`on_attach = on_attach,`,之后删除现有的_view.mappings_,再次启动时就不会提示了。
+打开nvim,输入命令`:NvimTreeGenerateOnAttach`,将 */tmp/my_on_attach.lua*文件内容复制到 *nvim-tree.lua*开头,删掉默认的按键映射,并在映射前加入函数`api.config.mappings.default_on_attach(bufnr)`,随后在nvim_tree.setup中添加`on_attach = on_attach,`,之后删除现有的_view.mappings_,再次启动时就不会提示了。
 
 ## 标签栏
 

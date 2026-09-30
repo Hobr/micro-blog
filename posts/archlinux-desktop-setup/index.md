@@ -145,7 +145,7 @@ arch-chroot /mnt
 nano /etc/locale.gen
 ```
 
-按 **Ctrl+W** 查找 **en\_US.UTF-8 UTF-8** 及 **zh\_CN.UTF-8 UTF-8** 并且把这两行前面的 **#** 去掉
+按 **Ctrl+W** 查找 **en_US.UTF-8 UTF-8** 及 **zh_CN.UTF-8 UTF-8** 并且把这两行前面的 **#** 去掉
 
 然后执行命令以确认我们的设置，
 
