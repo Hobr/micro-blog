@@ -1,10 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SitesCommandPanel from "../components/SitesCommandPanel.astro";
 import type { FriendLink } from "../data/friends";
 import type { AlternateLink, Locale } from "../i18n/config";
 import type { SiteDictionary } from "../i18n/dictionary";
-import type { LocalizedSiteCommand } from "../data/sites";
 
 interface Props {
     locale: Locale;
@@ -14,13 +12,6 @@ interface Props {
 }
 
 const { locale, dictionary, friends, alternateLinks } = Astro.props;
-const friendCommands: LocalizedSiteCommand[] = friends.map((friend) => ({
-    command: friend.name,
-    name: friend.name,
-    href: friend.href,
-    avatar: friend.avatar,
-    target: "_blank",
-}));
 ---
 
 <Layout
@@ -35,11 +26,41 @@ const friendCommands: LocalizedSiteCommand[] = friends.map((friend) => ({
                 <span aria-hidden="true">$</span>
                 {dictionary.friendsPage.panelSubtitle}
             </p>
-            {friendCommands.length > 0 ? (
-                <SitesCommandPanel
-                    sites={friendCommands}
-                    label={dictionary.nav.friends}
-                />
+            {friends.length > 0 ? (
+                <ol
+                    class="post-list friends-list"
+                    aria-label={dictionary.nav.friends}
+                >
+                    {friends.map((friend) => (
+                        <li>
+                            <a
+                                href={friend.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span class="post-list__title">
+                                    <img
+                                        src={friend.avatar}
+                                        alt=""
+                                        width="48"
+                                        height="48"
+                                        loading="lazy"
+                                    />
+                                    {friend.name}
+                                </span>
+                                <span class="post-list__address">
+                                    {friend.href}
+                                </span>
+                                <span
+                                    class="post-list__arrow"
+                                    aria-hidden="true"
+                                >
+                                    -&gt;
+                                </span>
+                            </a>
+                        </li>
+                    ))}
+                </ol>
             ) : (
                 <p class="empty-state">{dictionary.friendsPage.empty}</p>
             )}
