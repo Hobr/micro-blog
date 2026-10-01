@@ -6,6 +6,7 @@ import { shouldIncludeSitemapPage } from "./src/i18n/sitemap.ts";
 import imgAttr from "satteri-imgattr";
 import { satteri } from "@astrojs/markdown-satteri";
 import { mermaidMdast, mermaidHast } from "@xingwangzhe/satteri-mermaid";
+import { satteriKatex } from "satteri-katex";
 
 // https://astro.build/config
 export default defineConfig({
@@ -51,10 +52,12 @@ export default defineConfig({
             defaultColor: false,
         },
         processor: satteri({
+            features: { math: true },
             mdastPlugins: [
                 mermaidMdast({
                     langs: ["mermaid", "mmd"],
                 }),
+                satteriKatex(),
             ],
 
             hastPlugins: [
