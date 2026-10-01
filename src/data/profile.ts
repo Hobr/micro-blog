@@ -7,9 +7,9 @@ export type ProfileData = {
     bio: string;
 };
 
-export const profileName = "Hobr";
-export const siteDescription = `Hobr's Blog`;
 const avatarEmail = "mail@hobr.site";
+export const profileName = "Hobr";
+export const siteDescription = profileName + "'s Blog";
 
 const profiles: Record<Locale, ProfileData> = {
     "zh-CN": {
