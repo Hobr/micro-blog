@@ -23,7 +23,7 @@
         "@astrojs/sitemap": "^3.7.4",
         "@xingwangzhe/satteri-mermaid": "^0.7.9",
         "astro": "^7.3.5",
-        "katex": "^0.16.47",
+        "katex": "^0.18.10",
         "satteri-imgattr": "^0.1.1",
         "satteri-katex": "^0.1.1",
         "sharp": "^0.35.5"
