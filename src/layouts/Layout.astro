@@ -4,7 +4,7 @@ import { ClientRouter } from "astro:transitions";
 import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import ThemeSwitcher from "../components/ThemeSwitcher.astro";
-import { siteDescription } from "../data/profile";
+import { avatarUrl, siteDescription } from "../data/profile";
 import {
     THEME_STORAGE_KEY,
     defaultThemeId,
@@ -64,8 +64,7 @@ const themeBootstrapScript = `
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="theme-color" content="#191724" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href={avatarUrl} />
         <link rel="sitemap" href="/sitemap-index.xml" />
         <link
             rel="alternate"

@@ -1,16 +1,11 @@
 ---
-import { createHash } from "node:crypto";
-import type { ProfileData } from "../data/profile";
+import { avatarUrl, type ProfileData } from "../data/profile";
 
 interface Props {
     profile: ProfileData;
 }
 
 const { profile } = Astro.props;
-const gravatarHash = createHash("sha256")
-    .update(profile.email.trim().toLowerCase())
-    .digest("hex");
-const avatarUrl = `https://gravatar.com/avatar/${gravatarHash}?s=320&d=404&r=g`;
 ---
 
 <div class="profile-panel">

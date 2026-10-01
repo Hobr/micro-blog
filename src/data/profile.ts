@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { defaultLocale, type Locale } from "../i18n/config.ts";
 
 export type ProfileData = {
@@ -8,6 +9,10 @@ export type ProfileData = {
 };
 
 const avatarEmail = "mail@hobr.site";
+const gravatarHash = createHash("sha256")
+    .update(avatarEmail.trim().toLowerCase())
+    .digest("hex");
+export const avatarUrl = `https://gravatar.com/avatar/${gravatarHash}?s=320&d=404&r=g`;
 export const profileName = "Hobr";
 export const siteDescription = profileName + "'s Blog";
 
