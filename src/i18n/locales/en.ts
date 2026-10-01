@@ -58,6 +58,8 @@ export const en = {
     },
     contact: {
         imSubtitle: "ls ~/contact/im && open ~/contact/im/<target>",
+        developmentSubtitle:
+            "ls ~/development && open ~/development/<platform>",
         socialSubtitle:
             "ls ~/contact/social-media && open ~/contact/social-media/<target>",
     },

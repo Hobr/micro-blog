@@ -57,6 +57,7 @@ export const zhCN = {
     },
     contact: {
         imSubtitle: "ls ~/联系/即时通讯 && open ~/联系/即时通讯/<方式>",
+        developmentSubtitle: "ls ~/开发 && open ~/开发/<平台>",
         socialSubtitle: "ls ~/联系/社交媒体 && open ~/联系/社交媒体/<平台>",
     },
     tagPage: {

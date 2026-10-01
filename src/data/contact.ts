@@ -63,12 +63,44 @@ export const sharedSiteTargets = {
         i18n: { "zh-CN": "Bangumi", en: "Bangumi" },
         group: "social",
     },
+
+    github: {
+        command: "./GitHub",
+        href: "https://github.com/Hobr",
+        i18n: { "zh-CN": "GitHub", en: "GitHub" },
+        group: "development",
+    },
+    git: {
+        command: "./Hobr's Git",
+        href: "https://git.hobr.site/",
+        i18n: { "zh-CN": "自有Git", en: "Hosted Git" },
+        group: "development",
+    },
+    huggingface: {
+        command: "./HuggingFace",
+        href: "https://huggingface.co/Hobr",
+        i18n: { "zh-CN": "Hugging Face", en: "Hugging Face" },
+        group: "development",
+    },
+    orcid: {
+        command: "./ORCID",
+        href: "https://orcid.org/0009-0005-6599-5461",
+        i18n: { "zh-CN": "ORCID", en: "ORCID" },
+        group: "development",
+    },
+    gitee: {
+        command: "./Gitee",
+        href: "https://gitee.com/Hobr",
+        i18n: { "zh-CN": "Gitee", en: "Gitee" },
+        group: "development",
+    },
 } as const;
 
 type SharedSiteTargetKey = keyof typeof sharedSiteTargets;
 
 export type ContactSiteGroups = {
     im: LocalizedSiteCommand[];
+    development: LocalizedSiteCommand[];
     social: LocalizedSiteCommand[];
 };
 
@@ -95,6 +127,12 @@ export function getContactSiteGroups(locale: Locale): ContactSiteGroups {
         im: localizeContactSites(
             locale,
             keys.filter((key) => sharedSiteTargets[key].group === "im"),
+        ),
+        development: localizeContactSites(
+            locale,
+            keys.filter(
+                (key) => sharedSiteTargets[key].group === "development",
+            ),
         ),
         social: localizeContactSites(
             locale,

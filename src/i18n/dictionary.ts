@@ -62,6 +62,7 @@ export type SiteDictionary = {
     };
     contact: {
         imSubtitle: string;
+        developmentSubtitle: string;
         socialSubtitle: string;
     };
     tagPage: {

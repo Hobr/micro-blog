@@ -77,6 +77,17 @@ const {
             <section class="terminal-panel">
                 <p class="terminal-prompt">
                     <span aria-hidden="true">$</span>
+                    {dictionary.contact.developmentSubtitle}
+                </p>
+                <SitesCommandPanel
+                    sites={contactGroups.development}
+                    label={dictionary.contact.developmentSubtitle}
+                />
+            </section>
+
+            <section class="terminal-panel">
+                <p class="terminal-prompt">
+                    <span aria-hidden="true">$</span>
                     {dictionary.contact.socialSubtitle}
                 </p>
                 <SitesCommandPanel
