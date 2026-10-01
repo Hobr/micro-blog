@@ -20,4 +20,9 @@ export const friends: FriendLink[] = [
         avatar: "https://avatars.githubusercontent.com/u/132794625",
         href: "https://tsubaki.dev/",
     },
+    {
+        name: "SerinaNya",
+        avatar: "https://serinanya.cn/avatar.webp",
+        href: "https://serinanya.cn/",
+    },
 ];
