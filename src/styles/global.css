@@ -635,10 +635,6 @@ select {
     padding-inline-start: 1.5rem;
 }
 
-.article-toc li.article-toc__item--depth-4 {
-    padding-inline-start: 2.25rem;
-}
-
 .article-toc a {
     display: block;
     padding-block: 0.15rem;
