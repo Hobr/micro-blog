@@ -33,18 +33,6 @@ export const sharedSiteTargets = {
         group: "im",
     },
 
-    github: {
-        command: "./GitHub",
-        href: "https://github.com/Hobr",
-        i18n: { "zh-CN": "GitHub", en: "GitHub" },
-        group: "social",
-    },
-    x: {
-        command: "./X",
-        href: "https://x.com/Hobrimttxx",
-        i18n: { "zh-CN": "X", en: "X" },
-        group: "social",
-    },
     bilibili: {
         command: "./Bilibili",
         href: "https://space.bilibili.com/35583361",
@@ -61,6 +49,18 @@ export const sharedSiteTargets = {
         command: "./Zhihu",
         href: "https://www.zhihu.com/people/hobr",
         i18n: { "zh-CN": "知乎", en: "Zhihu" },
+        group: "social",
+    },
+    x: {
+        command: "./X",
+        href: "https://x.com/Hobrimttxx",
+        i18n: { "zh-CN": "X", en: "X" },
+        group: "social",
+    },
+    bangumi: {
+        command: "./Bangumi",
+        href: "https://bangumi.tv/user/hobr",
+        i18n: { "zh-CN": "Bangumi", en: "Bangumi" },
         group: "social",
     },
 } as const;
