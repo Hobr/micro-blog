@@ -2,7 +2,7 @@
     "name": "hobrlog",
     "type": "module",
     "version": "1.0.0",
-    "packageManager": "pnpm@10.33.0",
+    "packageManager": "pnpm@12.8.1+sha512.f64ba907507f5ceafe06c8d38e6052d0179444580ec1279ddd5bfc11cb48aa8a2644b66598e07e761da84872a9fc57d5f902b87fa49d024198d558612aabbe45",
     "engines": {
         "node": ">=22.12.0"
     },
@@ -23,6 +23,7 @@
         "@astrojs/sitemap": "^3.7.4",
         "@xingwangzhe/satteri-mermaid": "^0.7.9",
         "astro": "^7.3.5",
+        "giscus": "^1.6.0",
         "katex": "^0.19.0",
         "satteri-imgattr": "^0.1.1",
         "satteri-katex": "^0.1.1",
@@ -34,7 +35,6 @@
         "@eslint/js": "^10.0.1",
         "@eslint/json": "^2.1.0",
         "@types/node": "^26.6.4",
-        "@typescript/native": "npm:typescript@^7.0.2",
         "eslint": "^10.11.0",
         "eslint-config-prettier": "^10.1.8",
         "globals": "^17.13.0",
@@ -42,15 +42,8 @@
         "lint-staged": "^17.6.0",
         "prettier": "^3.9.9",
         "prettier-plugin-astro": "1.1.0",
-        "typescript": "npm:@typescript/typescript6@^6.0.2",
+        "typescript": "^7.0.2",
         "typescript-eslint": "^8.71.0"
-    },
-    "pnpm": {
-        "updateConfig": {
-            "ignoreDependencies": [
-                "typescript"
-            ]
-        }
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"

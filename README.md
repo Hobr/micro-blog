@@ -139,6 +139,14 @@ posts/hello-terminal/diagram.png
 
 深色和浅色主题直接写在 `src/data/themes.ts` 中。新增或修改主题时编辑该文件内的主题数组即可。
 
+### 5. 文章评论
+
+文章页使用 [giscus Web Component](https://github.com/giscus/giscus-component#using-the-web-component)，评论存储于 `Hobr/blog` 仓库的 `Comment` Discussions 分类，无需部署后端。
+
+配置位于 `src/components/PostComments.astro`。仓库需要公开、启用 Discussions 并安装 giscus GitHub App；读者登录 GitHub 后即可评论。
+
+评论使用 `specific` 映射，以 `blog/<slug>/` 为讨论标识，同一篇文章的中英文页面共享评论区。评论界面语言跟随页面语言，深浅色跟随系统设置（不跟随站点手动主题切换），并使用懒加载。
+
 ## 路由说明
 
 - `/`: 个人门户首页

@@ -1,5 +1,6 @@
 ---
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import PostComments from "../components/PostComments.astro";
 import PostPagination from "../components/PostPagination.astro";
 import TagList from "../components/TagList.astro";
 import type { AlternateLink, Locale } from "../i18n/config";
@@ -100,6 +101,11 @@ const tocHeadings = (
                         emptyNextLabel={dictionary.articlePage.latestEntry}
                     />
                 </footer>
+                <PostComments
+                    slug={post.slug}
+                    locale={locale}
+                    label={dictionary.articlePage.comments}
+                />
             </article>
         </div>
     </main>

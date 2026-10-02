@@ -73,6 +73,7 @@ export type SiteDictionary = {
     articlePage: {
         metaTitle: StringFormatter;
         tableOfContents: string;
+        comments: string;
         previous: string;
         next: string;
         startOfLog: string;
