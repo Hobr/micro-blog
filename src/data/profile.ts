@@ -27,6 +27,7 @@ const profiles: Record<Locale, ProfileData> = {
         目前关注: 人工智能 / AI Agent / RISC-V。
         `,
     },
+
     en: {
         name: profileName,
         email: avatarEmail,
@@ -34,7 +35,7 @@ const profiles: Record<Locale, ProfileData> = {
         bio: `
         A total computer geek. Open-Source practitioner. Seeking for tasteful technology. Japanese major by background.
         An ACGN Otaku nerd, and also a radical idol otaku. Mainly favor in: Kyoto Animation / Key / BanG Dream.
-        Currently following: Artificial Intelligence / Agentic OS / AI Agent / RISC-V.
+        Currently following: AI / AI Agent / RISC-V.
         `,
     },
 };

@@ -36,33 +36,15 @@ const {
     alternateLinks={alternateLinks}
 >
     <main class="page-shell" id="main-content">
-        <section class="terminal-panel">
-            <p class="terminal-prompt">
-                <span aria-hidden="true">$</span>
-                {dictionary.home.profileSubtitle}
-            </p>
-            <ProfilePanel profile={profile} />
-        </section>
-
-        <section class="terminal-panel latest-panel">
-            <div class="section-heading">
+        <div class="contact-grid">
+            <section class="terminal-panel">
                 <p class="terminal-prompt">
                     <span aria-hidden="true">$</span>
-                    {dictionary.home.latestSubtitle}
+                    {dictionary.home.profileSubtitle}
                 </p>
-                <a class="text-action" href={toLocalePath(locale, "/blog")}>
-                    {dictionary.home.viewAll}
-                    <span aria-hidden="true">-&gt;</span>
-                </a>
-            </div>
-            <PostList
-                posts={latestPosts}
-                locale={locale}
-                emptyMessage={dictionary.common.noPosts}
-            />
-        </section>
+                <ProfilePanel profile={profile} />
+            </section>
 
-        <div class="contact-grid">
             <section class="terminal-panel">
                 <p class="terminal-prompt">
                     <span aria-hidden="true">$</span>
@@ -96,5 +78,23 @@ const {
                 />
             </section>
         </div>
+
+        <section class="terminal-panel latest-panel">
+            <div class="section-heading">
+                <p class="terminal-prompt">
+                    <span aria-hidden="true">$</span>
+                    {dictionary.home.latestSubtitle}
+                </p>
+                <a class="text-action" href={toLocalePath(locale, "/blog")}>
+                    {dictionary.home.viewAll}
+                    <span aria-hidden="true">-&gt;</span>
+                </a>
+            </div>
+            <PostList
+                posts={latestPosts}
+                locale={locale}
+                emptyMessage={dictionary.common.noPosts}
+            />
+        </section>
     </main>
 </Layout>
