@@ -21,7 +21,7 @@
         "@astrojs/markdown-satteri": "^0.4.2",
         "@astrojs/rss": "^4.0.19",
         "@astrojs/sitemap": "^3.7.4",
-        "@xingwangzhe/satteri-mermaid": "^0.7.9",
+        "@xingwangzhe/satteri-mermaid": "^0.8.1",
         "astro": "^7.3.5",
         "giscus": "^1.6.0",
         "katex": "^0.19.0",
