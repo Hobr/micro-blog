@@ -130,14 +130,14 @@ vector, token id, object id, pointer, graph node 都是表示.
 
 ```mermaid
 flowchart TD
-    C[Context] --> M[model()] --> R[Response] --> E[End]
+    C[Context] --> M["model()"] --> R[Response] --> E[End]
 ```
 
 下一次交互到来时:
 
 ```mermaid
 flowchart TD
-    I[History + memory + new input] --> M[model()] --> R[Response]
+    I["History + memory + new input"] --> M["model()"] --> R[Response]
 ```
 
 从应用层看, 这是一个连续存在的 Agent.
