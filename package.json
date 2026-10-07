@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "packageManager": "pnpm@12.8.1+sha512.f64ba907507f5ceafe06c8d38e6052d0179444580ec1279ddd5bfc11cb48aa8a2644b66598e07e761da84872a9fc57d5f902b87fa49d024198d558612aabbe45",
     "engines": {
-        "node": ">=22.12.0"
+        "node": ">=22.14.0"
     },
     "scripts": {
         "dev": "astro dev",
@@ -18,11 +18,11 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.9.10",
-        "@astrojs/markdown-satteri": "^0.4.2",
+        "@astrojs/markdown-satteri": "^0.4.3",
         "@astrojs/rss": "^4.0.19",
         "@astrojs/sitemap": "^3.7.4",
         "@xingwangzhe/satteri-mermaid": "^0.8.1",
-        "astro": "^7.3.5",
+        "astro": "^7.3.6",
         "giscus": "^1.6.0",
         "katex": "^0.19.0",
         "satteri-imgattr": "^0.1.1",
