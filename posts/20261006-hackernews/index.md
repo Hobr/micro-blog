@@ -25,7 +25,7 @@ CL 是一门及其强大的语言, 至于有多强大我觉得不必我多言, �
 
 这里我特别强调了 _Like_, 因为我看重的是其哲学, 而不是要去具体的一模一样的复刻一台在上世纪就已经被淘汰的 Lisp Machine.
 
-当然, Lisp Machine 被淘汰不完全是因为它的哲学, 也有商业和技术路线上的原因. 客观上如果 Lisp Machine 能够被延续到今天的话它的具体实现肯定是可以得到发展并符合时代需求的.
+当然, Lisp Machine 被淘汰不完全是因为它的哲学, 也有商业和技术路线上的原因, 有两篇经典的评价文章: [Lisp: Good News, Bad News, How to Win Big.](https://www.dreamsongs.com/WIB.html) 和 [Worse Is Better](https://www.dreamsongs.com/WorseIsBetter.html) 就是在讲这个事. 客观上如果 Lisp Machine 能够被延续到今天的话它的具体实现肯定是可以得到发展并符合时代需求的.
 
 所以我这里提出了 Lisp Machine _Like_ 的概念, 也就是在现代计算环境下, 以 Lisp Machine 的哲学为指导, 构建一个新的 Lisp Machine Like 的计算环境.
 
