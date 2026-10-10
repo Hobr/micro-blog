@@ -22,8 +22,8 @@ const profiles: Record<Locale, ProfileData> = {
         email: avatarEmail,
         role: "计算机民科 / 二次元",
         bio: `
-        计算机狂热爱好者, 开源实践者, 追求有品位的技术。日语专业出身。
-        一个贰刺猿, 萌二纸片痴, 甩手偶像厨, 主推: 京都动画 / Key社 / 邦多利。
+        计算机狂热爱好者, 开源实践者, 追求有品位的技术。
+        一个贰刺猿, 萌二纸片痴, 偶像厨, 主推: 京都动画 / Key社 / 邦多利。
         目前关注: 人工智能 / AI Agent / RISC-V。
         `,
     },
@@ -33,7 +33,7 @@ const profiles: Record<Locale, ProfileData> = {
         email: avatarEmail,
         role: "Computer Science Crank / Otaku",
         bio: `
-        A total computer geek. Open-Source practitioner. Seeking for tasteful technology. Japanese major by background.
+        A total computer geek. Open-Source practitioner. Seeking for tasteful technology.
         An ACGN Otaku nerd, and also a radical idol otaku. Mainly favor in: Kyoto Animation / Key / BanG Dream.
         Currently following: AI / AI Agent / RISC-V.
         `,
